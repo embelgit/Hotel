@@ -1,0 +1,60 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+    <class name="com.rms.hibernate.KycInfoHibernate"
+    table="Kyc_details"
+    >
+    
+    <id name="pkKycDetailId" type="java.lang.Long" column="pk_kyc_details_id">
+			<generator class="increment" />
+		</id>
+     
+      <property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		not-null="true"
+        length="19"
+        insert="false"
+        update="false"
+		/>
+		
+       <property
+		name="fk_item_id_drop" 
+		type="java.lang.String"
+		column="item_name"
+		/>
+		
+	 <property 
+		name="tableNo" 
+		type="java.lang.Long" 
+		column="table_no"
+		length="255" />
+		
+		 <property 
+		name="quantity" 
+		type="java.lang.Long" 
+		column="quantity"
+		length="255" />
+		
+		<!-- <property 
+		name="itemName" 
+		type="java.lang.Long" 
+		column="itemname" /> -->
+		
+		<property 
+		name="price" 
+		type="java.lang.Double" 
+		column="price"
+		length="255" />
+		
+		<property 
+		name="KYCDate" 
+		type="java.sql.Date"
+		column="kyc_date"
+		length="255" />
+		
+    </class>
+   </hibernate-mapping> 

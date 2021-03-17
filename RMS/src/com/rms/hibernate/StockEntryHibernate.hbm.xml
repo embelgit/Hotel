@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+
+<class  
+    name="com.rms.hibernate.StockEntryHibernate" 
+    table="stock_entry_details"
+>
+
+     <id
+        name="pkStockEntry"
+        type="java.lang.Long"
+        column="pk_stock_entry_id"
+    >
+    
+        <generator class="increment" />
+    </id> 
+    
+    <property
+        name="itemName"
+        type="java.lang.String"
+        column="item_name"
+    />
+    
+    <property
+        name="buyPrice"
+        type="java.lang.Double"
+        column="buy_price"
+    />
+    
+     <property
+        name="quantity"
+        type="java.lang.Double"
+        column="quantity"
+    />
+    
+    <property
+        name="gst"
+        type="java.lang.Double"
+        column="gst"
+    />
+    
+    <property
+        name="grossTotal"
+        type="java.lang.Double"
+        column="gross_total"
+    />
+    
+     </class>
+</hibernate-mapping>

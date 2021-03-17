@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+
+    <hibernate-mapping>
+    
+    <class name="com.rms.hibernate.expenditurepaymentHibernate" 
+    table="expenditure_payment" schema="rms"
+    >
+    
+    	<id name="pkexpid" type="java.lang.Long" column="pkexp_id">
+			<generator class="increment" />
+		</id>
+		
+		
+	
+		
+		<property 
+		name="chequeNoId" 
+		type="java.lang.Long" 
+		column="chequeNoId"
+		not-null="true" 
+		length="255" />
+		
+		<property
+        name="chequeDateId"
+        type="java.sql.Date"
+        column="chequeDateId"
+        not-null="false"        
+        />
+        <property
+        name="cardNoId"
+        type="java.lang.Long"
+        column="cardNoId"
+        not-null="false"        
+        />
+        <property
+        name="neftAccNoId"
+        type="java.lang.Long"
+        column="neftAccNoId"
+        not-null="false"        
+        />
+        
+        
+		<property
+        name="paymentdate"
+        type="java.sql.Date"
+        column="paymentdate"
+        not-null="false"        
+        />
+		
+		<property 
+		name="expenditurename" 
+		type="java.lang.String" 
+		column="expenditurename"
+		not-null="true" 
+		length="255" />
+		
+		<property
+        name="expenditureamount"
+        type="java.lang.Double"
+        column="expenditureamount"
+        length="50"
+        />
+		
+		<property 
+		name="paymentById" 
+		type="java.lang.String" 
+		column="paymentById"
+		not-null="true" 
+		length="255" />
+		
+                
+        
+          <property
+        name="transID"
+        type="java.lang.Long"
+        column="transactionID"
+        /> 
+        
+        <property 
+		name="username" 
+		type="java.lang.String" 
+		column="username"
+		length="255"/>
+		
+		<property 
+		name="hotelname" 
+		type="java.lang.String" 
+		column="hotelname"
+		length="255"/>
+		
+		<property 
+		name="userid" 
+		type="java.lang.Long" 
+		column="userid"
+		length="25"/>
+		
+		<property 
+		name="hotelid" 
+		type="java.lang.Long" 
+		column="hotelid"
+		length="25"/>
+
+		</class>
+
+    </hibernate-mapping>

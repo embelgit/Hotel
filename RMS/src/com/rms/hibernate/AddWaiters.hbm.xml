@@ -1,0 +1,157 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+      
+    <class name="com.rms.hibernate.AddWaiters"
+    table="waiter_entry"
+    >
+    
+    <id name="pkAddWaiterId" type="java.lang.Long" column="pk_waiter_entry_id">
+			<generator class="increment" />
+		</id>
+     
+     
+     
+		
+     <property 
+		name="joiningDate" 
+		type="java.util.Date" 
+		column="joining_date"
+		 
+		length="255" />
+		
+	<property 
+		name="dob" 
+		type="java.util.Date" 
+		column="dob"
+		 
+		length="255" />	
+		
+   		<property 
+		name="firstName" 
+		type="java.lang.String" 
+		column="first_name"
+		
+		length="255" />
+	
+	 <property 
+		name="lastName" 
+		type="java.lang.String" 
+		column="last_name"
+		
+		length="255" />
+		
+	 <property 
+		name="middleName" 
+		type="java.lang.String" 
+		column="middle_name"
+		
+		length="255" />		
+		
+	<property 
+		name="emailId" 
+		type="java.lang.String" 
+		column="email_id"
+		
+		length="255" />		
+	
+	<property 
+		name="address" 
+		type="java.lang.String" 
+		column="address"
+		
+		length="255" />	
+		
+	<property 
+		name="city" 
+		type="java.lang.String" 
+		column="city"
+		
+		length="255" />	
+		
+	<property 
+		name="state" 
+		type="java.lang.String" 
+		column="state"
+		
+		length="255" />	
+		
+	<property 
+		name="zip" 
+		type="java.lang.Long" 
+		column="zip_code"
+		
+		length="255" />	
+		
+	<property 
+		name="waiterId" 
+		type="java.lang.Long" 
+		column="waiter_id"
+		
+		length="255" />	
+		
+	<property 
+		name="mobileNo" 
+		type="java.lang.Long" 
+		column="mobile_no"
+		
+		length="255" />								
+	
+		<property 
+		name="salary" 
+		type="java.lang.Double" 
+		column="salary"
+		 
+		length="255" />
+	
+	<property 
+		name="isActiveYN" 
+		type="java.lang.String" 
+		column="is_active_YN "
+		  
+		length="255" />
+		
+		<property 
+		name="insertDate" 
+		type="java.util.Date" 
+		column="is_insert_date"
+		 
+		length="255" />
+		
+		<property 
+		name="modifiedDate" 
+		type="java.util.Date" 
+		column="is_modified_date"
+		 
+		length="255" />	
+		
+		
+		
+		<property 
+		name="username" 
+		type="java.lang.String" 
+		column="username"		
+		length="255" />
+		
+		<property 
+		name="hotelname" 
+		type="java.lang.String" 
+		column="hotelname"		
+		length="255" />
+		
+		<property 
+		name="hotelid" 
+		type="java.lang.Long" 
+		column="hotelid"		
+		length="25"/>
+		
+		<property 
+		name="userid" 
+		type="java.lang.Long" 
+		column="userid"		
+		length="25"/>
+    
+    </class>
+   </hibernate-mapping> 

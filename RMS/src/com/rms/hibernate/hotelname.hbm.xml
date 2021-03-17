@@ -1,0 +1,29 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+    <class name="com.rms.hibernate.hotelnamebean"
+    table="hotel_name"
+    >
+    
+    <id name="pk_id" type="java.lang.Long" column="pk_id">
+			<generator class="increment" />
+		</id>
+     
+    <property
+		name="hotelid" 
+		type="java.lang.Long" 
+		column="hotelId"
+		length="25" 
+		/>
+		
+		
+		 <property
+		name="hotelname" 
+		type="java.lang.String" 
+		column="hotelName"		
+		length="255" 
+		/>
+		</class>
+   </hibernate-mapping> 

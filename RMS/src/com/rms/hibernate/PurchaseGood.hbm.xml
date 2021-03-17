@@ -1,0 +1,58 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+      
+    <class name="com.rms.hibernate.PurchaseGood"
+    table="purchase_good"
+    >
+    
+    <id name="pk_purchase_good_id" type="java.lang.Long" column="pk_purchase_good_id">
+			<generator class="increment" />
+		</id>
+ 
+     <property 
+		name="vegetables" 
+		type="java.lang.String" 
+		column="vegetables"
+		 
+		length="255" />
+		
+	<property 
+		name="grocery" 
+		type="java.lang.String" 
+		column="grocery"
+		 
+		length="255" />
+		
+    <property 
+		name="other" 
+		type="java.lang.String" 
+		column="other"
+		
+		length="255" />
+	
+	<!--  <property 
+		name="itemName" 
+		type="java.lang.String" 
+		column="item_name"
+		
+		length="255" />
+		
+	 <property 
+		name="price" 
+		type="java.lang.String" 
+		column="price"
+		
+		length="255" />	 -->	
+		
+	<property  
+		name="total" 
+		type="java.lang.String" 
+		column="total"
+		
+		length="255" />		
+
+    </class>
+   </hibernate-mapping> 

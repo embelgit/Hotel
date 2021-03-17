@@ -1,0 +1,57 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+    <class name="com.rms.hibernate.ItemDetails"
+    table="item_details"
+    >
+    
+    <id name="pk_item_details_id" type="java.lang.Long" column="pk_item_details_id">
+			<generator class="increment" />
+		</id>
+     
+    <property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		not-null="true"
+        length="19"
+        insert="false"
+        update="false"
+		/>
+		
+		
+		 <property
+		name="sale_price" 
+		type="java.lang.Double" 
+		column="sale_price"
+		
+		length="255" />
+		
+		 <property
+		name="buy_price" 
+		type="java.lang.Double" 
+		column="buy_price"
+		
+		length="255" />
+		
+		 <property
+		name="unit_in_ml" 
+		type="java.lang.Double" 
+		column="unit_in_ml"
+		
+		length="255" />
+		
+		<many-to-one
+        name="ItemEntry"
+        class="com.rms.hibernate.ItemEntry"
+        not-null="true"
+       
+       
+    >
+        <column name="fk_item_id" /> 
+    </many-to-one>
+		
+    </class>
+   </hibernate-mapping> 

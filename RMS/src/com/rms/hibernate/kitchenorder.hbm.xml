@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+ <!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+    <class name="com.rms.hibernate.kitchenorderHibernate" table="kitchenOrder">
+    
+    <id name="pk_temp_id" type="java.lang.Long" column="pk_id">
+			<generator class="increment" />
+		</id>
+     
+    <property
+		name="tableNo" 
+		type="java.lang.Long" 
+		column="TableNo"
+		/>
+		
+		 <property
+		name="itemId" 
+		type="java.lang.Long" 
+		column="ItemID"
+		/>
+		
+		 <property
+		name="itemName" 
+		type="java.lang.String" 
+		column="ItemName"
+		length="255" />
+		
+		 <property
+		name="quantity" 
+		type="java.lang.Double" 
+		column="Quantity"
+		 />
+		
+		 <property
+		name="current_date" 
+		type="java.sql.Date" 
+		column="CurrentDate"
+		length="255" />
+		
+		 <property
+		name="activeYN" 
+		type="java.lang.Character" 
+		column="ActiveYN"
+		 />
+		 		
+		  <property
+		name="unit" 
+		type="java.lang.String" 
+		column="unit"
+		length="20" />
+		
+		 <property
+		name="value" 
+		type="java.lang.String" 
+		column="unitValue"
+		length="20" />		
+		 		
+		 		
+		 <property
+		name="userid" 
+		type="java.lang.Long" 
+		column="userid"
+		length="20"/>
+		 <property
+		name="username" 
+		type="java.lang.String" 
+		column="username"
+		length="20"/>
+		
+		 <property
+		name="hotelid" 
+		type="java.lang.Long" 
+		column="hotelid"
+		length="20"/>
+		
+		 <property
+		name="hotelname" 
+		type="java.lang.String" 
+		column="hotelname"
+		length="20"/> 		
+		
+    </class>
+   </hibernate-mapping> 

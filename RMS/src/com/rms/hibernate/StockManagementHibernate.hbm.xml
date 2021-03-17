@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class  
+    name="com.rms.hibernate.StockManagementHibernate" 
+    table="goods_receive"
+>
+
+    <id
+        name="pkStoreManagementId"
+        type="java.lang.Long"
+        column="pk_store_management_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+   <property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		not-null="true"
+        length="19"
+        insert="false"
+        update="false"
+		/>
+
+  <property
+        name="fkSupplierId"
+        type="java.lang.Long"
+        column="fk_supplier_id"
+        /> 
+        
+    <property
+        name="fk_item_id_drop1"
+        type="java.lang.String"
+        column="product_name"
+    />
+    
+    <property
+        name="supplierName"
+        type="java.lang.String"
+        column="supplier_name"
+    />
+    
+      <property
+        name="buyPrice"
+        type="java.lang.Double"
+        column="buy_price"
+    />
+    
+    <property
+        name="quantity"
+        type="java.lang.Double"
+        column="quantity"
+    />
+    
+        <property
+        name="total"
+        type="java.lang.Double"
+        column="gst"
+    />
+    
+     <property
+        name="grossTotal"
+        type="java.lang.Double"
+        column="gross_total"
+    />
+    
+   <!--  <property
+        name="insertDate"
+        type="java.util.Date"
+        column="insert_date"
+    /> -->
+    
+     </class>
+</hibernate-mapping>

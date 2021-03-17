@@ -1,0 +1,88 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+      
+    <class name="com.rms.hibernate.SupplierDetailsHibernate" 
+    table="supplier_details"
+>
+
+     <id
+        name="pkSupplierDetailId"
+        type="java.lang.Long"
+        column="pk_supplier_detail_id"
+    >
+    
+        <generator class="increment" />
+    </id> 
+    
+     <property
+        name="suplierName"
+        type="java.lang.String"
+        column="suplier_name"
+        /> 
+    
+     <property
+        name="gstNo"
+        type="java.lang.String"
+        column="gst_no"
+    />
+    
+     <property
+        name="contactPerson"
+        type="java.lang.String"
+        column="contact_person_name"
+    />
+        <property
+        name="suplierContact"
+        type="java.lang.String"
+        column="supplier_Contact"
+    />
+        <property
+        name="emailID"
+        type="java.lang.String"
+        column="supplier_emailID"
+    />
+        <property
+        name="suplierCity"
+        type="java.lang.String"
+        column="supplier_City"
+    />
+        <property
+        name="address"
+        type="java.lang.String"
+        column="supplier_Address"
+    />
+      <property
+        name="suplierState"
+        type="java.lang.String"
+        column="supplier_State"
+    />
+    
+    	
+    	<property
+        name="username"
+        type="java.lang.String"
+        column="username"
+        /> 
+        
+        <property
+        name="hotelname"
+        type="java.lang.String"
+        column="hotelname"
+        /> 
+        
+        <property
+        name="hotelid"
+        type="java.lang.Long"
+        column="hotelid"
+        /> 
+        
+        <property
+        name="userid"
+        type="java.lang.Long"
+        column="userid"
+        /> 
+     </class>
+</hibernate-mapping>

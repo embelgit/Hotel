@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class  
+    name="com.rms.hibernate.transferstockHibernate" 
+    table="transferstock"
+>
+
+    <id
+        name="pkStoreManagementId"
+        type="java.lang.Long"
+        column="pk_store_management_id" >
+    
+        <generator class="increment" />
+    </id>
+
+<!--    <property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		not-null="true"
+        length="19"
+        insert="false"
+        update="false"
+		/> -->
+		<property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		not-null="true"
+        length="20"
+        
+		/>
+
+    <property
+        name="fk_item_id_drop1"
+        type="java.lang.String"
+        column="item_name"
+    />
+        
+         <property
+        name="saleprice"
+        type="java.lang.Double"
+        column="sale_Price"
+    />
+        
+        <property
+        name="buyPrice"
+        type="java.lang.Double"
+        column="buy_price"
+    />
+    
+    <property
+        name="quantity"
+        type="java.lang.Double"
+        column="quantity"
+    />
+    
+    <property
+        name="total"
+        type="java.lang.Double"
+        column="total"
+    />
+    
+         <property
+        name="pk_item_entry_Id"
+        type="java.lang.Long"
+        column="pk_item_entry_Id"
+        length="20"
+        
+        /> 
+        
+  
+    <property
+        name="userid"
+        type="java.lang.Long"
+        column="userid"
+    />
+    
+     <property
+        name="username"
+        type="java.lang.String"
+        column="username"
+    />
+   
+      
+    
+    <property
+        name="hotelid"
+        type="java.lang.Long"
+        column="hotelId"
+    />
+   
+    <property
+        name="hotelname"
+        type="java.lang.String"
+        column="hotelName"
+    />
+    
+    
+   
+    
+     </class>
+</hibernate-mapping>

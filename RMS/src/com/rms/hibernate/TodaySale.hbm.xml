@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+
+    <hibernate-mapping>
+    
+    <class name="com.rms.hibernate.TodaySaleHibernate" table="TodaysSale"
+    >
+    
+    	<id name="pksaleid" type="java.lang.Long" column="pk_sale_id">
+			<generator class="increment" />
+		</id>
+		
+		
+	
+		
+		<property 
+		name="saleamount" 
+		type="java.lang.Double" 
+		column="totalsaleamount" 
+		/>
+		<!-- 		length="255"	not-null="true"  -->
+		
+		<property
+        name="currentcash"
+        type="java.lang.Double"
+        column="currentcash"       
+        />
+		
+		<property 
+		name="cardpayment" 
+		type="java.lang.Double" 
+		column="cardpayment"
+		 />
+		
+		<property 
+		name="googlepaypayment" 
+		type="java.lang.Double" 
+		column="googlepaypayment"
+		 />
+		    
+        
+		<property
+        name="phonpepayment"
+        type="java.lang.Double"
+        column="phonpepayment"
+        />
+        
+		 <property
+        name="paytmpayment"
+        type="java.lang.Double"
+        column="paytmpayment"
+        />
+                
+        
+        <property
+        name="otherpayment"
+        type="java.lang.Double"
+        column="otherpayment"
+        />
+        
+        <property
+        name="todaysdate"
+        type="java.sql.Date"
+        column="todaysdate"
+        />
+        
+         <!-- <property
+        name="transID"
+        type="java.lang.Long"
+        column="transactionID"
+        />  -->
+        
+        <property 
+		name="username" 
+		type="java.lang.String" 
+		column="username"
+		length="255"/>
+		
+		<property 
+		name="hotelname" 
+		type="java.lang.String" 
+		column="hotelname"
+		length="255"/>
+		
+		<property 
+		name="userid" 
+		type="java.lang.Long" 
+		column="userid"
+		length="25"/>
+		
+		<property 
+		name="hotelid" 
+		type="java.lang.Long" 
+		column="hotelid"
+		length="25"/>
+
+		</class>
+
+    </hibernate-mapping>

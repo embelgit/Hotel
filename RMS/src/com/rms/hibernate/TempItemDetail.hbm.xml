@@ -1,0 +1,122 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+    <class name="com.rms.hibernate.TempItemDetail" table="tempdata">
+    
+    <id name="pk_temp_id" type="java.lang.Long" column="pk_temp_id">
+			<generator class="increment" />
+		</id>
+     
+    <property
+		name="tableNo" 
+		type="java.lang.Long" 
+		column="TableNo"
+		/>
+		
+		 <property
+		name="itemId" 
+		type="java.lang.Long" 
+		column="ItemID"
+		/>
+		
+		 <property
+		name="itemName" 
+		type="java.lang.String" 
+		column="ItemName"
+		length="255" />
+		
+		 <property
+		name="quantity" 
+		type="java.lang.Double" 
+		column="Quantity"
+		 />
+		
+		 <property
+		name="unitPrice" 
+		type="java.lang.Double" 
+		column="unitPrice"
+		length="255" />
+		
+		 <property
+		name="unit" 
+		type="java.lang.String" 
+		column="unit"
+		length="255" />
+		
+			 <property
+		name="value" 
+		type="java.lang.Long" 
+		column="value"
+		length="255" />
+		
+		 <property
+		name="totalAmt" 
+		type="java.lang.Double" 
+		column="Total"
+		length="255" />
+		
+		 <property
+		name="activeYN" 
+		type="java.lang.Character" 
+		column="ActiveYN"
+		 />
+		
+		 <property
+		name="current_date" 
+		type="java.sql.Date" 
+		column="CurrentDate"
+		length="255" />
+		
+		  <property
+        name="stock"
+        type="java.lang.Double"
+        column="stock"
+        length="25"
+        />
+		
+		<!--  <property
+		name="cgst" 
+		type="java.lang.Double" 
+		column="CGST"
+		length="25" />
+		
+		 <property
+		name="sgst" 
+		type="java.lang.Double" 
+		column="SGST"
+		length="25" /> -->
+		
+		<property
+		name="gst" 
+		type="java.lang.Double" 
+		column="GST"
+		length="25" />
+		
+		
+		 <property
+		name="userid" 
+		type="java.lang.Long" 
+		column="userid"
+		length="25" />
+		
+		 <property
+		name="username" 
+		type="java.lang.String" 
+		column="username"
+		length="255" />
+		
+		 <property
+		name="hotelid" 
+		type="java.lang.Long" 
+		column="hotelid"
+		length="25" />
+		
+		 <property
+		name="hotelname" 
+		type="java.lang.String" 
+		column="hotelname"
+		length="255" />
+    </class>
+   </hibernate-mapping> 

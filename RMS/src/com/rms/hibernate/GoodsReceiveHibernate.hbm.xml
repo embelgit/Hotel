@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class  
+    name="com.rms.hibernate.GoodsReceiveHibernate" 
+    table="goods_Receive"
+>
+
+    <id
+        name="pkStoreManagementId"
+        type="java.lang.Long"
+        column="pk_store_management_id"
+    >
+    
+        <generator class="increment" />
+    </id>
+
+<!--    <property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		not-null="true"
+        length="19"
+        insert="false"
+        update="false"
+		/> -->
+		<property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		not-null="true"
+        length="19"
+        
+		/>
+
+  <property
+        name="fkSupplierId"
+        type="java.lang.Long"
+        column="fk_supplier_id"
+        /> 
+        
+        
+         <property
+        name="pk_item_entry_Id"
+        type="java.lang.Long"
+        column="pk_item_entry_Id"
+        /> 
+        
+    <property
+        name="fk_item_id_drop1"
+        type="java.lang.String"
+        column="item_name"
+    />
+    
+    <property
+        name="suplierName"
+        type="java.lang.String"
+        column="supplier_name"
+    />
+     <property
+        name="billno"
+        type="java.lang.Long"
+        column="bill_no"
+        /> 
+    
+     <property
+        name="goodsReceiveDate"
+        type="java.sql.Date"
+        column="date_of_goods_receive"
+     />
+    
+      <property
+        name="buyPrice"
+        type="java.lang.Double"
+        column="buy_price"
+    />
+    
+    <property
+        name="quantity"
+        type="java.lang.Double"
+        column="quantity"
+    />
+    
+        <property
+        name="igst"
+        type="java.lang.Double"
+        column="igst"
+    />
+    
+            <property
+        name="cgst"
+        type="java.lang.Double"
+        column="cgst"
+    />
+            <property
+        name="sgst"
+        type="java.lang.Double"
+        column="sgst"
+    />
+    
+     <property
+        name="grossTotal"
+        type="java.lang.Double"
+        column="gross_total"
+    />
+    
+      <property
+        name="total"
+        type="java.lang.Double"
+        column="Grid_total"
+    />
+    
+    <property
+        name="Unit"
+        type="java.lang.String"
+        column="Unit"
+    />
+    <property
+        name="hsnno"
+        type="java.lang.String"
+        column="Hsn_No"
+    />
+    <property
+        name="saleprice"
+        type="java.lang.Double"
+        column="sale_Price"
+    />
+    
+      <property
+		name="value" 
+		type="java.lang.Long" 
+		column="unitValue"
+		 />
+		 
+
+    <property
+        name="username"
+        type="java.lang.String"
+        column="username"
+    />
+    <property
+        name="hotelname"
+        type="java.lang.String"
+        column="hotelname"
+    />
+    <property
+        name="userid"
+        type="java.lang.Long"
+        column="userid"
+    />
+    <property
+        name="hotelid"
+        type="java.lang.Long"
+        column="hotelid"
+    />
+    
+   <!--  <property
+        name="insertDate"
+        type="java.util.Date"
+        column="insert_date"
+    /> -->
+    
+     </class>
+</hibernate-mapping>

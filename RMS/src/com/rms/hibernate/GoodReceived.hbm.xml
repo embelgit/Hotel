@@ -1,0 +1,48 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+    <class name="com.rms.hibernate.GoodReceived"
+    table="good_received"
+    >
+    
+    <id name="pk_good_received_id" type="java.lang.Long" column="pk_good_received_id">
+			<generator class="increment" />
+		</id>
+		
+		<property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		not-null="true"
+        length="19"
+        insert="false"
+        update="false"
+		/>
+		
+		
+		<!--   <property
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		
+		length="255" />  -->
+		
+		 <property
+		name="quantity" 
+		type="java.lang.Double" 
+		column="quantity"
+		
+		length="255" />
+		
+		
+		<many-to-one
+        name="ItemEntry"
+        class="com.rms.hibernate.ItemEntry"
+        not-null="true"
+    >
+        <column name="fk_item_id" /> 
+    </many-to-one>
+    </class>
+   </hibernate-mapping>

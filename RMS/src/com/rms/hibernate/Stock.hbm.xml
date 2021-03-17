@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+    <hibernate-mapping>
+    
+    <class name="com.rms.hibernate.Stock" 
+    table="stock"
+    >
+    	<id name="pk_item_stock_id" type="java.lang.Long" column="pk_item_stock_id">
+			<generator class="increment" />
+		</id>
+		
+		<property
+        name="fk_good_received_id"
+        type="java.lang.Long"
+        column="fk_item_details_id"
+        not-null="true"
+        length="19"
+        /> 
+        
+        <property
+        name="stock"
+        type="java.lang.Double"
+        column="stock"
+        length="20"
+        />
+        
+        <property
+        name="Itemname"
+        type="java.lang.String"
+        column="Itemname"
+        length="255"
+        />
+        
+        
+        <property
+        name="hotelname"
+        type="java.lang.String"
+        column="hotelname"
+        length="255"
+        />
+        <property
+        name="username"
+        type="java.lang.String"
+        column="username"
+        length="255"
+        />
+        <property
+        name="hotelid"
+        type="java.lang.Long"
+        column="hotelid"
+        length="25"
+        />
+        <property
+        name="userid"
+        type="java.lang.Long"
+        column="userid"
+        length="25"
+        />
+        
+        
+		</class>
+    </hibernate-mapping>

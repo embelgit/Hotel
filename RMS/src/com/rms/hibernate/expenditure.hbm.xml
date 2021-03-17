@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+
+    <hibernate-mapping>
+    
+    <class name="com.rms.hibernate.expenditureHibernate" 
+    table="expenditures" schema="rms"
+    >
+    
+    	<id name="pk_expid" type="java.lang.Long" column="pk_exp_id">
+			<generator class="increment" />
+		</id>
+		
+			
+		<property 
+		name="expenditurename" 
+		type="java.lang.String" 
+		column="expenditurename"
+		not-null="true" 
+		length="255" />
+		
+		
+        <property 
+		name="username" 
+		type="java.lang.String" 
+		column="username"
+		length="255"/>
+		
+		<property 
+		name="hotelname" 
+		type="java.lang.String" 
+		column="hotelname"
+		length="255"/>
+		
+		<property 
+		name="userid" 
+		type="java.lang.Long" 
+		column="userid"
+		length="25"/>
+		
+		<property 
+		name="hotelid" 
+		type="java.lang.Long" 
+		column="hotelid"
+		length="25"/>
+
+		</class>
+
+    </hibernate-mapping>

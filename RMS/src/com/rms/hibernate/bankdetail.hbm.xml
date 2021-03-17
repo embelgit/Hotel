@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+
+    <hibernate-mapping>
+    
+    <class name="com.rms.hibernate.bankdetailHibernate" table="bank_details"
+    >
+    
+    	<id name="pkbankdetailid" type="java.lang.Long" column="pkbankdetail_id">
+			<generator class="increment" />
+		</id>
+		
+		
+	
+		
+		<property 
+		name="contactno" 
+		type="java.lang.Long" 
+		column="contactno"
+		not-null="true" 
+		length="255" />
+		
+		
+		<property 
+		name="bankname" 
+		type="java.lang.String" 
+		column="bankname"
+		not-null="true" 
+		length="255" />
+		
+	     <property 
+		name="branchname" 
+		type="java.lang.String" 
+		column="branchname"
+		not-null="true" 
+		length="255" />   
+	        
+		 <property
+        name="accountname"
+        type="java.lang.String"
+        column="accountname"
+        length="50"
+        />
+          
+         <property
+        name="accountnum"
+        type="java.lang.Long"
+        column="accountnum"
+        length="50"
+        />       
+        
+        <property
+        name="ifsccode"
+        type="java.lang.Long"
+        column="ifsccode"
+        length="50"
+        />       
+       
+       
+       
+        <property 
+		name="username" 
+		type="java.lang.String" 
+		column="username"
+		length="255"/>
+		
+		<property 
+		name="hotelname" 
+		type="java.lang.String" 
+		column="hotelname"
+		length="255"/>
+		
+		<property 
+		name="userid" 
+		type="java.lang.Long" 
+		column="userid"
+		length="25"/>
+		
+		<property 
+		name="hotelid" 
+		type="java.lang.Long" 
+		column="hotelid"
+		length="25"/>
+
+		</class>
+
+    </hibernate-mapping>

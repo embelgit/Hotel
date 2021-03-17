@@ -1,0 +1,65 @@
+<?xml version="1.0"?> 
+ <!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
+  <hibernate-mapping>
+      
+    <class name="com.rms.hibernate.OrderBill"
+    table="order_bill"
+    >
+    
+    <id name="pk_order_bill_id" type="java.lang.Long" column="pk_order_bill_id">
+			<generator class="increment" />
+		</id>
+     
+    <property 
+		name="fk_waiter_name_id" 
+		type="java.lang.Long" 
+		column="fk_waiter_name_id"
+		
+		length="255" />
+		
+		 <property 
+		name="table_No" 
+		type="java.lang.Long" 
+		column="table_no"
+		
+		length="255" />
+		
+		 <property 
+		name="quantity" 
+		type="java.lang.Long" 
+		column="quantity"
+		
+		length="255" />
+		
+		<property 
+		name="total_amount" 
+		type="java.lang.Long" 
+		column="total_amount"
+		
+		length="255" />
+		
+		<property 
+		name="fk_table_id" 
+		type="java.lang.Long" 
+		column="fk_table_id"
+		
+		length="255" />
+		
+		<property 
+		name="fk_item_id" 
+		type="java.lang.Long" 
+		column="fk_item_id"
+		
+		length="255" />
+		
+		<property 
+		name="fk_user_id" 
+		type="java.lang.Long" 
+		column="fk_user_id"
+		
+		length="255" />	
+		
+	 </class>
+   </hibernate-mapping> 
