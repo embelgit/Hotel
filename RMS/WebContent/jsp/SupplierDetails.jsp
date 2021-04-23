@@ -95,7 +95,7 @@
 		</div>
 			<div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
 			<div class="invoice_label_up"> 
-				 <input type="text" id='suplierContact' maxlength="10" name="suplierContact" class="form-control" required />
+				 <input type="text" id='suplierContact' maxlength="10" name="suplierContact"  pattern="[0-9]{10,10}" class="form-control" required />
 				<label>Supplier Contact No. :<sup>*</sup></label>
 			</div>
 			</div>

@@ -11,17 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.rms.bean.GetStoreManagementDetailBean;
-import com.rms.bean.GoodsReceiveBean;
 import com.rms.dao.GoodsReceiveDao;
-import com.rms.dao.TempOrderBill;
 import com.rms.helper.AddWaitersHelper;
 import com.rms.helper.BankHelper;
+import com.rms.helper.CashBookHelper;
 import com.rms.helper.CreateUserHelper;
+import com.rms.helper.CustomerD;
 import com.rms.helper.CustomerDetailsHelper;
 import com.rms.helper.CustomerOrderHelper;
+import com.rms.helper.CustomerPaymentHelper;
+import com.rms.helper.EmployeeDetailsHelper;
+import com.rms.helper.EmployeePaymentHelper;
+import com.rms.helper.ExpenditureHelper;
+import com.rms.helper.ExpenditurePaymentHelper;
+import com.rms.helper.GoodReceiveHelper;
 import com.rms.helper.GoodReceivedHelper;
 import com.rms.helper.GoodsReceiveHelper;
-import com.rms.helper.hotelnamehelper;
 import com.rms.helper.ItemDetailHelper;
 import com.rms.helper.ItemEntryHelper;
 import com.rms.helper.KycInfoHelper;
@@ -31,30 +36,19 @@ import com.rms.helper.OrderBillHelper;
 import com.rms.helper.PurchaseGoodHelper;
 import com.rms.helper.StockEntryHelper;
 import com.rms.helper.StockManagementHelper;
+import com.rms.helper.SupplierAccountDetailsHelper;
+import com.rms.helper.SupplierCashBankHelper;
+import com.rms.helper.SupplierDetailHelper;
 import com.rms.helper.SupplierDetailsHelper;
 import com.rms.helper.TempItemDetailHelper;
 import com.rms.helper.TodaySaleHelper;
 import com.rms.helper.TransferstockHelper;
 import com.rms.helper.WastageFoodsHelper;
 import com.rms.helper.WastageGoodsHelper;
+import com.rms.helper.hotelnamehelper;
 import com.rms.helper.kitchenorderHelper;
 import com.rms.helper.tempOrderBill;
 import com.rms.helper.tempOrderhelper;
-import com.rms.bean.CustomerBean;
-import com.rms.helper.CashBookHelper;
-import com.rms.helper.CustomerDetailsHelper;
-import com.rms.helper.CustomerOrderHelper;
-import com.rms.helper.CustomerPaymentHelper;
-import com.rms.helper.EmployeeDetailsHelper;
-import com.rms.helper.EmployeePaymentHelper;
-import com.rms.helper.ExpenditureDetailsHelper;
-import com.rms.helper.ExpenditureHelper;
-import com.rms.helper.ExpenditurePaymentHelper;
-import com.rms.helper.SupplierCashBankHelper;
-import com.rms.helper.SupplierDetailHelper;
-import com.rms.helper.SupplierAccountDetailsHelper;
-import com.rms.helper.PurchaseReturnHelper;
-import com.rms.helper.GoodReceiveHelper;
 
 public class Controller
 {
@@ -1639,8 +1633,62 @@ public class Controller
 				return data;
 			}
 			
+			//Customer Details
 			
+			 public String customerdetails(HttpServletRequest request, HttpServletResponse response)
+			  {
+				  System.out.println("IN CONTROLLER");
+				  CustomerD CustomerD = new CustomerD();
+				//  CustomerD.detailItem(request, response);
+				  return toJson("Data Added Successfully");
+			  }
+			 
+			 
+			 public String CustomerInfo(HttpServletRequest request, HttpServletResponse response)
+			 {
+				 System.out.println("In controller");
+				  CustomerD CustomerD = new CustomerD();
+				  CustomerD.customersDetails(request, response);
+					return toJson("Data Added Successfully");
+			 }
 			
-			
+			 public String gettableToEdit(HttpServletRequest request, HttpServletResponse response) 
+				{
+					String pk_temp_id1 = request.getParameter("pk_temp_id1");
+					Long pk_temp_id = Long.parseLong(pk_temp_id1);
+		/*
+		 * String empID = request.getParameter("EmpId"); 
+		 * Long empId =Long.parseLong(empID);
+		 */
+				//	System.out.println("in controller Table Number Id : " + pk_temp_id);
+					OrderBillHelper helper = new OrderBillHelper();
+					Map map = helper.gettableForEdit(pk_temp_id);
+					Map<String, List> returnMap = new HashMap<String, List>();
+					String xyz = toJson(map);
+					System.out.println("data: - "+xyz);
+					System.out.println("going out of controller");
+					return xyz;
+				}
+
+				//update Table
+				public String updatetable(HttpServletRequest request, HttpServletResponse response) 
+				{
+					System.out.println("In controller update Table Number Details");
+				OrderBillHelper helper = new OrderBillHelper();
+					helper.edittable(request, response);
+					System.out.println("In controller Update Table Number");
+					return toJson("Data Updated Successfully");
+
+				}
+				
+				public String getAllMainCat(HttpServletRequest request, HttpServletResponse response) 
+				{
+					
+				}
+
+				
+				
+				
+		
 			
 }

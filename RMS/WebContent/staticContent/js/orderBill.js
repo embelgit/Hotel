@@ -132,6 +132,176 @@ function BillCopy1(){
 }
 
 
+
+function prtBill(){
+	
+	var tabNum = document.getElementById("table_No").value;
+	if(tabNum ==0){
+		alert("Select table First!!!!!!");
+		return false;
+	}
+	
+/*	if (document.order.fk_item_id.value == "") {
+		alert("Please Enter Item Name");
+		return false;
+	}
+	
+	if (document.order.table_No.value == "") {
+		alert("Please Enter Table No");
+		return false;
+	}
+	if (document.order.waiterName.value == "") {
+		alert("Please Enter Waiter Name");
+		return false;
+	}
+/*	var tableNo = document.getElementById("table_No").value;
+	 if (confirm("Do You Want to Print Bill Of Table No ::--  "+tableNo+"  !!") == true) {
+	//	 registerBill();
+	    } else {
+	       alert("Bill Print Cancelled !!!");
+	    } */
+	 registerBill1();
+}
+
+function registerBill1(){
+	
+	var params= {};
+	var count = jQuery("#list").jqGrid('getGridParam', 'records');
+	var allRowsInGrid1 = $('#list').getGridParam('data');
+	var AllRows=JSON.stringify(allRowsInGrid1);
+	
+	for (var i = 0; i < count; i++)
+	{
+	
+		var pkTempId = allRowsInGrid1[i].pkTempId;
+     	params["pkTempId"+i] = pkTempId;
+		
+		var itemId = allRowsInGrid1[i].itemId;
+     	params["itemId"+i] = itemId;
+     	
+		var itemName = allRowsInGrid1[i].itemName;
+		params["itemName"+i] = itemName;
+		
+		var stock = allRowsInGrid1[i].stock;
+		params["stock"+i] = stock;
+		
+		var quantity = allRowsInGrid1[i].quantity;
+		
+		if(quantity ==0 || quantity =="" || quantity == undefined || quantity == null)
+			{
+			alert("Please enter valid Quantity for product"  +itemName);
+			return false;
+			}
+		if(+quantity > +stock){
+			alert(" stock of "  +itemName+ " is low , please enter Quantity less than or equal to "+stock);
+			return false;
+			}
+		else
+			{
+			params["quantity" +i] = quantity;
+			}
+		
+		var prrice = allRowsInGrid1[i].prrice;
+		params["prrice"+i] = prrice;
+		
+		var unit = allRowsInGrid1[i].unit;
+		params["unit"+i] = unit;
+		
+		var value = allRowsInGrid1[i].value;
+		params["value"+i] = value;
+		
+		var gst = allRowsInGrid1[i].gst;
+	//	params["gst"+i] = gst;
+		
+		var gst1 = (gst)/2;
+//		alert("gst splits - "+gst1+" %");
+	
+		var cgst = gst1;
+		params["cgst"+i] = cgst;
+		
+		var sgst = gst1;
+		params["sgst"+i] = sgst;
+		
+		var totalAmt = allRowsInGrid1[i].totalAmt;
+//		params["totalAmt"+i] = totalAmt;
+	//	alert("total amounnt is -- "+totalAmt);
+		
+	/*	var forTotal = allRowsInGrid1[i].forTotal;
+		params["forTotal"+i] = forTotal;*/
+	//		alert("fortotal - "+forTotal);
+	}	
+	
+	    var table_No=$('#table_No').val();
+	    
+	    var waiterName=$('#waiterName').val();
+	    var totalAmount =$('#totalAmount').val();
+	    var gst = 0;
+	    var gstAmt = 0;
+	    
+		params ["table_No"] = table_No;
+
+		params["count"] = count;
+		
+		params["waiterName"] = waiterName;
+		params["totalAmount"] = totalAmount;
+		params["gst"] = gst;
+		params["gstAmt"] = gstAmt;
+		
+		params["methodName"] = "registerBill";
+		
+		$.post('/RMS/jsp/utility/controller.jsp',params,function(data)
+		    	{
+			
+				alert(data);
+		//	System.out.println(" Data saved now its time to print PDF bill ----  ");
+				//	window.open("Other_Bill_CopyPDF.jsp");
+		//		window.open("tempPDF.jsp");
+		//		window.open("Billing-PDF.jsp");
+				window.open("pdfbill.jsp");
+				location.reload(true);
+			    return false;
+/*			$.getScript('/RMS/staticContent/js/bootbox.min.js', function() 
+					{
+		
+				var msg=data;
+				var dialog = bootbox.dialog({
+					//title: "Embel Technologies Says :",
+				    message: '<p class="text-center">'+msg.fontcolor("red").fontsize(5),
+				    closeButton: false
+				});
+				
+				setTimeout(function() {
+					dialog.modal('hide');
+					location.reload(true);
+					document.order.print.disabled = false;
+				}, 1500);
+				
+				return false;
+				
+					});				
+				window.open("Other_Bill_CopyPDF.jsp");
+				location.reload(true);
+			    return false;
+*/			   
+				    }
+		    	).error(function(jqXHR, textStatus, errorThrown){
+		    		if(textStatus==="timeout") {
+		    			$(loaderObj).hide();
+		    			$(loaderObj).find('#errorDiv').show(); 
+		    		}
+		    	});
+}
+
+
+
+
+
+
+
+
+
+
+
 function resBill(){
 	
 	var tabNum = document.getElementById("table_No").value;
@@ -162,6 +332,7 @@ function resBill(){
 	 registerBill();
 }
 
+
 function registerBill(){
 	
 	var params= {};
@@ -185,13 +356,20 @@ function registerBill(){
 		params["stock"+i] = stock;
 		
 		var quantity = allRowsInGrid1[i].quantity;
-/*		if(quantity > stock){
-			alert("Stock of "+itemName+" is less than the Quantity Entered");
+		
+		if(quantity ==0 || quantity =="" || quantity == undefined || quantity == null)
+			{
+			alert("Please enter valid Quantity for product"  +itemName);
 			return false;
-		}
-		else{  */
-		params["quantity"+i] = quantity;
-	//	}
+			}
+		if(+quantity > +stock){
+			alert(" stock of "  +itemName+ " is low , please enter Quantity less than or equal to "+stock);
+			return false;
+			}
+		else
+			{
+			params["quantity" +i] = quantity;
+			}
 		
 		var prrice = allRowsInGrid1[i].prrice;
 		params["prrice"+i] = prrice;
@@ -2307,6 +2485,145 @@ function orderbilling1()
 		    	});
 }
 
+function customerdetailsDivAction(a)
+{
+	if(a==1)
+		{
+		$("#customerdetailsDiv").dialog({
+			height :240,
+			width:600,
+			resizable:true,
+			draggable:false,
+			position:
+				{
+				my:"center",
+				at:"center",
+				of:window,
+				collision:"none",
+				}
+		})
+		}
+	else
+		{
+		$("#customerdetailsDiv").dialog('close');
+		}
+}
+
+function myAlert(msg)
+{
+	var dialog = bootbox.dialog({
+		message:'<p class="text-center">'+msg.fontcolor("red").fontsize(5)+'</p>',
+		closeButton: false
+	});
+	setTimeout(function(){
+		dialog.modal('hide');
+	}, 1500);
+	}
+
+function successAlert(msg)
+{
+
+	var dialog = bootbox.dialog({
+		message:'<p class="text-center">'+msg.fontcolor("green").fontsize(5)+'</p>',
+		closeButton: false
+	});
+	setTimeout(function(){
+		dialog.modal('hide');
+	}, 1500);
+	}
+
+function valcustomer()
+{
+	
+	var fkcustomerId =$("#fkcustomerId").val();
+	var customerDOB = $("#customerDOB").val();
+	var customerNumber = $("#customerNumber").val();
+	
+	if(fkcustomerId ==""){
+		myAlert("Please Enter Customer Name");
+		return false;
+	}
+	if(customerDOB ==""){
+		myAlert("Please Enter Date of Birth ");
+		return false;
+	}
+	
+	
+	if(customerNumber ==""){
+		myAlert("Please Enter Mobile number");
+		return false;
+	}
+	
+	
+	var letterNumber = /^[a-zA-Z ]+$/;
+	if(fkcustomerId.match(letterNumber))
+		{
+	//	customerName();
+		}
+	else
+	{
+		myAlert("Enter Alphabets only in customer Name.");
+		return false;
+	}
+	
+	//if(document.Customer.customerNumber.value!="")
+	//{
+//	var letter = /^[0-9]$/;
+	var letterNo = /^[0-9]{10}$/;
+	if(customerNumber.match(letterNo))
+	{
+		
+	}
+	else
+	{
+		myAlert("Please Enter proper 10 digit Mobile Number");
+	return false;
+	}
+	addCustomerDetails();
+}
+	
+//}
+	
+function addCustomerDetails()
+{
+	var params = {};
+	
+	document.getElementById('save').disabled=true;
+
+	var customerName = $('#fkcustomerId').val();
+	var dob= $('#dob').val();
+	var mobileNumber = $('#mobNo').val();
+	
+	
+	params["customerName"] = customerName;
+	params["dob"] = dob;
+	params["mobileNumber"] = mobileNumber;
+	
+	params["methodName"] = "CustomerInfo";
+	
+	$.post('/RMS/jsp/utility/controller.jsp',params,function(data)
+ 	    	{
+ 		alert(data);
+ 		location.reload();
+ 			}
+ 	
+ 	    	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
+}
+
+function emptyCustomerFields()
+{
+	document.getElementById("fkcustomerId").value = "";
+	document.getElementById("customerDOB").value = "";
+	document.getElementById("customerNumber").value = "";
+	
+
+}
+
 
 
 /*function gstCal(){
@@ -2326,3 +2643,238 @@ function orderbilling1()
 			document.getElementById("gstAmt").value = gsttt;
 			document.getElementById("grndtotalAmount").value = final;
 }*/
+
+function resBill1(){
+	
+	var tabNum = document.getElementById("table_No").value;
+	if(tabNum ==0){
+		alert("Select table First!!!!!!");
+		return false;
+	}
+	
+/*	if (document.order.fk_item_id.value == "") {
+		alert("Please Enter Item Name");
+		return false;
+	}*/
+	
+	if (document.order.table_No.value == "") {
+		alert("Please Enter Table No");
+		return false;
+	}
+	if (document.order.waiterName.value == "") {
+		alert("Please Enter Waiter Name");
+		return false;
+	}
+/*	var tableNo = document.getElementById("table_No").value;
+	 if (confirm("Do You Want to Print Bill Of Table No ::--  "+tableNo+"  !!") == true) {
+	//	 registerBill();
+	    } else {
+	       alert("Bill Print Cancelled !!!");
+	    } */
+	 registerBill1();
+}
+
+
+function registerBill1(){
+	
+	var params= {};
+	var count = jQuery("#list").jqGrid('getGridParam', 'records');
+	var allRowsInGrid1 = $('#list').getGridParam('data');
+	var AllRows=JSON.stringify(allRowsInGrid1);
+	
+	for (var i = 0; i < count; i++)
+	{
+	
+		var pkTempId = allRowsInGrid1[i].pkTempId;
+     	params["pkTempId"+i] = pkTempId;
+		
+		var itemId = allRowsInGrid1[i].itemId;
+     	params["itemId"+i] = itemId;
+     	
+		var itemName = allRowsInGrid1[i].itemName;
+		params["itemName"+i] = itemName;
+		
+		var stock = allRowsInGrid1[i].stock;
+		params["stock"+i] = stock;
+		
+		var quantity = allRowsInGrid1[i].quantity;
+		
+		if(quantity ==0 || quantity =="" || quantity == undefined || quantity == null)
+			{
+			alert("Please enter valid Quantity for product"  +itemName);
+			return false;
+			}
+		if(+quantity > +stock){
+			alert(" stock of "  +itemName+ " is low , please enter Quantity less than or equal to "+stock);
+			return false;
+			}
+		else
+			{
+			params["quantity" +i] = quantity;
+			}
+		
+		var prrice = allRowsInGrid1[i].prrice;
+		params["prrice"+i] = prrice;
+		
+		var unit = allRowsInGrid1[i].unit;
+		params["unit"+i] = unit;
+		
+		var value = allRowsInGrid1[i].value;
+		params["value"+i] = value;
+		
+		var gst = allRowsInGrid1[i].gst;
+	//	params["gst"+i] = gst;
+		
+		var gst1 = (gst)/2;
+//		alert("gst splits - "+gst1+" %");
+	
+		var cgst = gst1;
+		params["cgst"+i] = cgst;
+		
+		var sgst = gst1;
+		params["sgst"+i] = sgst;
+		
+		var totalAmt = allRowsInGrid1[i].totalAmt;
+//		params["totalAmt"+i] = totalAmt;
+	//	alert("total amounnt is -- "+totalAmt);
+		
+	/*	var forTotal = allRowsInGrid1[i].forTotal;
+		params["forTotal"+i] = forTotal;*/
+	//		alert("fortotal - "+forTotal);
+	}	
+	
+	    var table_No=$('#table_No').val();
+	    
+	    var waiterName=$('#waiterName').val();
+	    var totalAmount =$('#totalAmount').val();
+	    var gst = 0;
+	    var gstAmt = 0;
+	    
+		params ["table_No"] = table_No;
+
+		params["count"] = count;
+		
+		params["waiterName"] = waiterName;
+		params["totalAmount"] = totalAmount;
+		params["gst"] = gst;
+		params["gstAmt"] = gstAmt;
+		
+		params["methodName"] = "registerBill";
+		
+		$.post('/RMS/jsp/utility/controller.jsp',params,function(data)
+		    	{
+			
+				alert(data);
+		//	System.out.println(" Data saved now its time to print PDF bill ----  ");
+				//	window.open("Other_Bill_CopyPDF.jsp");
+		//		window.open("tempPDF.jsp");
+		//		window.open("Billing-PDF.jsp");
+				window.open("pdfbill.jsp");
+				location.reload(true);
+			    return false;
+/*			$.getScript('/RMS/staticContent/js/bootbox.min.js', function() 
+					{
+		
+				var msg=data;
+				var dialog = bootbox.dialog({
+					//title: "Embel Technologies Says :",
+				    message: '<p class="text-center">'+msg.fontcolor("red").fontsize(5),
+				    closeButton: false
+				});
+				
+				setTimeout(function() {
+					dialog.modal('hide');
+					location.reload(true);
+					document.order.print.disabled = false;
+				}, 1500);
+				
+				return false;
+				
+					});				
+				window.open("Other_Bill_CopyPDF.jsp");
+				location.reload(true);
+			    return false;
+*/			   
+				    }
+		    	).error(function(jqXHR, textStatus, errorThrown){
+		    		if(textStatus==="timeout") {
+		    			$(loaderObj).hide();
+		    			$(loaderObj).find('#errorDiv').show(); 
+		    		}
+		    	});
+}
+
+
+//Move table Numbers
+function gettablenumbers(){
+	var params= {};
+
+	var input = document.getElementById('fk_table_id'),
+	list = document.getElementById('fk_table_id_drop1'),
+
+	i,fkRootTableId;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkRootTableId = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+	$("#table_No").append($("<input/>").attr("value","").text());
+	
+	
+	params["table_No"]= fkRootTableId;
+	params["methodName"] = "gettableToEdit";
+	$.post('/RMS/jsp/utility/controller.jsp',params,function(data){
+		var jsonData = $.parseJSON(data);
+		var catmap = jsonData.list;
+		$.each(jsonData,function(i,v)
+				{
+				document.getElementById("tablenumber").value = v.hotelname;
+			
+				}
+		);
+	}).error(function(jqXHR, textStatus, errorThrown){
+		if(textStatus==="timeout") {
+		}
+	});
+}
+
+function updateTable()
+{
+	//document.editTableNumber.btn.disabled = true;
+
+	
+	var input = document.getElementById('fk_table_id'),
+	list = document.getElementById('fk_table_id_drop1'),
+	i,fkRootSupId;
+	for (i = 0; i < list.options.length; ++i) {
+		if (list.options[i].value === input.value) {
+			fkRootSupId = list.options[i].getAttribute('data-value');
+		}
+	}
+	
+
+	//var itemName = $('#fk_item_id').val();
+	var pk_id = fkRootSupId;
+	var tableNo = $('#tablename').val();	
+	var params = {};
+	params['pk_id']=pk_id;
+	params['tableNo'] = tableNo;
+	
+	params["methodName"] = "updatetable";
+	$.post('/RMS/jsp/utility/controller.jsp',params,function(data)
+ 	    	{
+			alert(data);
+			location.reload();
+		
+		}
+ 	).error(function(jqXHR, textStatus, errorThrown){
+ 	    		if(textStatus==="timeout") {
+ 	    			$(loaderObj).hide();
+ 	    			$(loaderObj).find('#errorDiv').show();
+ 	    		}
+ 	    	});
+	
+}
+
+

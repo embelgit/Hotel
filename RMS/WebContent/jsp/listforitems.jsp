@@ -113,7 +113,6 @@
 	<div class="row" align="center" style="margin-bottom:50px">	
 	<input type="button"  value="Back" id="listBtn" class="btn btn-lg btn btn-primary btn btn-primary" onclick="Back()"/>
 	
-       <input type="button" value="Delete" id="listBtn" class="btn btn-lg btn btn-primary btn btn-primary" onclick="deleteList()"></button>
        </div>
        </div>
 	</div>	

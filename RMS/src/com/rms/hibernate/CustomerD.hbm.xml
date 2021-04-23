@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<class  
+    name="com.rms.hibernate.CustomerDetails"
+    table="customerdetails"
+>
+
+    <id
+        name="CustomerName"
+        type="java.lang.String"
+        column="Customer_name" >
+    
+        <generator class="increment" />
+    </id>
+
+
+		<property
+		name="dob" 
+		type="java.util.Date" 
+		column="dob"
+		        
+		/>
+
+    <property
+        name="mob_no"
+        type="java.lang.Long"
+        column="mob_no"
+    />
+        
+        
+   
+    
+     </class>
+</hibernate-mapping>

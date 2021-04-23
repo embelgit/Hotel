@@ -15,7 +15,7 @@ public class transferstockHibernate {
 		//private Date goodsReceiveDate;
 		private Double buyPrice;
 		private Double quantity;
-		private Double total;
+	//	private Double total;
 		//private Double grossTotal;
 		private Double stock;
 		//private Double gst;
@@ -32,10 +32,12 @@ public class transferstockHibernate {
 		private String hotelname;
 		private Long hotelid;
 		private Long userid;
+	
+
 		
 		public transferstockHibernate(Long pkStoreManagementId, Long fk_item_id, Long fk_item_id1, 
 				String fk_item_id_drop1, Double buyPrice,
-				Double quantity, Double total, Double stock,  Double saleprice, 
+				Double quantity,  Double stock,  Double saleprice, 
 				 Long pk_item_entry_Id, Long srNo, 
 				 String username, String hotelname, Long hotelid, Long userid) {
 			super();
@@ -45,7 +47,7 @@ public class transferstockHibernate {
 			this.fk_item_id_drop1 = fk_item_id_drop1;
 			this.buyPrice = buyPrice;
 			this.quantity = quantity;
-			this.total = total;
+			//this.total = total;
 			this.stock = stock;
 			this.saleprice = saleprice;
 			this.srNo = srNo;
@@ -144,12 +146,10 @@ public class transferstockHibernate {
 		public void setQuantity(Double quantity) {
 			this.quantity = quantity;
 		}
-		public Double getTotal() {
-			return total;
-		}
-		public void setTotal(Double total) {
-			this.total = total;
-		}
+	/*
+	 * public Double getTotal() { return total; } public void setTotal(Double total)
+	 * { this.total = total; }
+	 */
 		
 		public Double getStock() {
 			return stock;

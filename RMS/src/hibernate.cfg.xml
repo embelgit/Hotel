@@ -80,8 +80,8 @@
             <mapping resource="com/rms/hibernate/expenditure.hbm.xml"/>
             <mapping resource="com/rms/hibernate/TodaySale.hbm.xml"/>
             <mapping resource="com/rms/hibernate/transferstockHibernate.hbm.xml"/>
-          
-            
+<!--  			<mapping resource="com/rms/hibernate/CustomerD.hbm.xml"/>
+ -->         
     </session-factory>
 
 </hibernate-configuration>

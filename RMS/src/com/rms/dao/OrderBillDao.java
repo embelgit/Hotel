@@ -9,6 +9,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -17,7 +20,10 @@ import com.rms.bean.GetItemDetails;
 import com.rms.bean.OrderBillList;
 import com.rms.hibernate.ItemEntry;
 import com.rms.hibernate.OrderBill;
+import com.rms.hibernate.SupplierDetailsHibernate;
 import com.rms.hibernate.TempItemDetail;
+import com.rms.hibernate.hotelnamebean;
+import com.rms.hibernate.kitchenorderHibernate;
 import com.rms.utility.HibernateUtility;
 
 public class OrderBillDao {
@@ -475,5 +481,199 @@ System.out.println("In DAO");
 		}
 		return saleReports;
 
-	}		
+	}	
+	
+	
+	public List gettableForEdit(Long id) {
+
+		HibernateUtility hbu = null;
+		Session session =  null;
+		Query query = null;
+		 List list = null;
+		 
+		 System.out.println("id in DAO- ID----------##### - "+id);
+		 
+		 try {
+			 hbu = HibernateUtility.getInstance();
+			 session = hbu.getHibernateSession();
+			 query = session.createSQLQuery("SELECT fk_table_id ,table_no from order_bill where fk_table_id ='"+id+"'");
+//			 query.setParameter("pk_item_details_id", pk_item_details_id);
+			 list = query.list(); 		 
+			 System.out.println("Size-----------### - "+list.size());
+			 
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+		 
+		 finally
+		 {
+			 if (session!=null) {
+				hbu.closeSession(session);
+			}
+		 }
+		 //System.out.println("out of dao - return credit customer List : "+list);
+				return list;
+
+		}
+	
+	
+	//toget all hotel to edit
+	public List gettablenumber(HttpServletRequest request)
+
+{
+	HttpSession sessionn = request.getSession(true);
+	String fk_table_id = (String)sessionn.getAttribute("fk_table_id");
+	String table_No =(String)sessionn.getAttribute("table_No");
+		/*
+		 * String username = (String)sessionn.getAttribute("user"); String userid =
+		 * (String)sessionn.getAttribute("userid"); String hotelid =
+		 * (String)sessionn.getAttribute("hotelid"); String
+		 * hotelname=(String)sessionn.getAttribute("hotelname"); String usertype =
+		 * (String)sessionn.getAttribute("usertype");
+		 */
+	
+	System.out.println("session thru id- "+fk_table_id+" , table_no - "+table_No );
+		/*
+		 * System.out.println("usertype = -  "+usertype);
+		 */	HibernateUtility hbu=null;
+	Session session=null;
+	List list=null;
+	String ad = "admin";
+	try{
+	//	System.out.println("in else part");
+	 hbu = HibernateUtility.getInstance();
+	 session = hbu.getHibernateSession();
+			/*
+			 * String item = "item"; String drink = "drink";
+			 */
+	 Query query = session.createSQLQuery("from kitchenorder");
+	//Query query = session.createQuery("from GoodReceive");
+	 list = query.list();
+	}
+	
+		catch(RuntimeException e){	
+	//		Log.error("Error in getAllItemEntries()", e);
+	}
+		finally
+		{
+				if(session!=null){
+				hbu.closeSession(session);
+			}
+		}
+	
+	return list;
+
+	}
+// list
+	public List gettableForList(HttpServletRequest request){
+		 HttpSession sessionn = request.getSession(true);
+		/*
+		 * String table_no = (String).session.getAttribute("tableid"); String username =
+		 * (String)sessionn.getAttribute("user"); String userid =
+		 * (String)sessionn.getAttribute("userid"); String hotelid =
+		 * (String)sessionn.getAttribute("hotelid"); String
+		 * hotelname=(String)sessionn.getAttribute("hotelname");
+		 * System.out.println("session thru table- "+table_no+" , id - "
+		 * +userid+" , hotelnme - "+hotelname+" , hotelid - "+hotelid);
+		 */
+		 HibernateUtility hbu=null;
+			Session session=null;
+			List<OrderBill> custList=null;
+	
+		try{	
+
+			hbu = HibernateUtility.getInstance();
+			session = hbu.getHibernateSession();
+
+			Query query=session.createSQLQuery("select fk_table_id,table_no from order_bill");
+			List<Object[]> list = query.list();
+
+			custList= new ArrayList<OrderBill>(0);
+
+
+		for (Object[] object : list) {	
+			OrderBill ht = new OrderBill();
+			ht.setFk_table_id(Long.parseLong(object[0].toString()));
+			ht.setTable_No(Long.parseLong(object[1].toString()));
+			
+			custList.add(ht);
+
+		}}catch(RuntimeException e){	
+
+		}
+		finally{
+
+		hbu.closeSession(session);	
+		}
+		return custList;
+
+	 }
+	
+
+	public List gettableForEdit1(Long pk_hotel_id) {
+
+		HibernateUtility hbu = null;
+		Session session =  null;
+		Query query = null;
+		 List list = null;
+		 
+		 System.out.println("id in DAO- ID----------##### - "+pk_hotel_id);
+		 
+		 try {
+			 hbu = HibernateUtility.getInstance();
+			 session = hbu.getHibernateSession();
+			 query = session.createSQLQuery("SELECT pk_id ,tableNo from kitchenorder where pk_id  ='"+pk_hotel_id+"'");
+//			 query.setParameter("pk_item_details_id", pk_item_details_id);
+			 list = query.list(); 		 
+			 System.out.println("Size-----------### - "+list.size());
+			 
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+		 
+		 finally
+		 {
+			 if (session!=null) {
+				hbu.closeSession(session);
+			}
+		 }
+		 //System.out.println("out of dao - return credit customer List : "+list);
+				return list;
+
+		}
+	
+	public List gettableEdit(HttpServletRequest request)
+	{
+		HttpSession sessionn = request.getSession(true);
+		String username = (String)sessionn.getAttribute("user");		
+		String userid = (String)sessionn.getAttribute("userid");
+		String hotelid = (String)sessionn.getAttribute("hotelid");
+		String hotelname=(String)sessionn.getAttribute("hotelname");
+		System.out.println("session thru user- "+username+" , id - "+userid+" , hotelnme - "+hotelname+" , hotelid - "+hotelid);
+		HibernateUtility hbu = null;
+		Session session =  null;
+		Query query = null;
+		List<kitchenorderHibernate> list = null;
+		try {
+			 hbu = HibernateUtility.getInstance();
+			 session = hbu.getHibernateSession();
+			 query = session.createQuery("from kitchenorderHibernate where hotelid = '"+hotelid+"'");
+			 list = query.list(); 
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			
+		}
+		 
+		 finally
+		 {
+			 if (session!=null) {
+				hbu.closeSession(session);
+			}
+		 }
+				return list;
+		
+	}
+	
+	
+
 }

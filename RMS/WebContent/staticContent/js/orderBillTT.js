@@ -2419,29 +2419,24 @@ function registerBill(){
 		var itemName = allRowsInGrid1[i].itemName;
 		params["itemName"+i] = itemName;
 		
-		var quantity = allRowsInGrid1[i].quantity;
-		params["quantity"+i] = quantity;
-				
 		var stock = allRowsInGrid1[i].stock;
 		params["stock"+i] = stock;
-		
-		
- 		if(quantity ==0 || quantity =="")
- 			{
- 			alert("Plz enter valid quantity");
- 			return false;
- 			}
-		
-		
-		
+
 		var quantity = allRowsInGrid1[i].quantity;
-/*		if(quantity > stock){
-			alert("Stock of "+itemName+" is less than the Quantity Entered");
+		if(quantity ==0 || quantity =="" || quantity == undefined || quantity == null)
+			{
+			alert(" Please enter valid Quantity for product "  +itemName);
 			return false;
-		}
-		else{  */
-		params["quantity"+i] = quantity;
-//		}
+			}
+		if(+quantity > +stock){
+			alert("stock of "  +itemName+  " is low , please enter Quantity less than or equal to "  +stock);
+			return false;
+			}
+		else
+			{
+			params["quantity" +i] = quantity;
+			}
+		
 		
 		var prrice = allRowsInGrid1[i].prrice;
 		params["prrice"+i] = prrice;

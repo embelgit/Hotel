@@ -59,12 +59,12 @@
         column="quantity"
     />
     
-    <property
+    <!-- <property
         name="total"
         type="java.lang.Double"
         column="total"
     />
-    
+     -->
          <property
         name="pk_item_entry_Id"
         type="java.lang.Long"

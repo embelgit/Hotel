@@ -1,5 +1,5 @@
 <%-- <%@include file="common/header.jsp"%> --%>
- <%@page import="com.rms.dao.AddWaitersDao"%>
+<%@page import="com.rms.dao.AddWaitersDao"%>
 <%@page import="com.rms.hibernate.AddWaiters"%>
 <%@page import="com.rms.hibernate.ItemEntry"%>
 <%@page import="com.rms.dao.ItemEntryDao"%>
@@ -94,7 +94,7 @@
 </head>
  <% 
 	Long orderBill = 1l;
-%>
+ %>
 
 
  <%
@@ -185,7 +185,7 @@
 				
 					<div class="col-md-12  col-sm-12 col-xs-12 col-xl-4 col-lg-4">
 			<div class="">
-						<input type="text" class="form-control" id="totalAmount" readonly="readonly" required/>					
+						<input type="text" class="form-control" id="totalAmount" readonly="readonly" style="font-size: 18px;" required/>					
 							<label >Grand Total </label>
 				</div>
 			</div>

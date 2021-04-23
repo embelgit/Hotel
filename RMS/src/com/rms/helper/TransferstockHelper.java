@@ -37,15 +37,11 @@ public class TransferstockHelper {
 
 	public List getGridForTransferStock(HttpServletRequest request, HttpServletResponse response)
 	{
-				/*GoodsReceiveBean bean = new GoodsReceiveBean();
-				bean.setFk_item_id_drop1(fk_item_id_drop1); 
-				System.out.println("fk_item_id_drop1 "+fk_item_id_drop1);
-				return bean;*/
+				
 				String fk_item_id_drop1 = request.getParameter("fk_item_id1");		
 				System.out.println(" hi this is Item Name is -=============   "+fk_item_id_drop1);		
 				TransferstockDao dao = new TransferstockDao();
-				// Map<Long,OutwardBean> map = new HashMap<Long,OutwardBean>();
-//				 List<ItemDetailss> expL= dao.getGridDataForgoodreceive(fk_item_id_drop1);
+				
 				 List<ItemEntry> expL = dao.getGridTransferStock(fk_item_id_drop1);
 				 System.out.println("in helper method of item grid -");
 				 return expL;
@@ -57,42 +53,34 @@ public void addTranferstock(HttpServletRequest request, HttpServletResponse resp
 		HttpSession sessionn = request.getSession(true);
 		String username = (String)sessionn.getAttribute("user");		
 		String userid = (String)sessionn.getAttribute("userid");
-		/*
-		 * String hotelid = (String)sessionn.getAttribute("hotelid"); String
-		 * hotelname=(String)sessionn.getAttribute("hotelname");
-		 */
+		
 		 String hotelid = (String)sessionn.getAttribute("hotelid");
 
-		//System.out.println("session thru user- "+username+" , id - "+userid+" , hotelnme - "+nwshopName+" , hotelid - "+hotelid);
 		
 		 Integer count = Integer.parseInt(request.getParameter("count"));
          System.out.println("Total Count Is =====-------  "+count);
          
          String nwfkShopId = request.getParameter("hotelid");
          String nwshopName = request.getParameter("hotelName");
-       //  String nwgrossTotal = request.getParameter("grossTotal");
          System.out.println(" Hotel Id is ----== == = "+nwfkShopId+" hotel name -   "+nwshopName+"   --  >  in out of for loop ");
          
          for(int i =0 ; i<count;i++)
  		{
-        
-      //  String fk_item_id1 = request.getParameter("fk_item_id1");
-       // System.out.println(" hi this is Fk ID----------======= "+fk_item_id1);
-        
+     
         String pkshopId = request.getParameter("hotelid");
         System.out.println(" Shop Id is ----== == = "+hotelid);
-        String hotelName = request.getParameter("hotelName");
-        //String billno = request.getParameter("billno");
-        //String goodsReceiveDate = request.getParameter("goodsReceiveDate");
         
+        String hotelName = request.getParameter("hotelName");
+      
         String fk_item_id_drop1 = request.getParameter("fk_item_id_drop1"+i);
         
         System.out.println(" hi this is item name            ---    "+fk_item_id_drop1);
        String buyPrice = request.getParameter("buyPrice"+i);
+       
         String quantity = request.getParameter("quantity"+i);
-        //String gst = request.getParameter("gst"+i);
-        String total = request.getParameter("total"+i);
-        System.out.println("HI this is Total===++++"+total);
+        System.out.println("quantity"+quantity); 
+        
+			
         String pk_item_entry_Id =request.getParameter("pk_item_entry_Id"+i);
         System.out.println(" Hi this is pk_item_entry_Id ===----- "+pk_item_entry_Id);
         
@@ -102,54 +90,30 @@ public void addTranferstock(HttpServletRequest request, HttpServletResponse resp
         String salePrice = request.getParameter("salePrice"+i);
         System.out.println("sale price is ==="+salePrice);
         
-     //  String igst = request.getParameter("igst"+i);
-      //  String cgst = request.getParameter("cgst"+i);
-      //  String sgst = request.getParameter("sgst"+i);
-      //  System.out.println("igst - "+igst+" cgst - "+cgst+" sgst - "+sgst);
+        String stock = request.getParameter("stock"+i);
+        System.out.println("stock is ==="+stock);
         
-        //String unit = request.getParameter("unit"+i);
-     //   System.out.println("sale price is ==="+unit);
-      //  String HSNNo = request.getParameter("HSNNo"+i);
-       // System.out.println("sale HSNNo is ==="+HSNNo);
-        //String grossTotal = request.getParameter("grossTotal");	
+  
  		
         String value = request.getParameter("value"+i);
   
-       // System.out.println("unit -  "+unit+" & value quant - "+value);
-        
+      
         transferstockHibernate b = new transferstockHibernate();
         
-       // System.out.println(" date before parsing" +goodsReceiveDate);
-		//SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		//Date closingDate = null;
-		
-		//try{
-		///closingDate = format.parse(goodsReceiveDate);
-			//b.setGoodsReceiveDate(closingDate);
-			//System.out.println(" date dateOfBirth parsing" +goodsReceiveDate);
-		//}
-		//catch(Exception e){
-			//e.printStackTrace();
-		//	System.out.println("Exception in date parsing");
-		//}
+     
         
 		b.setFk_item_id(Long.parseLong(pk_item_entry_Id));
-      //  b.setFk_item_id(Long.parseLong(fk_item_id));
-      //  b.setFkSupplierId(Long.parseLong(fkSupplierId));
-		//b.setHotelid(Long.parseLong(pkhotelId));
+     
         b.setHotelid(Long.parseLong(pkshopId));
  		b.setFk_item_id_drop1(fk_item_id_drop1);
-        
- //		b.setFk_item_id_drop1(itemName);
-        
- 		//b.setSuplierName(suplierName);
- 		//b.setBillno(Long.parseLong(billno));
+
  		b.setBuyPrice(Double.parseDouble(buyPrice));
- 		b.setQuantity(Double.parseDouble(quantity));
- 		b.setSaleprice(Double.parseDouble(salePrice));
- 		//b.setUnit(unit);
- 		//b.setValue(Long.parseLong(value));
+ 		b.setQuantity(Double.parseDouble(quantity)); 
  		
+
+ 		b.setSaleprice(Double.parseDouble(salePrice));
+ 		b.setStock(Double.parseDouble(stock));
+ 	
  		b.setUsername(username);
 		b.setUserid(Long.parseLong(userid));
 		b.setHotelid(Long.parseLong(nwfkShopId));
@@ -157,11 +121,6 @@ public void addTranferstock(HttpServletRequest request, HttpServletResponse resp
  		
  	
  		System.out.println(" Item Name sett - "+b.getFk_item_id_drop1());
- 		
- 		
-
- 		b.setTotal(Double.parseDouble(total));
- 		//b.setGrossTotal(Double.parseDouble(grossTotal));
  		
  		
  		 /* To Update Stock in Stock Table*/
@@ -174,7 +133,7 @@ public void addTranferstock(HttpServletRequest request, HttpServletResponse resp
         	com.rms.hibernate.Stock newEntry = new com.rms.hibernate.Stock();
 			
 			newEntry.setFk_good_received_id(Long.parseLong(pk_item_entry_Id));
-			newEntry.setStock(Double.parseDouble(quantity));
+			newEntry.setStock(Double.parseDouble(stock));
 			newEntry.setItemname(fk_item_id_drop1);
 			newEntry.setUserid(Long.parseLong(userid));
 			newEntry.setUsername(username);
@@ -230,7 +189,7 @@ public void addTranferstock(HttpServletRequest request, HttpServletResponse resp
         			com.rms.hibernate.Stock newEntry = new com.rms.hibernate.Stock();
         			
         			newEntry.setFk_good_received_id(Long.parseLong(pk_item_entry_Id));
-        			newEntry.setStock(Double.parseDouble(quantity));
+        			newEntry.setStock(Double.parseDouble(stock));
         			newEntry.setItemname(fk_item_id_drop1);
         			newEntry.setUserid(Long.parseLong(userid));
         			newEntry.setUsername(username);
@@ -253,7 +212,7 @@ public void addTranferstock(HttpServletRequest request, HttpServletResponse resp
         	com.rms.hibernate.Stock newEntry = new com.rms.hibernate.Stock();
 			
 			newEntry.setFk_good_received_id(Long.parseLong(pk_item_entry_Id));
-			newEntry.setStock(Double.parseDouble(quantity));
+			newEntry.setStock(Double.parseDouble(stock));
 			newEntry.setItemname(fk_item_id_drop1);
 			newEntry.setUserid(Long.parseLong(userid));
 			newEntry.setUsername(username);
@@ -309,7 +268,7 @@ public void addTranferstock(HttpServletRequest request, HttpServletResponse resp
         			com.rms.hibernate.Stock newEntry = new com.rms.hibernate.Stock();
         			
         			newEntry.setFk_good_received_id(Long.parseLong(pk_item_entry_Id));
-        			newEntry.setStock(Double.parseDouble(quantity));
+        			newEntry.setStock(Double.parseDouble(stock));
         			newEntry.setItemname(fk_item_id_drop1);
         			newEntry.setUserid(Long.parseLong(userid));
         			newEntry.setUsername(username);

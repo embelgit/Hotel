@@ -11,8 +11,8 @@ public class TransferStockHibernateBean {
 		private Double buyPrice;
 		private Double saleprice;
 		private Double quantity;
-		private Double total;
-		private Double grossTotal;
+		//private Double total;
+		//private Double grossTotal;
 		private Long pk_item_entry_Id;
 		private Double stock;
 		private Long userid;
@@ -22,7 +22,7 @@ public class TransferStockHibernateBean {
 		
 		
 		public TransferStockHibernateBean(Long pkStoreManagementId, Long fk_item_id, Long fk_item_id1,
-				String fk_item_id_drop1, Double buyPrice,Double quantity, Double total,Double grossTotal, Double stock, Double saleprice, 
+				String fk_item_id_drop1, Double buyPrice,Double quantity, Double stock, Double saleprice, 
 				Long pk_item_entry_Id, Long srNo, Long value, String username, String hotelname, Long hotelid, Long userid) {
 			super();
 			this.pkStoreManagementId = pkStoreManagementId;
@@ -31,8 +31,8 @@ public class TransferStockHibernateBean {
 			this.fk_item_id_drop1 = fk_item_id_drop1;
 			this.buyPrice = buyPrice;
 			this.quantity = quantity;
-			this.total = total;
-			this.grossTotal = grossTotal;
+			//this.total = total;
+			//this.grossTotal = grossTotal;
 			this.stock = stock;
 			this.saleprice = saleprice;
 			this.srNo = srNo;
@@ -94,18 +94,13 @@ public class TransferStockHibernateBean {
 		public void setQuantity(Double quantity) {
 			this.quantity = quantity;
 		}
-		public Double getTotal() {
-			return total;
-		}
-		public void setTotal(Double total) {
-			this.total = total;
-		}
-		public Double getGrossTotal() {
-			return grossTotal;
-		}
-		public void setGrossTotal(Double grossTotal) {
-			this.grossTotal = grossTotal;
-		}
+
+	/*
+	 * public Double getTotal() { return total; } public void setTotal(Double total)
+	 * { this.total = total; } public Double getGrossTotal() { return grossTotal; }
+	 * public void setGrossTotal(Double grossTotal) { this.grossTotal = grossTotal;
+	 * }
+	 */
 		public Long getPk_item_entry_Id() {
 			return pk_item_entry_Id;
 		}

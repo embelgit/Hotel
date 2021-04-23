@@ -79,7 +79,7 @@
 						<th>Buy Price</th>
 						<th>Sale Price</th>
 						<th>Quantity</th>
-						<th>Total</th>
+						<!-- <th>Total</th> -->
 					</tr>
 					</thead>
 					<tbody>
@@ -94,7 +94,7 @@
 						<td class="align"><%=sr.getBuyPrice()%></td>
 						<td class="align"><%=sr.getSaleprice() %></td>
 						<td class="align"><%=sr.getQuantity()%></td>
-						<td class="align"><%=sr.getTotal()%></td>
+						<%-- <td class="align"><%=sr.getTotal()%></td> --%>
 						
 
 					</tr>  

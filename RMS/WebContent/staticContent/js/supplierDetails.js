@@ -64,9 +64,18 @@ function SupplierInfo(){
 		}
 	}
 	if(document.supplierFormName.suplierContact.value ==""){
-		alert("Please Enter Contact number");
+		var letterNo = /^[0-9]{10}$/;
+		if(document.supplierFormName.suplierContact.value.match(letterNo))
+		{
+			
+		}
+		else
+		{
+		alert("Please Enter proper Mobile Number");
 		return false;
+		}
 	}
+
 	if(document.supplierFormName.emailID.value!="")
 	{
 	var checkEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
