@@ -1078,7 +1078,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 					</div>
 				
 				
-				<%-- <script type="text/javascript">
+				<%-- <%-- <script type="text/javascript">
 <!-- ================= Check Duplicate Sub-Category =================== -->
 function checkForDuplicateTableNumber(){
 	
@@ -1120,8 +1120,8 @@ function checkForDuplicateTableNumber(){
 		<%
 		}
 		%>
-	} --%>
-</script>
+	} 
+</script> --%>
 				
  
 
@@ -1140,14 +1140,14 @@ function checkForDuplicateTableNumber(){
 				
 
 
-<%--  function checkForAvailbleCustomer()
+ <%--  function checkForAvailbleCustomer()
 {
 <% CustomerD customerHelper = new  CustomerD()
 List customerList  = customerHelper.getcustomerdetails() %>
 var 
-}	 	
+}	 --%> 	
 </form>
-<script> --%>
+<script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
