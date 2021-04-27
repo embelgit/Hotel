@@ -87,6 +87,8 @@
 	});
 	
 	</script>
+	
+	
 <script>
 	
 $(document).ready(function(){
@@ -163,6 +165,21 @@ $(document).ready(function(){
 
  
 </script>
+<script type="text/javascript">
+
+
+function subcatDetailsDivAction(a)
+	{	
+		if(a==1){
+			$( "#subCategoryDiv" ).dialog({height: 420, width:1000});   	
+	    }else{
+	    	$( "#subCategoryDiv" ).dialog('close');  
+	    }		
+		$('#subcategoryrefresh').load(document.URL +  ' #subcategoryrefresh');
+	}
+	</script>
+
+
 <style type="text/css">
 .bt{
 padding-left:30%;
@@ -1053,7 +1070,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 											style="width: 124px;" id="cancelCustomerBtn"
 											onclick="customerdetailsDivAction(0); emptyCustomerFields();"
 											class="btn btn-large btn-danger btn-md button_hw button_margin_right"
-											style="padding-bottom: 30px;" />
+											;" />
 									</div>
 								</div>
 							</div>
@@ -1061,53 +1078,9 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 					</div>
 				
 				
-				
-				<script type="text/javascript">
-function mypopup(url)
-{
-    /* width = window.screen.width;
-    height = window.screen.height; */
-    width ='1050px';
-    height = '600px';
-    mywindow = window.open(url, "Title","location=0,status=1,scrollbars=1,resizable=1,menubar=0,toolbar=no,width=" + width + ",height=" + height);
-    mywindow.moveTo(140, 50);
-    mywindow.focus();
-} 
- </script>
- 
- <script type="text/javascript">
-	var profiles = {
-		windowCenter : {
-			height : 550,
-			width : 660,
-			status : 1,
-			center : 1
-		},
-	};
-	$(function() {
-		$(".popupwindow").popupwindow(profiles);
-	});
-</script>
-
-<script type="text/javascript">
-
-	
-	
-	function subcatDetailsDivAction(a)
-	{	
-		if(a==1){
-			$( "#subCategoryDiv" ).dialog({height: 420, width:1000});   	
-	    }else{
-	    	$( "#subCategoryDiv" ).dialog('close');  
-	    }		
-		$('#subcategoryrefresh').load(document.URL +  ' #subcategoryrefresh');
-	}
-	
-	
-
-<%-- <script type="text/javascript">
+				<%-- <script type="text/javascript">
 <!-- ================= Check Duplicate Sub-Category =================== -->
-function checkForDuplicateSubCategoryEntry(){
+function checkForDuplicateTableNumber(){
 	
 		<%
 		OrderBillDao dao11 = new OrderBillDao();
@@ -1116,19 +1089,14 @@ function checkForDuplicateSubCategoryEntry(){
 		<%
 		  int x = 0;
 		  for (x = 0; x < list1.size(); x++) {
-			  kitchenorderHibernate bean =(kitchenorderHibernate) list1.get(x);
-			  
+			  kitchenorderHibernate bean = (kitchenorderHibernate) list1.get(x);
 	    %>
-	    
-	    
-	    
-	    
-	    var table_No ="<%=bean.getTableNo()%>";
-	    var tableNo = document.getElementById("tableNo").value;
-		var subCat = "<%=bean.getSubcategoryName()%>";
-		var cat = "<%=bean.getCategoryName()%>";
-		var subcatName=document.getElementById("subcategoryName").value;
-		var catName=document.getElementById("fk_cat_id").value;
+	    var temp = "<%=bean.getPk_temp_id()%>";
+	    var table = "<%=bean.getTableNo()%>";
+	    var tempid=document.getElementById("pk_temp_id").value;
+		var tableNumber=document.getElementById("tableNo").value;
+		
+		
 
 		if(subcatName == subCat && cat == catName)
 		{
@@ -1143,39 +1111,23 @@ function checkForDuplicateSubCategoryEntry(){
 			setTimeout(function() {
 				dialog.modal('hide');
 			}, 1500);
-			document.getElementById("tablenumber").value = "";
-			/* document.getElementById("fk_cat_id1").value = "";
-			document.getElementById("subcategoryName").value = "";
- */
+
+			document.getElementById("pk_temp_id").value = "";
+			document.getElementById("tableNo").value = "";
+
 			return false;
 		   }
 		<%
 		}
 		%>
-	}
-}
+	} --%>
 </script>
+				
+ 
 
-<script type="text/javascript">
 
 
 
-function back()
-{
-	window.close();
-}
-</script>
- <script type="text/javascript">
-	 function productlist()
-	 {
-		 window.location = "productList.jsp";
-	 }
-	 function editProduct() 
-	 {
-		 window.location = "editProductDetails.jsp";
-     }
-</script>
-<script type="text/javascript">
 			
 
 		
@@ -1188,7 +1140,7 @@ function back()
 				
 
 
- function checkForAvailbleCustomer()
+<%--  function checkForAvailbleCustomer()
 {
 <% CustomerD customerHelper = new  CustomerD()
 List customerList  = customerHelper.getcustomerdetails() %>
@@ -1211,7 +1163,7 @@ window.onclick = function(event) {
       var openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
         openDropdown.classList.remove('show');
-      }
+      }  
     }
   }
 }

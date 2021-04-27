@@ -674,6 +674,46 @@ System.out.println("In DAO");
 		
 	}
 	
-	
+	public List getTableNumber(HttpServletRequest request)
+	{
+		HttpSession usersession = request.getSession(true);
+		String userid = (String)usersession.getAttribute("userid");
+		String shopid = (String)usersession.getAttribute("shopid");
+		
+		HibernateUtility hbu=null;
+		Session session=null;
+		
+		List<kitchenorderHibernate> itemlist=null;
+		 List<Object[]> list = null;
+		
+		try
+		{
+				hbu = HibernateUtility.getInstance();
+				session = hbu.getHibernateSession();
+				//Query query=session.createQuery("select invoiceNo , toPay  from ProfarmaDetail  group by invoiceNo order by invoiceNo DESC");
+				//Query query=session.createSQLQuery("select s.pk_subcat_id,s.sub_cat_name,c.cat_name from sub_categories s LEFT Join categories c on c.pk_cat_id=s.fk_cat_id where s.fk_shop_id ='"+shopid+"' ");
+				Query query=session.createSQLQuery("select pk_id ,TableNo from kitchenorder");
+
+				list = query.list();
+				itemlist = new ArrayList<kitchenorderHibernate>(0);
+				
+		 for (Object[] objects : list) {
+			 kitchenorderHibernate bean = new kitchenorderHibernate();
+			 bean.setPk_temp_id(Long.parseLong(objects[0].toString()));
+			 bean.setTableNo(Long.parseLong(objects[1].toString()));
+			 
+			itemlist.add(bean);
+			}
+		 }
+		catch(RuntimeException  e)
+		{
+				
+		}finally
+		{if(session!=null){
+			hbu.closeSession(session);	
+		}
+		}
+		return itemlist;
+	}
 
 }

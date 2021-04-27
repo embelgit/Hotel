@@ -1681,11 +1681,7 @@ public class Controller
 
 				}
 				
-				public String getAllMainCat(HttpServletRequest request, HttpServletResponse response) 
-				{
-					
-				}
-
+				
 				
 				
 				
