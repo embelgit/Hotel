@@ -399,4 +399,8 @@ input:focus ~ .bar:before, input:focus ~ .bar:after{
 width: 50%;
 }
 }
+.form-heading {
+   margin: 35px 27px !important;
+   text-transform: uppercase !important;
+}
 

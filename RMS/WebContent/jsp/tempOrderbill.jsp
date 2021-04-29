@@ -116,7 +116,7 @@
 
 <div class="row">
 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+		<%-- 		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
 <h2 align="center" class="form-heading"><b>Kiosk Bill</b></h2>
 </div>
 	<div class="col-md-12 col-lg-2 col-xl-2 col-sm-12">
@@ -128,9 +128,24 @@
 			</h3>
 </div>
 <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"></div>
-</div>
-
-
+</div> --%>
+<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+			<div class="heading">	
+			<h2 align="center" class="form-heading" ><b>Kiosk Bill</b></h2>
+			</div>
+				<hr>
+		</div>
+		<div class="col-md-12 col-lg-3 col-xl-2 col-sm-12">
+			<h3 style="color: red" align="right">
+				Bill No ::
+		 		<%
+				out.println(orderBill);
+			%> 
+			</h3>
+		</div>
+	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
+		</div>
+		
 <form class="form-horizontal" action="" method="post" name  = "order">
 <div class="row">
 <div class="col-10 col-md-10 col-lg-6 col-sm-10 col-xs-6 col-xl-6">
@@ -181,15 +196,15 @@
 						<input type="text" class="form-control" id="gstAmt" style="font-size:22px;height:35px;" placeholder="Amount" style="font-size: 22px;" readonly="readonly"/>					
 					</div> -->
 					<div class="row form-group"></div>
-	<div class="row form-group" > 
+	               <div class="row form-group"> 
 				
-					<div class="col-md-12  col-sm-12 col-xs-12 col-xl-4 col-lg-4">
-			<div class="">
+					<div class="col-md-12 col-sm-12 col-xs-12 col-xl-4 col-lg-4">
+			        <div class="total-amount">
 						<input type="text" class="form-control" id="totalAmount" readonly="readonly" style="font-size: 18px;" required/>					
 							<label >Grand Total </label>
-				</div>
-			</div>
-		</div>
+				   </div>
+			       </div>
+		          </div>
 	</div>
 	<div class="ibutton">
 	<div class="row" align="center" style="margin-bottom:50px">

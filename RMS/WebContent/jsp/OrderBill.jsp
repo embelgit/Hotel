@@ -40,6 +40,7 @@
     <script type="text/javascript" src="/RMS/staticContent/js/jquery-ui.js"></script>
     <script type="text/javascript" src="/RMS/staticContent/js/jqueryUi.js"></script>
     <script type="text/javascript" src="/RMS/staticContent/js/jquery.jqgrid.min.js"></script>
+     <script type="text/javascript" src="/RMS/staticContent/js/drowpdownlist.js"></script>
     
 <%--     <link rel="stylesheet" href="/RMS/staticContent/css/bootstrap.min.css">
     <link rel="stylesheet" href="/RMS/staticContent/y_css/jquery-ui.css">
@@ -445,7 +446,7 @@ width:auto;
   font-size: 22px;
   user-select: none;
 }
-.dropdown {
+/* .dropdown-list .dropdown {
     position: absolute;
     right: 0;
     top: 3em;
@@ -472,7 +473,7 @@ width:auto;
       transform: scale(1);
     }
   }
-}
+} */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -525,23 +526,28 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 <body>
 
 <div class="row">
+<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 
-<div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-<h2 align="center" class="form-heading"><b>Order Bill</b></h2>
-</div>
-<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-
-			
+       <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+			<div class="heading">	
+			<h2 align="center" class="form-heading" ><b>Order Bill</b></h2>
+			</div>
+				<hr>
 		</div>
-<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-<h3 style="color: red">
+		<div class="col-md-12 col-lg-3 col-xl-2 col-sm-12">
+			<h3 style="color: red" align="right">
 				Bill No ::
 		 		<%
 				out.println(orderBill);
 			%> 
 			</h3>
-</div>
-</div>
+		</div>
+	
+		</div>
+		<div class="row">
+		
+		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
+		</div>
 
 <form class="form-horizontal" action="" method="post" name  = "order">
 		<!-- <h2 align="center" class="form-heading">Order Bill</h2> -->
@@ -699,7 +705,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 				
 					<div class="row" align="center" style="margin-left:50px">		
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="1" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-												  <!-- <div class="dropdown"> -->
+												<div class="dropdown-list"> 
 												<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
 												 <div id="myDropdown" class="dropdown-content">
 												 <a href="orderBill.js" onclick="resBill1()">Print Bill</a>
@@ -707,14 +713,14 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
                                                  </div>
                                                  <h3 style=" margin-bottom: 17px;">1</h3>
-    												<!-- </div> -->
+    											</div>
     												
     											
     												</button>
 											
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="2" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-												<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+												<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction1()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown1" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -725,8 +731,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="3" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction2()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown2" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -737,8 +743,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="4" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction3()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown3" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -754,8 +760,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 				<div class="row " align="center">		
 						<div style="padding-top: 15px;">	
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="5" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction4()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown4" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -766,8 +772,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>											
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="6" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction5()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown5" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -778,8 +784,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="7" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction6()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown6" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -790,8 +796,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="8" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction7()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown7" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -808,8 +814,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 				<div class="row" align="center">		
 					<div style="padding-top: 15px;">
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="9" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction8()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown8" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -820,8 +826,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>											
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="10" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction9()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown9" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -832,8 +838,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="11" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction10()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown10" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -844,8 +850,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="12" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction11()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown11" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -861,8 +867,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 				<div class="row" align="center">		
 					<div style="padding-top: 15px;">		
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="13" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction12()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown12" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -873,8 +879,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>											
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="14" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction13()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown13" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -885,8 +891,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="15" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction14()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown14" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -897,8 +903,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     											
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="16" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">			
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction15()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown15" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -915,8 +921,8 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 				<div class="row" align="center">		
 					<div style="padding-top: 15px;margin-bottom:50px">		
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="17" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction16()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown16" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -928,35 +934,32 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
     												</button>												
 
 
-</button>
+
 					
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="18" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+                         <span style="color: #ffffff; margin-left: 67px;" onclick="myFunction17()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown17" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
                                                  </div>
                                                  <h3 style=" margin-bottom: 17px;">18</h3>
     												<!-- </div> -->
-    												
-    											
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="19" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+       <span style="color: #ffffff; margin-left: 67px;" onclick="myFunction18()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown18" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
                                                  </div>
                                                  <h3 style=" margin-bottom: 17px;">19</h3>
     												<!-- </div> -->
-    												
-    											
+    			
     												</button>						
 						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="20" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
+                                                 <span style="color: #ffffff; margin-left: 67px;" onclick="myFunction19()" class="dropbtn">&#8942;</span>
+												 <div id="myDropdown19" class="dropdown-content">
 												 <a href="orderBill.js">Print Bill</a>
 												 <a href="#about">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
@@ -964,8 +967,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
                                                  <h3 style=" margin-bottom: 17px;">20</h3>
     												<!-- </div> -->
     												
-    											
-    												</button>						
+    											</button>						
 					</div>
 				</div>
 			</div>
@@ -1023,7 +1025,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 					       }
 				        %>
 				   </datalist>
-												</datalist>
+											
 						 
 						
 												
@@ -1075,8 +1077,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 								</div>
 							</div>
 						</div>
-					</div>
-				
+		</form>		
 				
 				<%-- <%-- <script type="text/javascript">
 <!-- ================= Check Duplicate Sub-Category =================== -->
@@ -1123,20 +1124,6 @@ function checkForDuplicateTableNumber(){
 	} 
 </script> --%>
 				
- 
-
-
-
-
-			
-
-		
-				
-				
-	
-		
-				
-				
 				
 
 
@@ -1146,28 +1133,8 @@ function checkForDuplicateTableNumber(){
 List customerList  = customerHelper.getcustomerdetails() %>
 var 
 }	 --%> 	
-</form>
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }  
-    }
-  }
-}
-</script>
+
 </body>
 </html>
 

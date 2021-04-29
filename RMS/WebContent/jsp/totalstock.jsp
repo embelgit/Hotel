@@ -55,10 +55,10 @@
 <body>
 <div class="row">
 		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+			<!-- 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
 			<h2 align="center" class="form-heading"><b>Total Stock</b></h2>
 		</div>
-
+</div> 
 
 <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12">
 <div id="date" align="right">
@@ -69,7 +69,33 @@
 		</script>
 	</div>
 <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"></div>
-</div>
+</div>-->
+
+<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+			<div class="heading">	
+			<h2 align="center" class="form-heading" ><b>Total Stock</b></h2>
+			</div>
+				<hr>
+		</div>
+		
+	
+		</div>
+		<div class="row">
+		<!-- <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"> -->
+		
+			<div class="form-group" align="right" style="margin-right: 331px;">
+					<div id="date">
+						<label id="demo"></label>
+						<script>
+							   var date = new Date();
+							   document.getElementById("demo").innerHTML = date.toDateString();
+							</script>
+					</div>
+			<!-- 	</div> -->
+			</div>
+		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
+		</div>
+
 		<%
 		ItemDetailsDao dao = new ItemDetailsDao();
 		List ilist = dao.getItemNamewiseReport(request);
@@ -77,7 +103,7 @@
 		%>
 		<div class="row">
 			<div class="col-md-12">
-				<hr style="border-top-color: #c1b1b1;">
+			<!-- 	<hr style="border-top-color: #c1b1b1;"> -->
 			</div>
 		</div>
 		<div class="container">

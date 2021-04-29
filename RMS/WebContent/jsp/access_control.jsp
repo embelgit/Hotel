@@ -52,7 +52,10 @@ margin-left:10px
 <div class="row">
 <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+				<div class="heading">	
 		<h2 align="center" class="form-heading"><b>Access Control</b></h2>
+		</div>
+		<hr>
 		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 		</div>
 </div>	

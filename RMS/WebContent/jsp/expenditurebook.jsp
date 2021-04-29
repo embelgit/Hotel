@@ -195,7 +195,7 @@ $(document).ready(function(){
 <body>
 <div class="row">
 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+		<%-- <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
 				<h2 align="center" class="form-heading"><b>Expenditure Payment</b></h2>
 			</div>
 		<div class="col-md-12 col-lg-2 col-xl-2 col-sm-12">
@@ -217,7 +217,38 @@ $(document).ready(function(){
 					</div>
 				
 			</div>	
-	</div>
+	</div> --%>
+	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+			<div class="heading">	
+			<h2 align="center" class="form-heading" ><b>Employee Payment</b></h2>
+			</div>
+				<hr>
+		</div>
+		<div class="col-md-12 col-lg-3 col-xl-2 col-sm-12">
+			<h3 style="color: red" align="right">
+				Transaction ID ::
+                  <%
+				out.println(TransactionID);
+			%> 
+			</h3>
+		</div>
+	
+		</div>
+		<div class="row">
+		<!-- <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"> -->
+		
+			<div class="form-group" align="right" style="margin-right: 331px;">
+					<div id="date">
+						<label id="demo"></label>
+						<script>
+							   var date = new Date();
+							   document.getElementById("demo").innerHTML = date.toDateString();
+							</script>
+					</div>
+			<!-- 	</div> -->
+			</div>
+		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
+		</div>
 <form class="form-horizontal" name="expenditurename"  action="#" method="post">
 <div class="item">
 <div class="row form-group"> 

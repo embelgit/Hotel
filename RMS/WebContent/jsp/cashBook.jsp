@@ -220,27 +220,38 @@ function checkAmt(){
 <body onload="defaultHideElement()">
 <div class="row">
 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
-		<h2  align="center" class="form-heading"><b>Supplier Payment</b></h2>
+				
+<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+			<div class="heading">	
+			<h2 align="center" class="form-heading" ><b>Supplier Payment</b></h2>
+			</div>
+				<hr>
 		</div>
-			<div class="col-md-12 col-lg-2 col-xl-2 col-sm-12">
+		<div class="col-md-12 col-lg-3 col-xl-2 col-sm-12">
 			<h3 style="color: red" align="right">
 				Transaction ID ::
-		 		<%
+                  <%
 				out.println(TransactionID);
 			%> 
 			</h3>
 		</div>
-		<div class="col-md-12 col-lg-2 col-xl-2 col-sm-12">
-		<div id="date" align="right">
+	
+		</div>
+		<div class="row">
+		<!-- <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"> -->
+		
+			<div class="form-group" align="right" style="margin-right: 331px;">
+					<div id="date">
 						<label id="demo"></label>
 						<script>
 							   var date = new Date();
 							   document.getElementById("demo").innerHTML = date.toDateString();
 							</script>
 					</div>
-	</div>
-</div>
+			<!-- 	</div> -->
+			</div>
+		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
+		</div>
 
 
 	<!-- <div class="container-fluid">

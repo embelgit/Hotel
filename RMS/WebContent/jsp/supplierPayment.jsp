@@ -70,14 +70,17 @@
 <div class="row">
 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+				<div class="heading">
 				  		<h2 align="center" class="form-heading"><b>Payment Reports</b></h2>
+				  		</div>
+				  		<hr>
 				  	</div>
 				  	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 			</div>
 	<div class="row" style="min-height:300px;">
     <div  class="col-md-12 col-lg-12 col-12 col-sm-12 col-xs-12 col-xl-12">
       <!--   <h3>Left Tabs</h3> -->
-        <hr/>
+      
         <div class="col-md-2 col-12 col-sm-12 col-lg-2 col-xl-2 col-xs-12 ">
             <ul class="nav nav-tabs tabs-left">
                 <li class="active"><a href="#home" data-toggle="tab" >Supplier Payment Reports</a></li>
@@ -95,10 +98,13 @@
        		<div class="row">
 				  <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"></div>
 				<div class="col-md-12 col-lg-5 col-xl-5 col-sm-12">
+				<div class="heading">
 				  		<h3 align="center" class="form-heading"><b>Supplier Payment Reports</b></h3>
+				  		</div>
 				  	</div>
 				 	<div class="col-md-12 col-lg-1 col-xl-1 col-sm-12"></div>
 			   
+			    
 			    </div>
  	 
  	  <ul class="nav nav nav-tabs">
@@ -366,8 +372,10 @@
 			 <div class="tab-pane" id="employeerp">
 	         	<div class="row">
 				  <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"></div>
-				<div class="col-md-12 col-lg-5 col-xl-5 col-sm-12">
+				<div class="col-md-12 col-lg-6 col-xl-6 col-sm-12">
+				<div class="heading">
 				  		<h2 align="center" class="form-heading"><b>Employee Payment Reports</b></h2>
+				  		</div>
 				  	</div>
 				 	 <div class="col-md-12 col-lg-1 col-xl-1 col-sm-12"></div>
 				 	</div>

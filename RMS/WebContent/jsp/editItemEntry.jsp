@@ -34,7 +34,7 @@
 <body>
 <div class="row">
 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+				<!-- <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
 				<h2 align="center" class="form-heading"><b>Edit Item Details</b></h2>
 			</div>
 			<div class="col-md-12 col-lg-2 col-xl-2 col-sm-12">
@@ -52,6 +52,30 @@
 		</div>
 	</div>
 			<div class="col-md-12 col-lg-2 col-xl-2 col-sm-12">
+		</div> -->
+		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+			<div class="heading">	
+			<h2 align="center" class="form-heading" ><b>Edit Item Details</b></h2>
+			</div>
+				<hr>
+		</div>
+		
+	
+		</div>
+		<div class="row">
+		<!-- <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"> -->
+		
+			<div class="form-group" align="right" style="margin-right: 331px;">
+					<div id="date">
+						<label id="demo"></label>
+						<script>
+							   var date = new Date();
+							   document.getElementById("demo").innerHTML = date.toDateString();
+							</script>
+					</div>
+			<!-- 	</div> -->
+			</div>
+		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 		</div>
 
 		<!-- <div class="row">

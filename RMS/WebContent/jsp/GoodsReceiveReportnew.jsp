@@ -36,7 +36,10 @@
 <div class="row">
 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+				<div class="heading">
 				  		<h2 align="center" class="form-heading"><b>Purchase Report</b></h2>
+				  		</div>
+				  		<hr>
 				  	</div>
 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 </div>
@@ -61,7 +64,7 @@
 				
 		<div class="item">
 	<div class="row form-group"> 
-<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
+   <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
 			
 			<div class="col-md-6  col-md-offset-3 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
 			<div class="invoice_label_up">

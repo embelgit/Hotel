@@ -54,7 +54,12 @@
 <div class="row">
 	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
 				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
-				<h2 align="center" class="form-heading"><b>Transfer Stock</b></h2>
+				<!-- <h2 align="center" class="form-heading"><b>Transfer Stock</b></h2> -->
+				<div class="heading">	
+			<h2 align="center" class="form-heading"><b>Transfer Stock</b></h2>
+			</div>
+				<hr>
+		</div>
 			</div>
 			
 			<div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"></div>

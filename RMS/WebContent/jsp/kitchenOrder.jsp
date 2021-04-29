@@ -117,8 +117,12 @@ $(function worker(){
 <body id="dt_example" style="min-height: 300px;">
 
 	<div class="row">
-		<div align="center">
+	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
+		<!-- <div align="center">
+		<div class="heading">
 			<h2 class="form-name style_heading"><b>Kitchen Order</b></h2>
+			</div>
+			<hr>
 		</div>
 
 		<div class="row">
@@ -128,10 +132,7 @@ $(function worker(){
 		</div>
 	</div>
 
-	               <%   
-	               TempItemDetailDao dao = new TempItemDetailDao();
-						List list12 = dao.getkitchenOrder(request);
-					%>
+	              
 
 	<div id="date">
 		<label id="demo">Date : </label>
@@ -139,8 +140,35 @@ $(function worker(){
 			var date = new Date();
 			document.getElementById("demo").innerHTML = date.toDateString();
 		</script>
-	</div>
-
+	</div> -->
+	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
+			<div class="heading">	
+			<h2 align="center" class="form-heading" ><b>Kitchen Order</b></h2>
+			</div>
+				<hr>
+		</div>
+		
+	
+		</div>
+		<div class="row">
+		<!-- <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"> -->
+		
+			<div class="form-group" align="right" style="margin-right: 331px;">
+					<div id="date">
+						<label id="demo"></label>
+						<script>
+							   var date = new Date();
+							   document.getElementById("demo").innerHTML = date.toDateString();
+							</script>
+					</div>
+			<!-- 	</div> -->
+			</div>
+		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
+		</div>
+               <%   
+	               TempItemDetailDao dao = new TempItemDetailDao();
+						List list12 = dao.getkitchenOrder(request);
+					%>
 	<div id="demo_jui">
 		<table id="list" class="display" align="center" border="1">
 			<thead>
@@ -195,7 +223,7 @@ $(function worker(){
 			</tbody>  
 		</table>
 	</div>
-
+<br>
 	<!-- <div class="wrapper" align="center"  style="padding-bottom: 50px; padding-top: 20px;" >
 		<input style="height: 45px; width: 180; font-size: 25" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Back" id="listBtn" class="btn btn-primary" onclick="Back()" />
 	</div> -->
