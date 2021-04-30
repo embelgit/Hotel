@@ -4,17 +4,22 @@
 	-webkit-box-sizing: border-box;
 	font-family: arial;
 }
-
 body.login-body {
-	 background: url("/RMS/staticContent/images/restaurant5_1400x700.jpg");
-/* 	background-repeat: no-repeat; */
+	background-image: url(/RMS/staticContent/images/restaurant5_1400x700.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 897px;
  
 }
 
 h1.login-heading {
 	color: #fff;
-	text-align: center;
-	font-faimly: icon;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    padding: 8px 0;
+    text-transform: uppercase;
 }
 
 img {
@@ -24,13 +29,11 @@ img {
 }
 
 .login-form {
-	/* width: 350px;
-	padding: 40px 30px; */
-	/* background: rgba(335, 335, 305, 0.5); */
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	margin: 150px auto;
+background: rgb(73 70 70 / 50%);
+    padding: -2px 0;
+    border: 2px solid #fffefe;
+    border-radius: 4px;
+    margin: 149px auto;
 }
 
 .form-group {
@@ -470,13 +473,14 @@ right: 48%;
 input:focus ~ .bar:before, input:focus ~ .bar:after{
 width: 50%;
 } 
-.show-checkbox h4 {
+.show-checkbox lable {
     font-size: 19px;
     font-weight: 700;
     color: #ff0023;
-    display: ;
+  
+  
 }
 .login-checkbox input[type="checkbox"] {
-    margin: -26px 0;
+ /*    margin: -26px 0; */
     /* font-size: 40px; */
 }

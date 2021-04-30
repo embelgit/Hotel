@@ -92,6 +92,8 @@ function reloadPage() {
 
 </head>
 <body class="login-body">
+<div class="container-fluid">
+
 <div class="row ">
 <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 col-xl-4"></div>
 <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 col-xl-4">
@@ -121,19 +123,6 @@ function reloadPage() {
 			<input type="password" class="form-control" required
 				id="Passwod"  value=""> 
 				<label>Password </label>				
-  
-    <script> 
-    // Change the type of input to password or text 
-        function Toggle() { 
-            var temp = document.getElementById("Passwod"); 
-            if (temp.type === "password") { 
-                temp.type = "text"; 
-            } 
-            else { 
-                temp.type = "password"; 
-            } 
-        } 
-</script>
 		</div>
 	</div>
 </div>
@@ -154,13 +143,17 @@ function reloadPage() {
 					<label>Hotel Name </label>
 				</div>	
 			</div>
-			<div class="show-checkbox"  style="color:#009172; font-weight: Ita;">
-				<h4>Show Password</h4> 
-				
-             <div class="login-checkbox">
+			<div class="show-checkbox"  >
+			<div class="col-md-2">
+			  <div class="login-checkbox">
                <input type="checkbox" onclick="Toggle()"    > 
             
     		</div>
+    		</div>
+    		<div class="col-md-8">
+				<lable>Show Password</lable> 
+				</div>
+           
     		</div>
 		</div>
 	</div>
@@ -194,15 +187,6 @@ function reloadPage() {
 				<input type="button" value="Clear" align="right" id="clear" onclick="reloadPage()" class=" btn btn-md btn-lg btn-danger">
 	</div>
 	</div>
-
-		</form>
-	</div>
-		</div>
-		
-	
-<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 col-xl-4"></div>
-</div>
-
 	<div id="myModal" class="modal fade" style="margin: 180px;">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -222,5 +206,27 @@ function reloadPage() {
 			</div>
 		</div>
 	</div>
+
+		</form>
+	</div>
+		</div>
+		
+	
+<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 col-xl-4"></div>
+</div>
+</div>
+
+	 <script> 
+    // Change the type of input to password or text 
+        function Toggle() { 
+            var temp = document.getElementById("Passwod"); 
+            if (temp.type === "password") { 
+                temp.type = "text"; 
+            } 
+            else { 
+                temp.type = "password"; 
+            } 
+        } 
+</script>
 </body>
 </html>

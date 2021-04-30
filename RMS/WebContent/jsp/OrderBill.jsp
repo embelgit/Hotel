@@ -180,7 +180,13 @@ function subcatDetailsDivAction(a)
 	}
 	</script>
 
+<script type="text/javascript">
 
+	 function EditTable() {
+			 window.location = "EditTable.jsp";
+	}
+	
+</script>
 <style type="text/css">
 .bt{
 padding-left:30%;
@@ -709,7 +715,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 												<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
 												 <div id="myDropdown" class="dropdown-content">
 												 <a href="orderBill.js" onclick="resBill1()">Print Bill</a>
-												 <a href="EditTable.jsp">Move Table</a>
+												 <a href="EditTable.jsp" onclick="EditTable()">Move Table</a>
 												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
                                                  </div>
                                                  <h3 style=" margin-bottom: 17px;">1</h3>
