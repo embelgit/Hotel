@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.jfree.util.Log;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -715,5 +717,40 @@ System.out.println("In DAO");
 		}
 		return itemlist;
 	}
+	
+	
+	
+	
+	//getting all product categories for cashbook --> credit customer payment
+	public List<kitchenorderHibernate> getAllMainTableNo(HttpServletRequest request)
+	{
+		HttpSession usersession = request.getSession(true);
+		String userid = (String)usersession.getAttribute("userid");
+		String hotelid = (String)usersession.getAttribute("hotelid");
+		
+		HibernateUtility hbu = null;
+		Session session =  null;
+		Query query = null;
+		 List list = null;
+		 try {
+			 hbu = HibernateUtility.getInstance();
+			 session = hbu.getHibernateSession();
+			 query = session.createQuery("from kitchenorderHibernate where fkhotelid='"+hotelid+"'");
+
+			 list = query.list(); 
+		} catch (RuntimeException e) {
+			Log.error("Error in getAllMainCat", e);
+			
+		}
+		 finally
+		 {
+			 if (session!=null) {
+				hbu.closeSession(session);
+			}
+		 }
+				return list;
+		
+	}
+	//
 
 }
