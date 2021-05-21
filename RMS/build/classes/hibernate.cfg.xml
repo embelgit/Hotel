@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+       <!-- Database connection settings -->
+       <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+       <property name="connection.url">jdbc:mysql://localhost:3306/rms</property>
+       <property name="connection.username">root</property>
+       <property name="connection.password">root</property>
+
+		<!-- <property name="hibernate.validator.autoregister_listeners">false</property>
+		<property name="hibernate.validator.apply_to_ddl">false</property>
+        JDBC connection pool (use the built-in)
+        --><property name="connection.pool_size">10</property>
+        
+   <!--      <property name="hibernate.connection.provider_class">
+             org.hibernate.connection.C3P0ConnectionProvider
+        </property> -->
+
+       <!-- SQL dialect -->
+       <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+       <!-- Disable the second-level cache  -->
+       <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+       <!-- Echo all executed SQL to stdout -->
+       <property name="show_sql">true</property>
+       
+       <!-- <mapping resource="com/rms/hibernate/CreateUser.hbm.xml"/> -->
+       
+       <!-- <mapping resource="com/rms/hibernate/AddWaiters.hbm.xml"/> -->  
+       
+        <!-- <mapping resource="com/rms/hibernate/CategoryDetails.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/SubCategoryDetails.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/AddItem.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/UpdateItem.hbm.xml"/> -->
+        <mapping resource="com/rms/hibernate/PurchaseGood.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/OrderBill.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/ItemEntry.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/GoodsReceiveHibernate.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/ItemDetails.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/SupplierDetailsHibernate.hbm.xml"/>
+      	<mapping resource="com/rms/hibernate/GoodReceived.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/WastageGoods.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/WastageFoods.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/Stock.hbm.xml"/>   
+		<mapping resource="com/rms/hibernate/TempItemDetail.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/CustomerOrder.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/AddWaiters.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/CreateUser.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/StockManagementHibernate.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/StockEntryHibernate.hbm.xml"/>
+		
+		<!-- <mapping resource="com/rms/hibernate/KycInfoHibernate.hbm.xml"/> -->
+		
+		<mapping resource="com/rms/hibernate/newTempItemDetail.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/CashBook.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/CustomerBill.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/CustomerDetails.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/CustomerPayment.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/EmployeeDetails.hbm.xml"/>
+	    <mapping resource="com/rms/hibernate/EmployeePayment.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/ExpenditureDetails.hbm.xml"/> 
+	    <mapping resource="com/rms/hibernate/ExpenditurePayment.hbm.xml"/> 
+	    <mapping resource="com/rms/hibernate/SupplierDetail.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/SupplierPayment.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/PurchaseReturn.hbm.xml" /> 
+        <mapping resource="com/rms/hibernate/CreditCustomerBill.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/GoodReceive.hbm.xml"/>
+        <mapping resource="com/rms/hibernate/feedback.hbm.xml"/>
+          <mapping resource="com/rms/hibernate/UserDetailsBean.hbm.xml"/>
+          
+          <mapping resource="com/rms/hibernate/kitchenorder.hbm.xml"/>
+          <mapping resource="com/rms/hibernate/usercreate.hbm.xml"/>
+          <mapping resource="com/rms/hibernate/hotelname.hbm.xml"/>
+            <mapping resource="com/rms/hibernate/accesscontrolbean.hbm.xml"/>
+           <mapping resource="com/rms/hibernate/banktransaction.hbm.xml" /> 
+            <mapping resource="com/rms/hibernate/bankdetail.hbm.xml"/>
+            <mapping resource="com/rms/hibernate/newexpenditure_payment.hbm.xml"/>
+            <mapping resource="com/rms/hibernate/expenditure.hbm.xml"/>
+            <mapping resource="com/rms/hibernate/TodaySale.hbm.xml"/>
+            <mapping resource="com/rms/hibernate/transferstockHibernate.hbm.xml"/>
+<!--  			<mapping resource="com/rms/hibernate/CustomerD.hbm.xml"/>
+ -->         
+    </session-factory>
+
+</hibernate-configuration>
