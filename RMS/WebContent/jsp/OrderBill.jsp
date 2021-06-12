@@ -28,7 +28,9 @@
 <script src="/RMS/staticContent/js/bootbox.min.js"></script>
 <script src="/RMS/staticContent/js/bootstrap.min.js"></script>
 <script src="/RMS/staticContent/js/bootstrap.js"></script>
-<link rel="stylesheet" href="/RMS/staticContent/css/style.css">
+<!-- <link rel="stylesheet" href="/RMS/staticContent/css/style.css"> -->
+	
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
 	<link rel="stylesheet" href="/RMS/staticContent/css/jquery-ui.min.css">
     <link rel="stylesheet" href="/RMS/staticContent/css/ui.jqgrid.min.css">
@@ -109,7 +111,8 @@ $(document).ready(function(){
         var value ="<%=category.getTableNo()%>";
         var abc = value-1;
 	
-        myList[abc].style.backgroundColor = "green";
+        myList[abc].style.backgroundColor = "#7d5d81";
+        myList[abc].style.borderColor = "#7d5d81";
 
    <%
 	  }
@@ -129,7 +132,7 @@ $(document).ready(function(){
 	var myList = document.getElementsByName("p");
 	for(i=0;i<myList.length;i++){
 	     if(i == xyz){
-	          myList[xyz].style.color = "red";
+	          myList[xyz].style.color = "#ead24c";
          } 
 	     else{
 	    	 myList[i].style.color = "white";
@@ -145,7 +148,7 @@ $(document).ready(function(){
 	var myList = document.getElementsByName("p");
 	for(i=0;i<myList.length;i++){
 	     if(i == xyz){
-	          myList[xyz].style.color = "red";
+	          myList[xyz].style.color = "#ead24c";
          } 
 	     else{
 	    	 myList[i].style.color = "white";
@@ -172,7 +175,7 @@ $(document).ready(function(){
 function subcatDetailsDivAction(a)
 	{	
 		if(a==1){
-			$( "#subCategoryDiv" ).dialog({height: 420, width:1000});   	
+			$( "#subCategoryDiv" ).dialog({height: 520, width:1000});   	
 	    }else{
 	    	$( "#subCategoryDiv" ).dialog('close');  
 	    }		
@@ -188,9 +191,15 @@ function subcatDetailsDivAction(a)
 	
 </script>
 <style type="text/css">
-.bt{
-padding-left:30%;
+/* .bt {
+	padding-left:30%;
+} */
+
+.col-sm-offset-1 {
+	margin-left: 4%;
 }
+
+/*
 li a {
 	font-weight: 600;
 	text-decoration: none;
@@ -451,7 +460,7 @@ width:auto;
   transition: all 0.2s $cubic-in;
   font-size: 22px;
   user-select: none;
-}
+} */
 /* .dropdown-list .dropdown {
     position: absolute;
     right: 0;
@@ -495,10 +504,226 @@ width:auto;
   text-decoration: none;
   display: block;
 }
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+	* {
+		font-family: 'Poppins', sans-serif;
+	}
+
+	body {
+		background: #131D28;
+	}
+	
+	#start {
+		margin-left: 75px; 
+		transition: margin-left 500ms;
+	}
+	
+	#wrapper.toggled ~ #start {
+		margin-left: 240px !important; 
+	}
+	
+	#wrapper.toggled ~ #foot {
+		left: 240px !important;  
+		padding-left: 335px;
+	}
+	
+	.form-heading {
+		color: #fff;
+	}
+	
+	 .display-date {
+	 	float: right; 
+	 	margin-right: 30px; 
+	 	margin-top: 10px;  
+	 	color: #f00;
+	 }
+	
+	.form-background {
+		background: #0B1218;
+    	position: relative;
+    	padding: 20px;
+	}
+	
+	form .form-group {
+		position: relative;
+		margin: 30px 30px;
+		float: center;
+	}
+	
+	.form-group input {
+		width: 100%;
+		padding: 0 5px;
+		height: 40px;
+		font-size: 16px;
+		border: none;
+		outline: none;
+		background: none !important;
+		color: #fff;
+	}
+	
+	.form-group label {
+		position: absolute;
+		top: 50%;
+		left: 23px;
+		color: #fff;
+		transform: translateY(-50%);
+		font-size: 16px;
+		pointer-events: none;
+		transition: .5s;
+	}
+	
+	.form-group select{
+		width: 100%;
+		padding: 0px 5px;
+		height: 40px;
+		font-size: 16px;
+		border: none;
+		outline: none;
+		background: none !important;
+		color: #fff;
+		font-weight: 900;
+	}
+	
+	.op-bg {
+		background-color: black;
+	}
+	
+	.form-group span:before {
+		content:'';
+		position: absolute;
+		top: 40px;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: #00aabb;
+	}
+	
+	.form-group input:focus ~ label,
+	.form-group input:valid ~ label,
+	.form-group input:read-only ~ label,
+	.form-group select:focus ~ label,
+	.form-group select:valid ~ label,
+	.form-group input[type="date"]:invalid ~ label {
+		top: -5px;
+		color: #00e3a2;
+	}
+	
+	.table-responsive .ui-jqgrid-bdiv {
+		height: 175px !important;
+	}
+	
+	.ibutton input[type="button"],[type="reset"]{
+		width: 200px;
+		padding-left: 40px;
+		padding-bottom: 7px;
+		margin-top: 28px;
+		margin-left:20px;
+	}
+	
+	.cust {
+		position: absolute;
+		margin-left: 38px;
+		margin-top: 35px;
+		font-size: 30px;
+		color: #fff;
+	}
+	
+	.ibutton .row {
+    	margin-left: -30px;
+	}
+	
+	.godbtn i {
+		font-size: 20px;
+		color: #00aabb;
+	}
+	
+	.godbtn button {
+		background-color: #000;
+		float: right;
+		border-color: #00aabb;
+		padding: 4px;
+	}
+	
+	.row1 .btn {
+		height:100px;
+		width:100px;
+		padding: 10px;
+		margin: 5px;
+	}
+	
+	.row1 span {
+		color: #ffffff; 
+		margin-left: 67px;
+	}
+	
+	.row1 h3 {
+		margin-bottom: 17px;
+		margin-top: 5px;
+	}
+	
+	#customerdetailsDiv {
+		display: none;
+   	 	background-color: #000;
+   	 	width: 300px;
+	}
+	
+	
+	.ui-helper-clearfix:before{
+    	content: "Add Coustomer Details";
+    	display: block;
+    }
+    
+    .ui-helper-clearfix span {
+    	display: none;
+    }
+    
+    ::-webkit-calendar-picker-indicator {
+    	filter: invert(1);
+	}
+	
+	@media ( max-width : 1200px) {
+		#wrapper.toggled ~ #start {
+			width: 1184px;
+		}
+	}
+	
+	@media ( max-width : 992px) {
+		#wrapper.toggled ~ #start {
+    		width: 1094px;
+    	}
+		
+		.form-group label {
+    		left: 1px;
+    	}
+    	
+    	.row1 .btn {
+    		height: 90px;    		
+    		width: 90px;
+    	}
+    }
+	
+	@media ( max-width : 767px) {
+		#wrapper.toggled ~ #start { 
+			width: 966px !important;
+		}
+	}
+	
+	@media (max-width: 580px) {
+		#wrapper.toggled ~ #start {
+    		width: 966px;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		#wrapper.toggled ~ #start {
+    		width: 963px;
+		}
+	}
+	
 </style>
 
 </head>
-
 
 <!-- 
 CustomerOrderDao dao1 = new CustomerOrderDao();
@@ -512,6 +737,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 		orderBill++;
 	}
  -->
+
  <% 
 	Long orderBill = 1l;
 %>
@@ -529,487 +755,393 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
  %>  
 
 
-<body>
-
-<div class="row">
-<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-
-       <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
-			<div class="heading">	
-			<h2 align="center" class="form-heading" ><b>Order Bill</b></h2>
+<body> 
+	<div id="start">
+		<div class="row">
+			<div class="col-md-6 col-lg-6 col-xl-6 col-sm-6">
+				<div class="heading">	
+					<h2 align="center" class="form-heading" ><b>Order Bill</b></h2>
+				</div>
 			</div>
-				<hr>
-		</div>
-		<div class="col-md-12 col-lg-3 col-xl-2 col-sm-12">
-			<h3 style="color: red" align="right">
-				Bill No ::
-		 		<%
-				out.println(orderBill);
-			%> 
-			</h3>
-		</div>
-	
 		</div>
 		<div class="row">
-		
-		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-		</div>
-
-<form class="form-horizontal" action="" method="post" name  = "order">
-		<!-- <h2 align="center" class="form-heading">Order Bill</h2> -->
-<div class="row form-group"> 
-		<div class="col-lg-6  col-md-12 col-sm-12 col-xs-12 col-xl-6">	
-		<div class="item">	
-			<div class="col-md-6  col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-			<div class="invoice_label_up">
-						<%
-						ItemEntryDao itemEntryDao = new ItemEntryDao();
-						List iList= itemEntryDao.getAllItemsEntriesForOrderBill(request);
-						
-						%>
-					
-						 <input list="fk_item_id_drop" id="fk_item_id" autofocus="fk_item_id" required class="form-control" onchange="tableValidation(); return shree(); return false"/>
-					<!--  <input list="fk_item_id_drop" id="fk_item_id" autofocus="fk_item_id"  class="form-control" onchange="getItemDetailById(); "> -->
-					 <datalist id="fk_item_id_drop">
-				
-						<%
-						for(int i=0;i<iList.size();i++){
-						ItemEntry itemEntry = (ItemEntry)iList.get(i);
-					//	GoodsReceiveBean goodrecieve = (GoodsReceiveBean)iList.get(i);
-						%>
-				
-					<option data-value="<%=itemEntry.getPk_item_entry_Id()%>" value="<%=itemEntry.getItemName() %> - <%=itemEntry.getValue()%> <%=itemEntry.getUnit()%>">
-				        <%
-					       }
-				        %>
-				   </datalist>
-					<label style="font-size: 18px;">Item : </label>
-					
-					</div>
-				</div>
-					
-		 <div class="col-md-6  col-sm-12 col-xs-12 col-xl-2 col-lg-2">
-			<div class="invoice_label_up">
-						<input type="text" class="form-control" id="table_No"   required onchange="getItemDetailByTable1(); Activechange();" />
-							<label style=" font-size: 18px;">Table : <sup>*</sup></label>
-					</div>	
-				</div>
-			 <div class="col-md-6  col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-			<div class="invoice_label_up">
-						<%
-						AddWaitersDao wList = new AddWaitersDao();
-						List waiterList= wList.getAllWaitersList(request);
-						
-						%>
-					
-						<input type="text" class="form-control" list="waiterList" id="waiterName" name="waiterName" required  />
-						
-						 <datalist id="waiterList">
-				
-						<%
-						for(int i=0;i<waiterList.size();i++){
-						AddWaiters waiter = (AddWaiters)waiterList.get(i);
-						%>
-				
-					<option data-value="<%=waiter.getPkAddWaiterId()%>" value="<%=waiter.getFirstName()%> <%=waiter.getLastName()%>">
-				        <%
-					       }
-				        %>
-				   </datalist>
-						<label style= "font-size: 18px;"> Waiter : <sup>*</sup></label>
-					</div>	
-				</div>
-		
-		<!-- 		
-		 <div class="col-md-6  col-sm-12 col-xs-12 col-xl-4 col-lg-4">
-			<div class="invoice_label_up">
-						<input type="text" class="form-control"  id="customerdetails" onclick="customerdetails" name="customerdetails" required  />
-							<label style=" font-size: 18px;">Customer Details : <sup>*</sup></label>
-					</div>	
-				</div>
-				 -->
-				
-				
-				<form action="" class="form-horizontal" method="post" name="Customer">			
-		 <div class="col-md-6  col-sm-12 col-xs-12 col-xl-4 col-lg-4 customerdetails" id="customerdetailslist">
-			<div class="invoice_label_up">
-						<select id='customerdetails' name='customerdetails' required></select><span
-						class="customer"><label>Customer Details : <sup>*</sup></span>	<span class ="godbtn">
-			<button type="button" onclick="customerdetailsDivAction(1);">
-							<i class ="glyphicon glyphicon-plus" style="color: #0078ae; font-size: 18px;"></i>
-							</button>
-							</span>
-						
-					</div>	
-				</div>
-				
-			
-				
-<div class="conatiner">
-	<div class="row">
-			<!-- Order bill data table -->
-
-			 <div class="col-md-12 col-12 col-lg-12 col-xl-12 col-sm-12 col-xs-12">
-				<div class="table-responsive" >
-					<table id="list" ></table>
-					<div id="jqGridPager"></div>
-										
-				</div> 
+			<div class="display-date">
+				<h3>
+					Bill No ::
+		 			<%
+						out.println(orderBill);
+					%> 
+				</h3>
 			</div>
 		</div>
-	</div>
-				
-<!-- </div> -->		
-			
-		 
-					<!-- <div class="col-md-2">
-							<label class="control-label" style="font-size: 22px;" >GST % : </label>
-					</div>
-					<div class="col-sm-2">
-						<input type="text" class="form-control" id="gst" style="font-size:16px; height:35px;" placeholder="GST %" style="font-size: 20px;" onchange="gstCal()"/>					
-					</div>
-					<div class="col-md-2">
-						<label class="control-label" style="font-size: 22px;" >GST Amount</label>
-					</div>
-					<div class="col-sm-2">
-						<input type="text" class="form-control" id="gstAmt" style="font-size:16px; height:35px;" placeholder="GST Amount" style="font-size: 20px;" readonly="readonly"/>					
-					</div> -->
-					<div class="row form-group"></div>
-	<div class="row form-group"> 
-		<div class="col-lg-7  col-md-12 col-sm-12 col-12 col-xs-12 col-xl-7">		
-			
-			<div class="col-md-6  col-sm-12 col-xs-12 col-xl-5 col-lg-5">
-			<div class="">
-						<input type="number" class="form-control" id="totalAmount"  readonly="readonly" style= "font-size: 18px;"/>
-						<label>Grand Total </label>
+		<div class= "row">
+			<form class="form-horizontal" action="" method="post" name="order">
+				<div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 col-xl-6">	
+					<div class="form-background">
+						<div class="row form-group"> 
+							<div class="col-md-2  col-sm-2 col-xs-2 col-xl-2 col-lg-2 col-sm-offset-1">
+								<div class="invoice_label_up">
+									<%
+										ItemEntryDao itemEntryDao = new ItemEntryDao();
+										List iList= itemEntryDao.getAllItemsEntriesForOrderBill(request);	
+									%>
+						 				<input list="fk_item_id_drop" id="fk_item_id" autofocus="fk_item_id" required onchange="tableValidation(); return shree(); return false">
+										<!--  <input list="fk_item_id_drop" id="fk_item_id" autofocus="fk_item_id"  class="form-control" onchange="getItemDetailById(); "> -->
+										<datalist id="fk_item_id_drop">
+									<%
+										for(int i=0;i<iList.size();i++){
+											ItemEntry itemEntry = (ItemEntry)iList.get(i);
+											//	GoodsReceiveBean goodrecieve = (GoodsReceiveBean)iList.get(i);
+									%>
+											<option data-value="<%=itemEntry.getPk_item_entry_Id()%>" value="<%=itemEntry.getItemName() %> - <%=itemEntry.getValue()%> <%=itemEntry.getUnit()%>">
+				        			<%
+					       				}
+				       				 %>
+				  				 		</datalist>
+				  				 		<span></span>
+								 		<label>Item</label>
+								</div>
+							</div>
+							<div class="col-md-2 col-sm-2 col-xs-2 col-xl-2 col-lg-2 col-sm-offset-1">
+								<div class="invoice_label_up">
+									<input type="text" id="table_No" required onchange="getItemDetailByTable1(); Activechange();" />
+									<span></span>
+									<label>Table <sup>*</sup></label>
+								</div>	
+							</div>
+							<div class="col-md-2  col-sm-2 col-xs-2 col-xl-2 col-lg-2 col-sm-offset-1">
+								<div class="invoice_label_up">
+									<%
+										AddWaitersDao wList = new AddWaitersDao();
+										List waiterList= wList.getAllWaitersList(request);
+									%>
+									<input type="text" list="waiterList" id="waiterName" name="waiterName" required  />
+						 			<datalist id="waiterList">
+									<%
+										for(int i=0;i<waiterList.size();i++){
+											AddWaiters waiter = (AddWaiters)waiterList.get(i);
+									%>
+											<option data-value="<%=waiter.getPkAddWaiterId()%>" value="<%=waiter.getFirstName()%> <%=waiter.getLastName()%>">
+				       				<%
+					       				}
+				       				%>
+				   					</datalist>
+				   					<span></span>
+									<label> Waiter <sup>*</sup></label>
+								</div>	
+							</div>
+		 					<div class="col-md-3 col-sm-2 col-xs-2 col-xl-4 col-lg-4 col-sm-offset-1 customerdetails" id="customerdetailslist">
+								<div class="invoice_label_up">
+									<select id='customerdetails' name='customerdetails' required></select>
+									<span></span>
+									<!-- <span class="customer"> --><label>Customer Details <sup>*</sup></label><!-- </span> -->
+		
+								</div>	
+							</div>
 						</div>
-					</div> 
+						<span class ="godbtn">
+							<button type="button" onclick="customerdetailsDivAction(1);">
+								<i class ="las la-plus"></i>
+							</button>
+						</span>
+						<div class="conatiner">
+							<div class="row">
+							<!-- Order bill data table -->
+			 					<div class="col-md-12 col-12 col-lg-12 col-xl-12 col-sm-12 col-xs-12">
+			 						<br>
+									<div class="table-responsive" >
+										<table id="list" ></table>
+										<div id="jqGridPager"></div>						
+									</div> 
+								</div>
+							</div>
+						</div>
+						<div class="row form-group"> 
+							<div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 col-xl-6">		
+								<div class="col-md-6  col-sm-6 col-xs-6 col-xl-6 col-lg-6 col-sm-offset-1">
+									<div class="">
+										<input type="number" id="totalAmount"  readonly="readonly"/>
+										<span></span>
+										<label class="totallabel">Grand Total</label>
+									</div>
+								</div> 
+							</div>
+						</div>	
+						<div class="ibutton" style="padding-bottom:50px;">
+							<div class="row" align="center">	
+								<i class="las la-edit la-2x cust"></i>
+								<input type="button" class="btn btn-lg btn-success btn-md" id="order" onclick="orderbilling(); return false;" value="Order"/>
+								<i class="las la-print la-2x cust"></i>
+								<input type="button" class="btn btn-lg btn-primary btn-md"  onclick="resBill(); return false;" id="print" value="Print Bill"/>
+							</div>
+							<div class="row" align="center">	
+								<i class="las la-eraser la-2x cust"></i>
+								<input type="reset" class="btn btn-lg btn-danger btn-md" value="Clear" onclick="reloadPage()" />
+								<i class="las la-concierge-bell la-2x cust"></i>
+								<input type="button" class="btn btn-lg btn-warning btn-md" onclick="orderkitchen()" value="Kitchen Order" />
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-
+		    	<div class="col-md-6 col-sm-12 col-xs-12 col-lg-6 col-xl-6">
+		    		<div class="form-background">
+						<h4 align="center" style="color: #fff;">Select Table</h4>
+						<div class="row" align="center" style="margin-top: 30px;">
+							<div class="row1">			
+								<button class="btn btn-primary" name="p" value="1" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list"> 
+										<span onclick="myFunction()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown" class="dropdown-content">
+											<a href="orderBill.js" onclick="resBill1()">Print Bill</a>
+											<a href="EditTable.jsp" onclick="EditTable()">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+										</div>
+										<h3>1</h3>
+    								</div>
+    							</button>			
+								<button class="btn btn-primary" name="p" value="2" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction1()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown1" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                		</div>
+                                		<h3>2</h3>
+                            		</div>
+    							</button>
+								<button class="btn btn-primary" name="p"  value="3" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction2()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown2" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                    	</div>
+                                    	<h3>3</h3>
+    								</div>		
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="4" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction3()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown3" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                    	</div>
+                                    	<h3>4</h3>
+    								</div>				
+    							</button>						
+							</div>
+						</div>
+						<div class="row " align="center">		
+							<div class="row1">	
+								<button class="btn btn-primary" name="p"  value="5" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">	
+										<span onclick="myFunction4()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown4" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>5</h3>
+    								</div>				
+    							</button>											
+								<button class="btn btn-primary" name="p"  value="6" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction5()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown5" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>6</h3>
+    								</div>										
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="7" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction6()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown6" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>7</h3>
+    								</div>
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="8" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction7()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown7" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>8</h3>
+    								</div>			
+    							</button>						
+							</div>
+						</div>
+						<div class="row" align="center">		
+							<div class="row1">
+								<button class="btn btn-primary" name="p"  value="9" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction8()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown8" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>9</h3>
+    								</div>
+    							</button>											
+								<button class="btn btn-primary" name="p"  value="10" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction9()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown9" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>10</h3>
+    								</div>		
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="11" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction10()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown10" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>11</h3>
+    								</div>			
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="12" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction11()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown11" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>12</h3>
+    								</div>
+    							</button>						
+							</div>
+						</div>
+						<div class="row" align="center">		
+							<div class="row1">		
+								<button class="btn btn-primary" name="p"  value="13" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction12()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown12" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>13</h3>
+    								</div>			
+    							</button>											
+								<button class="btn btn-primary" name="p"  value="14" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction13()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown13" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>14</h3>
+    								</div>			
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="15" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction14()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown14" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>15</h3>
+    								</div>			
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="16" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">			
+									<div class="dropdown-list">
+										<span onclick="myFunction15()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown15" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>16</h3>
+    								</div>			
+    							</button>						
+							</div>
+						</div>
+						<div class="row" align="center">		
+							<div class="row1" style="margin-bottom:50px">		
+								<button class="btn btn-primary" name="p"  value="17" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+									<div class="dropdown-list">
+										<span onclick="myFunction16()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown16" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>17</h3>
+    								</div>
+    							</button>												
+								<button class="btn btn-primary" name="p"  value="18" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+                         			<div class="dropdown-list">
+                         				<span onclick="myFunction17()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown17" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                       	</div>
+                                        <h3>18</h3>
+    								</div>
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="19" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+       								<div class="dropdown-list">
+       									<span onclick="myFunction18()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown18" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>19</h3>
+    								</div>	
+    							</button>						
+								<button class="btn btn-primary" name="p"  value="20" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
+                                	<div class="dropdown-list">
+                                		<span onclick="myFunction19()" class="dropbtn">&#8942;</span>
+										<div id="myDropdown19" class="dropdown-content">
+											<a href="orderBill.js">Print Bill</a>
+											<a href="#about">Move Table</a>
+											<a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
+                                        </div>
+                                        <h3>20</h3>
+    								</div>
+    							</button>						
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>	
 	</div>
-		<div class="bt" >
-	
-		<input type="button" class="btn btn-primary btn-lg" id="order" onclick="orderbilling(); return false;" value="Order" style="margin-right: 3px;"/>
-
-		<input type="button" class="btn btn-lg btn btn-success"  onclick="resBill(); return false;" id="print" value="Print Bill" style="margin-right: 3px;"/>
-	
-<!-- 		 <input type="button" class="btn btn-danger btn-lg"  onclick="reloadPage() return false" value="Clear" style="margin-right: 3px;"/>
- -->		<input type="reset" class="btn btn-lg btn-danger btn-md button_hw button_margin_right" value="Clear" onclick="reloadPage()" />
-		 
-
-		<input type="button" style="width:150px;"  class="btn btn-primary btn-lg" onclick="orderkitchen()" value="Kitchen Order" style="margin-left: 3px;"/>
-	
-						
-					<!-- 	<button style="width:150px; margin-left:25px" class="btn btn-danger btn-lg" type="reset"  name="btn" value="Reset" onclick="reloadPage()">Reset</button> -->
-			</div>	
-	</div>
-
-		
-			<div class="col-md-12 col-12 col-sm-12 col-xs-12 col-lg-5 col-xl-5">
-			<h4 align="center" style="color: purple;">Select Table</h4>
-				
-					<div class="row" align="center" style="margin-left:50px">		
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="1" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-												<div class="dropdown-list"> 
-												<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown" class="dropdown-content">
-												 <a href="orderBill.js" onclick="resBill1()">Print Bill</a>
-												 <a href="EditTable.jsp" onclick="EditTable()">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">1</h3>
-    											</div>
-    												
-    											
-    												</button>
-											
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="2" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-												<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction1()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown1" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">2</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="3" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction2()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown2" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">3</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="4" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction3()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown3" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">4</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-					
-			
-			
-				<div class="row " align="center">		
-						<div style="padding-top: 15px;">	
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="5" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction4()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown4" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">5</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>											
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="6" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction5()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown5" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">6</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="7" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction6()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown6" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">7</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="8" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction7()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown7" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">8</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-					</div>
-				</div>
-				
-
-				<div class="row" align="center">		
-					<div style="padding-top: 15px;">
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="9" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction8()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown8" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">9</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>											
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="10" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction9()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown9" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">10</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="11" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction10()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown10" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">11</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="12" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction11()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown11" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">12</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-					</div>
-				</div>
-				
-				<div class="row" align="center">		
-					<div style="padding-top: 15px;">		
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="13" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction12()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown12" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">13</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>											
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="14" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction13()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown13" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">14</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="15" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction14()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown14" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">15</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="16" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">			
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction15()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown15" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">16</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>						
-				</div>
-				</div>
-				
-
-				<div class="row" align="center">		
-					<div style="padding-top: 15px;margin-bottom:50px">		
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="17" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-<span style="color: #ffffff; margin-left: 67px;" onclick="myFunction16()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown16" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">17</h3>
-    												<!-- </div> -->
-    												
-    											
-    												</button>												
-
-
-
-					
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="18" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-                         <span style="color: #ffffff; margin-left: 67px;" onclick="myFunction17()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown17" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">18</h3>
-    												<!-- </div> -->
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="19" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-       <span style="color: #ffffff; margin-left: 67px;" onclick="myFunction18()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown18" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">19</h3>
-    												<!-- </div> -->
-    			
-    												</button>						
-						<button class="btn btn-primary" name="p" style="height:100px;width:100px;padding: 10px;" value="20" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
-                                                 <span style="color: #ffffff; margin-left: 67px;" onclick="myFunction19()" class="dropbtn">&#8942;</span>
-												 <div id="myDropdown19" class="dropdown-content">
-												 <a href="orderBill.js">Print Bill</a>
-												 <a href="#about">Move Table</a>
-												 <a href="OrderBill.jsp" onclick="reloadPage()">Clear</a>
-                                                 </div>
-                                                 <h3 style=" margin-bottom: 17px;">20</h3>
-    												<!-- </div> -->
-    												
-    											</button>						
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	</div>
-
-				<!-- <div class="row" style="margin-top: 30px">
-					<div class="col-md-2" style="margin-left: 330px">
-						<label class="control-label" style="font-size: 22px;">Grand Total </label>
-					</div>
-					<div class="col-sm-2">
-						<input type="number" class="form-control" id="grndtotalAmount" style="font-size:16px; height:35px;" placeholder="Grand Total" style="font-size: 18px;" readonly="readonly"/>
-					</div> 
-				</div> -->
-
-		
-		
-
-		
-		<div class ="container" id="customerdetailsDiv"
-				style="display: none;">
-				<div class="popup">
-				<div class="row">
-				<h2>Add Customer Details</h2>
-				</div>
-				<div class="containeer" style="width:auto;margin: 0;">
-				<div class="row col-md-offset-1">
-				<div class ="popup_label_up">
-				
-				<div class="col-md-4 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div id="categoryListForSubCat">
-				<input list="fkcustomerId" id="fkcustomerId"
-					name="fkcustomerId" style="background: #f0f0f0" required>
-						<datalist id="fkcustomerList">
-												<%-- 	<% 
+	<div class ="container" id="customerdetailsDiv">
+		<div class="popup">
+			<form action="" class="form-horizontal" method="post" name="Customer">	
+				<div class="container" style="width: auto; margin: 0;">
+					<div class="row form-group">
+						<div class ="popup_label_up">	
+							<div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+								<div id="categoryListForSubCat">
+									<input list="fkcustomerId" id="fkcustomerId" name="fkcustomerId" required>
+									<datalist id="fkcustomerList">
+									<%-- 	<% 
 														for (int i = 0; i < catList.size(); i++) {
 															CustomerDetailsHibernate cat = (CustomerDetailsHibernate) catList.get(i);
 													%>
@@ -1019,73 +1151,51 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 															}
 														%> 
 													 --%>
-													
-	
-						<%
-						for(int i=0;i<waiterList.size();i++){
-						AddWaiters waiter = (AddWaiters)waiterList.get(i);
-						%>
-				
-					<option data-value="<%=waiter.getPkAddWaiterId()%>" value="<%=waiter.getFirstName()%> <%=waiter.getLastName()%>">
-				        <%
-					       }
-				        %>
-				   </datalist>
-											
-						 
-						
-												
-
-												<label>Customer Name</label>
-											</div>
-										</div>
-									</div>
-									<div class="popup_label_up">
-										<div class="col-md-4 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-
-											<input type="date" list="customerDOB" id="customerDOB"
-												name="customerDOB" onchange="cheakForcustomer()"
-												style="background: #f0f0f0" required>
-											
-
-											<tr><label>DOB</label></tr>
-										</div>
-									</div>
-									</div>
-									
-									
-										<div class="popup_label_up">
-										<div class="col-md-4 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-
-											<input list="customerNumber" id="customerNumber"
-												name="customerNumber"  maxlength="10"  required  pattern="[0-9]{10,10}" onchange="cheakForcustomer()"
-												style="background: #f0f0f0" required>
-											<tr><label>Mobile Number</label></tr>
-										</div>
-									</div>
-									
-								</div>
-								<input type="hidden" value="POPUPSUBCATDATAILS"  id="popUpSubCatJspId" />
-								<div class="row customerbtn">
-									<div class="col-md-2 col-sm-3 col-xs-3 col-lg-2 col-xl-3">
-										<input type="button" name="customerBtn1" id="save"
-											style="width: 124px;" onclick="valcustomer();" value="Save"
-											class="btn btn-success" />
-									</div>
-
-									<div class="col-md-2 col-lg-2">
-										<input type="button" value="Cancel" name="cancelCustomerBtn"
-											style="width: 124px;" id="cancelCustomerBtn"
-											onclick="customerdetailsDivAction(0); emptyCustomerFields();"
-											class="btn btn-large btn-danger btn-md button_hw button_margin_right"
-											;" />
-									</div>
+									<%
+										for(int i=0;i<waiterList.size();i++){
+										AddWaiters waiter = (AddWaiters)waiterList.get(i);
+									%>
+										<option data-value="<%=waiter.getPkAddWaiterId()%>" value="<%=waiter.getFirstName()%> <%=waiter.getLastName()%>">
+				        			<%
+					       				}
+				        			%>
+				   					</datalist>
+				   					<span></span>
+									<label>Customer Name</label>
 								</div>
 							</div>
 						</div>
-		</form>		
-				
-				<%-- <%-- <script type="text/javascript">
+						<div class="popup_label_up">
+							<div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+								<input type="date" list="customerDOB" id="customerDOB" name="customerDOB" onchange="cheakForcustomer()" required>
+								<span></span>
+								<label>DOB</label>
+							</div>
+						</div>
+						<div class="popup_label_up">
+							<div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+								<input list="customerNumber" id="customerNumber" name="customerNumber"  maxlength="10"  required  pattern="[0-9]{10,10}" onchange="cheakForcustomer()" required>
+								<span></span>
+								<label>Mobile Number</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="row ibutton">
+							<div class="popup_label_up">
+								<div class="col-md-3 col-sm-3 col-xs-3 col-xl-3 col-lg-3">			
+									<input type="hidden" value="POPUPSUBCATDATAILS"  id="popUpSubCatJspId" />
+								</div>
+							</div>  
+							<i class="las la-save la-2x cust"></i>	
+							<input type="button" name="customerBtn1" id="save" style="width: 124px;" onclick="valcustomer();" value="Save" class="btn btn-lg btn-success btn-md" />
+							<i class="las la-times la-2x cust"></i>
+							<input type="button" value="Cancel" name="cancelCustomerBtn" style="width: 124px;" id="cancelCustomerBtn" onclick="customerdetailsDivAction(0); emptyCustomerFields();" class="btn btn-lg btn-danger btn-md" />
+						</div>
+					</div>
+				</div>	
+			</form>
+			<%-- <%-- <script type="text/javascript">
 <!-- ================= Check Duplicate Sub-Category =================== -->
 function checkForDuplicateTableNumber(){
 	
@@ -1138,9 +1248,9 @@ function checkForDuplicateTableNumber(){
 <% CustomerD customerHelper = new  CustomerD()
 List customerList  = customerHelper.getcustomerdetails() %>
 var 
-}	 --%> 	
-
-
+}	 --%> 
+		</div>
+	</div>
 </body>
 </html>
 

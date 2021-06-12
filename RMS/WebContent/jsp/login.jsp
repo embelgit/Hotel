@@ -81,7 +81,7 @@ function reloadPage() {
 		}
 		else
 		{
-			alert("Please Enter Appropriate Credentails ! ");
+			alert("Please Enter Appropriate Credentials ! ");
 			location.reload();
 			return false;
 		}
@@ -92,129 +92,61 @@ function reloadPage() {
 
 </head>
 <body class="login-body">
-<div class="container-fluid">
-
-<div class="row ">
-<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 col-xl-4"></div>
-<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 col-xl-4">
-<div class="login-form">
-	<!-- <div class="login-form"> -->
-		<h1 class="login-heading">Login</h1>
-		<form id="myModal"   method="post">
-		
-		<div class="item">			
-	<div class="row form-group"> 
-         <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">	
-         <div class="col-md-12  col-sm-12 col-xs-12 col-xl-10 col-lg-10">
-			<div class="">
-			<input type="text" class="form-control" required
-				id="UserName" onchange="gethotel()" autofocus=""> 
-				<label>Username </label>
-		</div>
-	</div>
-	</div>
-</div>
-
-			
-	<div class="row"> 
-         <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">	
-         <div class="col-md-12  col-sm-12 col-xs-12 col-xl-10 col-lg-10">
-			<div class="">
-			<input type="password" class="form-control" required
-				id="Passwod"  value=""> 
-				<label>Password </label>				
-		</div>
-	</div>
-</div>
-</div>
-
-		<%-- <%
-		loginHelper log = new loginHelper();
-		List list1 = log.getUsers();
-		%> --%>
-			
-	<div class="row "> 
-         <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">	
-         <div class="col-md-12  col-sm-12 col-xs-12 col-xl-10 col-lg-10">
-			<div class="">
-				<div class="">
-								<select class="form-control input-md" id='hotelname_id'  name="hotelname_id" placeholder="Select Hotel">
-					</select>
-					<label>Hotel Name </label>
-				</div>	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="login-form">
+				<img class="user" src="/RMS/staticContent/images/user.png">
+				<h1 class="login-heading">Login</h1>
+				<form id="myModal"   method="post">
+					<div class="item">			
+						<div class="form-group"> 
+         					<input type="text" required id="UserName" onchange="gethotel()"> 
+							<span></span>
+							<label>Username</label>
+						</div>
+						<div class="form-group"> 
+         					<input type="password" required id="Passwod"  value=""> 
+         					<span></span>
+         					<label>Password</label>									
+         				</div>
+						<div class="form-group"> 
+         					<select class="input-md" id='hotelname_id'  name="hotelname_id"></select>
+         					<span></span>
+         					<label for="hotelname_id">Hotel Name</label>
+         				</div>
+						<div class="login-checkbox ">
+							<input type="checkbox" onclick="Toggle()" id="showpass">
+               				<label for="showpass">Show Password</label> 
+						</div>
+					</div>
+					<div class="ibutton">
+						<div class="row" align="center" style="margin-bottom:70px">		 
+							<input type="button" align="left" value="Login" id="save" onclick="login()"  class=" btn btn-md btn-lg btn-success"> 
+							<input type="button" align="right" value="Clear" id="clear" onclick="reloadPage()" class=" btn btn-md btn-lg btn-danger">
+						</div>
+					</div>
+					<div id="myModal" class="modal fade" style="margin: 180px;">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								dialog body
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title" style="color: red;">
+										<b>Error!</b>
+									</h4>
+									<hr color="red"></hr>
+									<h5>Invalid user name and password.</h5>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-dismiss="modal" style="background: #D63333;">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
-			<div class="show-checkbox"  >
-			<div class="col-md-2">
-			  <div class="login-checkbox">
-               <input type="checkbox" onclick="Toggle()"    > 
-            
-    		</div>
-    		</div>
-    		<div class="col-md-8">
-				<lable>Show Password</lable> 
-				</div>
-           
-    		</div>
-		</div>
+		</div>	
 	</div>
-	</div>
-	</div>
-				<%-- <input list="hotelname" class="form-control"  id="hotelname_id" name="hotelname" placeholder="Select Hotel Name"/>
-						
-						 <datalist id="hotelname">
-				
-						<%
-						for(int i=0;i<list1.size();i++){
-							usercreateBean user = (usercreateBean)list1.get(i);
-						%>
-				
-					<option data-value="<%=user.getPk_create_user_id()%>" value="<%=user.getPk_create_user_id()%> <%=user.getHotelname()%>">
-				     
-				        <%
-					       }
-				        %>
-				   </datalist> --%>
-						
-	<!--		<input type="password" class="form-control" placeholder="Select Hotel Name"
-				id="Passwod"> <i class="fa fa-lock"></i>-->
-		 
-		
-		<!-- <input type="checkbox" name="" class="btn-lg" value=""><span
-			class="rememberMe">Remember Me</span> <a class="link" href="#"><br>Forgot password?</a> -->
-		<div class="ibutton">
-	<div class="row" align="center" style="margin-bottom:70px">		 
-			<input type="button" align="left" value="Login" onclick="login()" id="save" class=" btn btn-md btn-lg btn-success"> 
-				<input type="button" value="Clear" align="right" id="clear" onclick="reloadPage()" class=" btn btn-md btn-lg btn-danger">
-	</div>
-	</div>
-	<div id="myModal" class="modal fade" style="margin: 180px;">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<!-- dialog body -->
-				<div class="modal-body">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title" style="color: red;">
-						<b>Error!</b>
-					</h4>
-					<hr color="red"></hr>
-					<h5>Invalid user name and password.</h5>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal"
-						style="background: #D63333;">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-		</form>
-	</div>
-		</div>
-		
-	
-<div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 col-xl-4"></div>
-</div>
-</div>
 
 	 <script> 
     // Change the type of input to password or text 
@@ -227,6 +159,7 @@ function reloadPage() {
                 temp.type = "password"; 
             } 
         } 
-</script>
+	</script>
+
 </body>
 </html>

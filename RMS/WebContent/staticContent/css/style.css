@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
 body {
-	background-image: url("/RMS/staticContent/images/1.jpg");
+	/* background-image: url("/RMS/staticContent/images/1.jpg"); */
+	background: /* #f1f5f9 */ #131D28;
 }
 
 .mm{
@@ -52,8 +59,8 @@ body {
 	font-size: 16px;
 	font: bold;
 }
-
-	@charset "ISO-8859-1";
+/* 
+	@charset "ISO-8859-1"; */
 
 
  *{

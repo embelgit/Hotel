@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="/RMS/staticContent/css/bootstrap.min.css">
 		<script src="/RMS/staticContent/js/bootstrap.min.js"></script>
 		<script src="/RMS/staticContent/js/bootstrap.js"></script>
-		<link rel="stylesheet" href="/RMS/staticContent/css/style.css">
+		<!-- <link rel="stylesheet" href="/RMS/staticContent/css/style.css"> -->
 		
 		<script type="text/javascript" src="/RMS/staticContent/js/selectjj.js"></script>
 		<!-- <script type="text/javascript" src="/RMS/staticContent/js/buttom.js"></script> -->
@@ -91,6 +91,96 @@ $(function worker(){
 // end  
 });
 </script> -->
+<style type="text/css">
+	
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+	* {
+		font-family: 'Poppins', sans-serif;
+	}
+
+	body {
+		background: #131D28;
+	}
+	
+	#start {
+		margin-left: 75px; 
+		transition: margin-left 500ms;
+	}
+	
+	#wrapper.toggled ~ #start {
+		margin-left: 240px !important; 
+	}
+	
+	#wrapper.toggled ~ #foot {
+		left: 240px !important;  
+		padding-left: 335px;
+	}
+	
+	.form-heading {
+		color: #fff;
+	}
+	
+	 .display-date {
+	 	float: right; 
+	 	margin-right: 50px; 
+	 	margin-top: 10px; 
+	 	color: #fff;
+	 }
+	
+	.form-background {
+		background: #0B1218;
+    	position: relative;
+    	padding: 20px;
+	}
+	
+	.ibutton input[type="button"] {
+		width: 150px;
+		padding-left: 40px;
+		padding-bottom: 7px;
+		margin-top: 28px;
+		margin-left:20px;
+	}
+	
+	.cust {
+		position: absolute;
+		margin-left: 38px;
+		margin-top: 35px;
+		font-size: 30px;
+		color: #fff;
+	}
+	
+	@media ( max-width : 1200px) {
+		#wrapper.toggled ~ #start {
+			width: 1184px;
+		}
+	}
+	
+	@media ( max-width : 992px) {
+		#wrapper.toggled ~ #start {
+    		width: 1094px;
+    	}
+    }
+	
+	@media ( max-width : 767px) {
+		#wrapper.toggled ~ #start { 
+			width: 966px !important;
+		}
+	}
+	
+	@media (max-width: 580px) {
+		#wrapper.toggled ~ #start {
+    		width: 966px;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		#wrapper.toggled ~ #start {
+    		width: 963px;
+		}
+	}
+	
+</style>
 
 	
 </head>
@@ -114,10 +204,9 @@ $(function worker(){
 			});
 	</script>  
 
-<body id="dt_example" style="min-height: 300px;">
-
-	<div class="row">
-	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
+<body id="dt_example">
+	<div id="start"> 
+		<div class="row">
 		<!-- <div align="center">
 		<div class="heading">
 			<h2 class="form-name style_heading"><b>Kitchen Order</b></h2>
@@ -141,98 +230,86 @@ $(function worker(){
 			document.getElementById("demo").innerHTML = date.toDateString();
 		</script>
 	</div> -->
-	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
-			<div class="heading">	
-			<h2 align="center" class="form-heading" ><b>Kitchen Order</b></h2>
+			<div class="col-md-6 col-lg-6 col-xl-6 col-sm-6">
+				<div class="heading">	
+					<h2 align="center" class="form-heading" ><b>Kitchen Order</b></h2>
+				</div>
 			</div>
-				<hr>
 		</div>
-		
-	
-		</div>
-		<div class="row">
-		<!-- <div class="col-md-12 col-lg-2 col-xl-2 col-sm-12"> -->
-		
-			<div class="form-group" align="right" style="margin-right: 331px;">
+		<div class="form-background">
+			<div class="row">
+				<div class="display-date">
 					<div id="date">
 						<label id="demo"></label>
 						<script>
-							   var date = new Date();
-							   document.getElementById("demo").innerHTML = date.toDateString();
-							</script>
+							var date = new Date();
+							document.getElementById("demo").innerHTML = date.toDateString();
+						</script>
 					</div>
-			<!-- 	</div> -->
+				</div>
 			</div>
-		<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-		</div>
-               <%   
-	               TempItemDetailDao dao = new TempItemDetailDao();
-						List list12 = dao.getkitchenOrder(request);
-					%>
-	<div id="demo_jui">
-		<table id="list" class="display" align="center" border="1">
-			<thead>
-				<tr>
-<!-- 					<th>No</th>
- -->					<th>Table No</th>	
-					<th>Item Name</th>
-					<th>Quantity</th>
-					<th>Value</th>
-					<th>Unit</th>
-					<!-- <th>Cooking Status</th>
-					<th>Submit</th> -->
-				</tr>
-			</thead>
-	
-	 		<tbody>
-				
-				<%
-				int num =1;
-					for(int i=0;i<list12.size();i++){
-						TempItemDetail sr=(TempItemDetail)list12.get(i);
-
-						
+			<br>
+            <%   
+	        	TempItemDetailDao dao = new TempItemDetailDao();
+				List list12 = dao.getkitchenOrder(request);
+			%>
+			<div id="demo_jui">
+				<table id="list" class="display" align="center" border="1">
+					<thead>
+						<tr>
+<!-- 						<th>No</th>
+ -->						<th>Table No</th>	
+							<th>Item Name</th>
+							<th>Quantity</th>
+							<th>Value</th>
+							<th>Unit</th>
+					<!-- 	<th>Cooking Status</th>
+							<th>Submit</th> -->
+						</tr>
+					</thead>
+	 				<tbody>
+						<%
+							int num =1;
+							for(int i=0;i<list12.size();i++){
+								TempItemDetail sr=(TempItemDetail)list12.get(i);
 						%>
-
-				<tr>
-						
-					<td class="align"><%=sr.getTableNo() %></td>
-					<td class="align"><%=sr.getItemName()%></td>
-					<td class="align"><%=sr.getQuantity()%></td>
-					<td class="align"><%=sr.getValue()%></td>
-					<td class="align"><%=sr.getUnit()%></td>
-	 	 	<!-- <td>
-		 	<input type="radio" name="cooking" id="cooked">
-    		<label for="cooked">Cooked</label>
-    		<br><br>
-    		<input type="radio" name="cooking" id="un-cooked">
-    		<label for="un-cooked">Un-cooked</label>
-
-    		</td> -->
-	<!-- 	<td>
-			<input style="height: 45px; width: 180; font-size: 20" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Save" id="submit" class="btn btn-primary" onclick="save()" />			
+						<tr>
+							<td class="align"><%=sr.getTableNo() %></td>
+							<td class="align"><%=sr.getItemName()%></td>
+							<td class="align"><%=sr.getQuantity()%></td>
+							<td class="align"><%=sr.getValue()%></td>
+							<td class="align"><%=sr.getUnit()%></td>
+					   <!-- <td>
+		 						<input type="radio" name="cooking" id="cooked">
+    							<label for="cooked">Cooked</label>
+    							<br><br>
+    							<input type="radio" name="cooking" id="un-cooked">
+    							<label for="un-cooked">Un-cooked</label>
+    						</td> -->
+					   <!-- <td>
+								<input style="height: 45px; width: 180; font-size: 20" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Save" id="submit" class="btn btn-primary" onclick="save()" />			
 				
-		</td> --> 
-				
-				</tr>
-
-						
-				<%
-					}
-				%>  
-			</tbody>  
-		</table>
+							</td> --> 	
+						</tr>
+						<%
+							}
+						%>  
+					</tbody>  
+				</table>
+			</div>
+			<br>
+	   <!-- <div class="wrapper" align="center"  style="padding-bottom: 50px; padding-top: 20px;" >
+				<input style="height: 45px; width: 180; font-size: 25" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Back" id="listBtn" class="btn btn-primary" onclick="Back()" />
+			</div> -->
+			<div class="ibutton" style="padding-bottom:50px;">
+				<div class="row" align="center">
+					<i class="las la-edit la-2x cust"></i>
+					<input type="button" class="btn btn-lg btn-success btn-md" name="btn" value="Order" onclick="deltorder()">	
+  				</div>
+  			</div>
+  		</div>
 	</div>
-<br>
-	<!-- <div class="wrapper" align="center"  style="padding-bottom: 50px; padding-top: 20px;" >
-		<input style="height: 45px; width: 180; font-size: 25" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Back" id="listBtn" class="btn btn-primary" onclick="Back()" />
-	</div> -->
-	<div class="row" align="center" style="padding-bottom:50px">		
-	<input type="button" class="btn btn-lg btn-success btn-md " name="btn" value="Order" onclick="deltorder()">		
-	
-  </div>
 </body>
-
 </html>
 
 <%@include file="common/newFooter.jsp"%>

@@ -33,7 +33,7 @@
 .footer {
    position: fixed;
    left: 0;
-   Z-INDEX: 999;
+   Z-INDEX: 999; 
    bottom: 0;
    width: 100%;
    /* background-color: #B4041B; */

@@ -576,29 +576,81 @@ table, th, td {
 </html>  --%>
 
 	<%@page import="java.util.Calendar"%>
-<%
+	<%
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 	%>
 
 <style>
 .footer {
    position: fixed;
-   left: 0;
+   left: /* 240 */ 75px;
    bottom: 0;
    width: 100%;
    /* background-color: #B4041B; */
-       color: black;
+    color: black;
     font-size: 15px;
-    text-align: center;
-    background: #00aabb;
-    z-index:99999;
-    
+    /* text-align: center; */
+    background: /* #00aabb; */ #ead24c;
+    padding-left: /* 325px */400px;
+    transition: left 500ms;
+    /* z-index:99999; */   
 }
+
+p {
+	padding-top: 10px;
+}
+
+@media ( max-width : 1200px) {
+	.footer {
+   		padding-left: 345px;
+	}
+	
+	#wrapper.toggled ~ #foot {
+    	padding-left: 365px;
+    }
+}
+
+@media (max-width: 992px) {
+	.footer {
+    	padding-left: 260px;
+	}
+	#wrapper.toggled ~ #foot {
+    	padding-left: 345px;
+	}
+}
+
+@media (max-width: 767px) {
+	.footer {
+    	padding-left: 220px !important;
+	}
+	#wrapper.toggled ~ #foot {
+    	padding-left: 310px !important;
+	}
+}
+
+@media (max-width: 580px) {
+	.footer {
+    	padding-left: 210px !important;
+	}
+	#wrapper.toggled ~ #foot {
+    	padding-left: 320px !important;
+	}
+}
+
+@media (max-width: 480px) {
+	.footer {
+   		padding-left: 215px !important;
+	}
+	#wrapper.toggled ~ #foot {
+    	padding-left: 325px !important;
+	}
+}
+
 </style>
 </head>
 <body>
-<div class="footer" >
-  <p><b>Copyright © <%=year%> Embel Technologies Pvt. Ltd.              <a target="blank" href="http://www.embel.co.in" style="color: black; size: 15px">www.embel.co.in</a></b></p>
+<div class="footer" id="foot">
+  <p><b>Copyright © <%=year%> Embel Technologies Pvt. Ltd. <a target="blank" href="http://www.embel.co.in" style="color: black; size: 15px">www.embel.co.in</a></b></p>
 </div>
 
 </body>

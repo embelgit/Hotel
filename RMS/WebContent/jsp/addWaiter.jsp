@@ -12,7 +12,7 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Add waiter</title>
+	<title>Add Waiter</title>
 
 <!-- All CSS files -->
 
@@ -26,7 +26,7 @@
      <link rel="stylesheet" href="/RMS/staticContent/css/ui.jqgrid.css">
   <!--   <link href="/RMS/staticContent/css/header.css"> -->
    <!--   <link rel="stylesheet" href="/RMS/staticContent/css/style.css"> -->     
-	 <link href="/RMS/staticContent/css/style.css" rel="stylesheet">	
+	<!--  <link href="/RMS/staticContent/css/style.css" rel="stylesheet">	 -->
 	 <!-- All CSS files -->
 	 
 	 	 <script type="text/javascript" src="/RMS/staticContent/js/jquery-1.12.3.min.js"></script>
@@ -92,7 +92,7 @@
 		}
 	</script>	
 	
-<script type="text/javascript">
+	<script type="text/javascript">
 		
 		function isNumberKey(evt,id)
 		{
@@ -185,175 +185,311 @@
 			}
 					
 			</script>  	
+	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+	* {
+		font-family: 'Poppins', sans-serif;
+	}
+
+	body {
+		background: #131D28;
+	}
 	
+	#start {
+		margin-left: 75px; 
+		transition: margin-left 500ms;
+	}
+	
+	#wrapper.toggled ~ #start {
+		margin-left: 240px !important; 
+	}
+	
+	#wrapper.toggled ~ #foot {
+		left: 240px !important;  
+		padding-left: 335px;
+	}
+	
+	.form-heading {
+		color: #fff;
+	}
+
+	.form-background {
+		background: #0B1218;
+		top: 20px;
+    	position: relative;
+    	padding: 20px;
+	}
+	
+	form .form-group {
+		position: relative;
+		margin: 30px 30px;
+		float: center;
+	}
+	
+	.form-group input {
+		width: 100%;
+		padding: 0 5px;
+		height: 40px;
+		font-size: 16px;
+		border: none;
+		outline: none;
+		background: none;
+		color: #fff;
+	}
+	
+	.form-group label {
+		position: absolute;
+		top: 50%;
+		left: 23px;
+		color: #fff;
+		transform: translateY(-50%);
+		font-size: 16px;
+		pointer-events: none;
+		transition: .5s;
+	}
+	
+	.form-group select{
+		width: 100%;
+		padding: 0px 5px;
+		height: 40px;
+		font-size: 16px;
+		border: none;
+		outline: none;
+		background: none !important;
+		color: #fff;
+		font-weight: 900;
+	}
+	
+	.op-bg {
+		background-color: black;
+	}
+	
+	.form-group span:before {
+		content:'';
+		position: absolute;
+		top: 40px;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: #00aabb;
+	}
+	
+	.form-group input:focus ~ label,
+	.form-group input:valid ~ label,
+	.form-group input[type="date"]:invalid ~ label {
+		top: -5px;
+		color: #00e3a2;
+	}
+	
+	.ibutton input[type="button"],[type="reset"]{
+		width: 140px;
+		padding-left: 40px;
+		padding-bottom: 7px;
+		margin-top: 28px;
+		margin-left:20px;
+	}
+	
+	.cust {
+		position: absolute;
+		margin-left: 38px;
+		margin-top: 35px;
+		font-size: 30px;
+		color: #fff;
+	}
+	
+	.ibutton .row {
+    	margin-left: -30px;
+	}
+	
+	::-webkit-calendar-picker-indicator {
+    	filter: invert(1);
+	}
+	
+	@media ( max-width : 1200px) {
+		#wrapper.toggled ~ #start {
+			width: 1184px;
+		}
+	}
+	
+	@media ( max-width : 992px) {
+		#wrapper.toggled ~ #start {
+    		width: 1094px;
+    	}
+    }
+	
+	@media ( max-width : 767px) {
+		#wrapper.toggled ~ #start { 
+			width: 966px !important;
+		}
+	}
+	
+	@media (max-width: 580px) {
+		#wrapper.toggled ~ #start {
+    		width: 966px;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		#wrapper.toggled ~ #start {
+    		width: 963px;
+		}
+	}
+
+</style>
 	
 </head>
 <body>
-<div class="row">
-	<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-				<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12">
-	<div class="heading">	
-		<h2 align="center" class="form-heading"><b>Add Employee</b></h2>
-		</div>
-		<hr>
-		</div>
-			<div class="col-md-12 col-lg-4 col-xl-4 col-sm-12"></div>
-	</div>
-			<form action="" class="form-horizontal" method="post" name="Waiter">
-			
-
-<div class="item">			
-	<div class="row form-group"> 
-         <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">	
-         <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-			<div class="invoice_label_up">
-						<input type="text" class="form-control" id="waiterId"  onchange="checkforDuplicateWaiterID()" required autofocus="autofocus" />
-						<label>ID :<sup>*</sup> </label>
-					</div>
+	<div id="start">
+		<div class="row">
+			<div class="col-md-6 col-lg-6 col-xl-6 col-sm-6">
+				<div class="heading">	
+					<h2 align="center" class="form-heading"><b>Add Employee</b></h2>
 				</div>
 			</div>
 		</div>
-				
-				
-
-	<div class="row form-group"> 
-         <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
-			
-			<div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-2 col-lg-2">
-			<div class="invoice_label_up">
-						<input type="text" class="form-control" id="firstName" required onkeyup=""  />
-						<label >First Name:<sup>*</sup> </label>
-			</div>
-		</div>
-		<div class="col-md-6 col-sm-12 col-xs-12 col-xl-1 col-lg-1"></div>
-		<div class="col-md-6   col-sm-12 col-xs-12 col-xl-2 col-lg-2">
-			<div class="invoice_label_up">			
-						<input type="text" class="form-control" id="middleName"  required />
-						<label >Middle Name:<sup>*</sup></label>
-					</div>
-			</div>
-		<div class="col-md-6 col-sm-12 col-xs-12 col-xl-1 col-lg-1"></div>
-		<div class="col-md-6   col-sm-12 col-xs-12 col-xl-2 col-lg-2">
-			<div class="invoice_label_up">
-						<input type="text" class="form-control" id="lastName"  onchange="checkForDuplicateWaiterEntry()" required />
-						<label >Last Name:<sup>*</sup></label>
-					</div>
-					</div>					
-				</div>
-			</div>
-<div class="row form-group"> 
-      <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
-			
-		 <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<!-- <input type="text" class="form-control"  id="mobileNo" maxlength="10" pattern="[0-9]{10,10}" placeholder="Mobile Number" onkeyup="" required /> -->
-			<input list="mobileNo" id="mobileNo" maxlength="10" name="mobileNo" class="form-control" required  pattern="[0-9]{10,10}" title="Mobile number must 10 digit." />		
-				<label>Mobile Number:<sup>*</sup></label>
-			</div>
-		</div>
-		<div class="col-md-6 col-sm-12 col-xs-12 col-xl-1 col-lg-1"></div>
-		 <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<input type="email" class="form-control" id="emailId"  onkeyup="" required />
-						<label >Email ID :</label>
-					</div>
-			</div>				 
-	  </div>
-</div>
-<div class="row form-group"> 
-      <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
-			
-		 <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<input type="date" class="form-control" id="dob" required onkeyup="" />
-						<label>DOB : </label>
-						
-					</div>
-					</div>							 
-				</div>
-			</div>	
-								
-			
-				
-<div class="row form-group"> 
-      <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
-			
-		 <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<input type="date" class="form-control" id="joiningDate" required onkeyup="" />
-						<label >Joining Date : </label>
+		<div class="form-background">
+			<form action="" class="form-horizontal" method="post" name="Waiter">			
+				<div class="row form-group"> 
+         			<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">	
+         				<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<input type="text" id="waiterId"  onchange="checkforDuplicateWaiterID()" required autofocus="autofocus" />
+								<span></span>
+								<label>ID <sup>*</sup></label>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-6 col-sm-12 col-xs-12 col-xl-1 col-lg-1"></div>
-			<div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<!-- <div class="input-group">
-							<span class="input-group-addon">Rs</span> -->
-							<input type="text" class="form-control"   maxlength="8"  id="salary" required onkeyup="" />
-		
-							<label >Salary:<sup>*</sup></label>
-						<!-- </div> -->
-					</div>				 
+				<div class="row form-group"> 
+         			<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
+						<div class="col-md-2  col-md-offset-1 col-sm-offset-1 col-sm-2 col-xs-2 col-xl-2 col-lg-2">
+							<div class="invoice_label_up">
+								<input type="text" id="firstName" required onkeyup=""  />
+								<span></span>
+								<label>First Name <sup>*</sup> </label>
+							</div>
+						</div>
+						<div class="col-md-2  col-md-offset-1 col-sm-offset-1 col-sm-3 col-xs-3 col-xl-2 col-lg-2">
+							<div class="invoice_label_up">			
+								<input type="text" id="middleName" required />
+								<span></span>
+								<label>Middle Name <sup>*</sup></label>
+							</div>
+						</div>
+						<div class="col-md-2  col-md-offset-1 col-sm-offset-1 col-sm-2 col-xs-2 col-xl-2 col-lg-2">
+							<div class="invoice_label_up">
+								<input type="text" id="lastName"  onchange="checkForDuplicateWaiterEntry()" required />
+								<span></span>
+								<label>Last Name <sup>*</sup></label>
+							</div>
+						</div>					
+					</div>
 				</div>
-			</div>
-		</div>		
-				
-				
-<div class="row form-group"> 
-      <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
-			
-		 <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<input type="text" class="form-control" id="address" required onkeyup="" />
-							<label >Address :<sup>*</sup></label>
+				<div class="row form-group"> 
+      				<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
+						 <div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+						   <!-- <input type="text" class="form-control"  id="mobileNo" maxlength="10" pattern="[0-9]{10,10}" placeholder="Mobile Number" onkeyup="" required /> -->
+								<input list="mobileNo" id="mobileNo" maxlength="10" name="mobileNo" required  pattern="[0-9]{10,10}" title="Mobile number must 10 digit." />		
+								<span></span>
+								<label>Mobile Number <sup>*</sup></label>
+							</div>
+						</div>
+					 	<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<input type="email" id="emailId"  onkeyup="" required />
+								<span></span>
+								<label>Email ID</label>
+							</div>
+						</div>				 
+	  				</div>
+				</div>
+				<div class="row form-group"> 
+      				<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
+						 <div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<input type="date" id="dob" required onkeyup="" />
+								<span></span>
+								<label>DOB</label>	
+							</div>
+						</div>							 
+					</div>
+				</div>	
+				<div class="row form-group"> 
+      				<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
+						 <div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<input type="date" id="joiningDate" required onkeyup="" />
+								<span></span>
+								<label>Joining Date</label>
+							</div>
+						</div>
+						<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<!-- <div class="input-group">
+								<span class="input-group-addon">Rs</span> -->
+								<input type="text" maxlength="8"  id="salary" required onkeyup="" />
+								<span></span>
+								<label>Salary <sup>*</sup></label>
+								<!-- </div> -->
+							</div>				 
+						</div>
+					</div>
+				</div>		
+				<div class="row form-group"> 
+      				<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
+						<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<input type="text" id="address" required onkeyup="" />
+								<span></span>
+								<label>Address <sup>*</sup></label>
+							</div>								 
+						</div>
+						<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<input type="text" id="city" required onkeyup=""  />
+								<span></span>
+								<label>City</label>
+							</div>								 
+						</div>
+					</div>
+				</div>	
+				<div class="row form-group"> 
+      				<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
+						<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<input type="text" maxlength="6" id="zip" pattern="[0-9]{6,6}" required onkeyup=""/>
+								<span></span>
+								<label>Zip Code</label>
+							</div>
+						</div>								
+					 	<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
+							<div class="invoice_label_up">
+								<input type="text" id="state" required onkeyup=""   />
+								<span></span>
+								<label>State</label>
+							</div>
+						</div>
 					</div>								 
-				</div>
-				<div class="col-md-6 col-sm-12 col-xs-12 col-xl-1 col-lg-1"></div>
-		 <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<input type="text" class="form-control" id="city" required onkeyup=""  />
-						<label>City : </label>
-					</div>								 
-				</div>
-			</div>
-		</div>	
-<div class="row form-group"> 
-      <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">		
-			
-		 <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<input type="text" maxlength="6" class="form-control" id="zip" pattern="[0-9]{6,6}" required onkeyup=""/>
-						<label>Zip Code :</label>
+				</div>	
+				<div class="ibutton" style="margin-bottom:50px">
+					<div class="row" align="center">	
+						<i class="las la-save la-2x cust"></i>
+						<input type="button" class="btn btn-lg btn-success btn-md"   name="createbtn" title="Submit filled Information" onclick="addWaiter(); return false;" value="Create"/>
+						<!-- <input type="button" value="Edit" class="btn btn-primary" title="Submit filled Information" onclick=" EditWaiter();"/> -->
+						<i class="las la-redo-alt la-2x cust"></i>
+						<input type="reset" class="btn btn-lg btn-danger btn-md" title="Submit filled Information" value="Reset"/>
+						<i class="las la-edit la-2x cust"></i>
+						<input type="reset" class="btn btn-lg btn-primary btn-md" title="Submit filled Information"  onclick="EditWaiter()" value="Edit"/>
+						<!-- <button type="reset" class="btn btn-primary" title="Submit filled Information" onclick="ListWaiter()">List</button> -->
+						<i class="las la-clipboard-list la-2x cust"></i>
+						<input type="reset" class="btn btn-lg btn-warning btn-md" title="Submit filled Information"  onclick="ListWaiter()" value="List"/>
 					</div>
-					</div>								 
-				<div class="col-md-6 col-sm-12 col-xs-12 col-xl-1 col-lg-1"></div>
-				
-				 <div class="col-md-6  col-md-offset-1 col-sm-12 col-xs-12 col-xl-3 col-lg-3">
-				<div class="invoice_label_up">
-						<input type="text" class="form-control" id="state" required onkeyup=""   />
-						<label>State : </label>
-					</div>
-				</div>
-			</div>								 
-		</div>	
-	</div>
-<div class="ibutton">
-	<div class="row" align="center" style="margin-bottom:10px ; padding-bottom:35px">	
-					<input type="button" class="btn btn-lg btn-success"   name="createbtn" title="Submit filled Information" onclick="addWaiter(); return false;" value="Create"/>
-				
-					<!-- <input type="button" value="Edit" class="btn btn-primary" title="Submit filled Information" onclick=" EditWaiter();"/> -->
-					<input type="reset" class="btn btn-lg btn-danger" title="Submit filled Information" value="Reset"/>
-					
-					<input type="reset" class="btn btn-lg btn btn-primary" title="Submit filled Information"  onclick="EditWaiter()" value="Edit"/>
-					
-					<!-- <button type="reset" class="btn btn-primary" title="Submit filled Information" onclick="ListWaiter()">List</button> -->
-		
-					<input type="reset" class="btn btn-lg btn btn-primary" title="Submit filled Information"  onclick="ListWaiter()" value="List"/>
-				</div>
-			</div>
-				
+				</div>	
 			</form>			
-
+		</div>
+	</div>
 </body>
 </html>
 
