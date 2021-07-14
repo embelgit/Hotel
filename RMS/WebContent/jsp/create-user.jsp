@@ -108,10 +108,16 @@ function Editcreateuser(){
 	 }
 	
 	.form-background {
-		background: #0B1218;
-		top: 20px;
+		/* background: #0B1218;
+    	position: relative;
+    	padding: 20px; */
+    	
+    	top: 20px;
+    	
+    	background: #2e3c48;
     	position: relative;
     	padding: 20px;
+    	box-shadow: 5px 8px 12px #0c1317;
 	}
 	
 	form .form-group {
@@ -155,7 +161,7 @@ function Editcreateuser(){
 	}
 	
 	.op-bg {
-		background-color: black;
+		background-color: #131d28;
 	}
 	
 	.form-group span:before {
@@ -198,13 +204,17 @@ function Editcreateuser(){
 	
 	@media ( max-width : 1200px) {
 		#wrapper.toggled ~ #start {
-			width: 1184px;
+			width: 1200px;
+		} 
+	
+		.row {
+			margin-right: 0px !important;
 		}
 	}
 	
 	@media ( max-width : 992px) {
 		#wrapper.toggled ~ #start {
-    		width: 1094px;
+    		width: 1104px;
     	}
     }
 	

@@ -121,7 +121,7 @@ $(function worker(){
 		color: #fff;
 	}
 	
-	 .display-date {
+	.display-date {
 	 	float: right; 
 	 	margin-right: 50px; 
 	 	margin-top: 10px; 
@@ -129,10 +129,15 @@ $(function worker(){
 	 }
 	
 	.form-background {
-		background: #0B1218;
+		/* background: #0B1218;
+    	position: relative;
+    	padding: 20px;*/
+	
+		background: #2e3c48;
     	position: relative;
     	padding: 20px;
-	}
+    	box-shadow: 5px 8px 12px #0c1317;
+   	}
 	
 	.ibutton input[type="button"] {
 		width: 150px;
@@ -152,13 +157,17 @@ $(function worker(){
 	
 	@media ( max-width : 1200px) {
 		#wrapper.toggled ~ #start {
-			width: 1184px;
+			width: 1200px;
+		} 
+	
+		.row {
+			margin-right: 0px !important;
 		}
 	}
 	
 	@media ( max-width : 992px) {
 		#wrapper.toggled ~ #start {
-    		width: 1094px;
+    		width: 1104px;
     	}
     }
 	
@@ -236,6 +245,7 @@ $(function worker(){
 				</div>
 			</div>
 		</div>
+		<br>
 		<div class="form-background">
 			<div class="row">
 				<div class="display-date">
@@ -283,9 +293,9 @@ $(function worker(){
 		 						<input type="radio" name="cooking" id="cooked">
     							<label for="cooked">Cooked</label>
     							<br><br>
-    							<input type="radio" name="cooking" id="un-cooked">
+    							<iut type="radio" name="cooking" id="un-cooked">
     							<label for="un-cooked">Un-cooked</label>
-    						</td> -->
+    				np		</td> -->
 					   <!-- <td>
 								<input style="height: 45px; width: 180; font-size: 20" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Save" id="submit" class="btn btn-primary" onclick="save()" />			
 				

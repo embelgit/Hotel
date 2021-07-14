@@ -590,7 +590,7 @@ table, th, td {
     color: black;
     font-size: 15px;
     /* text-align: center; */
-    background: /* #00aabb; */ #ead24c;
+    background: /* #00aabb; */ /* #ead24c */ #e0c111;
     padding-left: /* 325px */400px;
     transition: left 500ms;
     /* z-index:99999; */   

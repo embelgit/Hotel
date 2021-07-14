@@ -4,6 +4,7 @@
 	-webkit-box-sizing: border-box;
 	font-family: arial;
 }
+
 body.login-body {
 	background-image: url(/RMS/staticContent/images/restaurant5_1400x700.jpg);
     background-repeat: no-repeat;
@@ -14,7 +15,7 @@ body.login-body {
 }
 
 .login-form {
-	background: rgb(73 70 70 / 50%);
+	background: rgba(0,0,0,0.7);/*  #333333de; */
     padding: 30px; 
     border: 2px solid #fffefe;
     border-radius: 4px;
@@ -146,5 +147,11 @@ select option {
     	width: 105px !important;
     	padding: 6px !important;
     	margin-top: 17px !important;
+	}
+}
+
+@-moz-document url-prefix() {
+	.form-group select{
+		padding: 7px 5px;
 	}
 }

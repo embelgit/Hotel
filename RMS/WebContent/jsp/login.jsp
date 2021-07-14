@@ -128,7 +128,6 @@ function reloadPage() {
 					<div id="myModal" class="modal fade" style="margin: 180px;">
 						<div class="modal-dialog">
 							<div class="modal-content">
-								dialog body
 								<div class="modal-body">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 									<h4 class="modal-title" style="color: red;">

@@ -44,11 +44,14 @@ body, html {
 	margin-left: 220px;
 	overflow-y: auto;
 	overflow-x: hidden;
-	background: /* #1a1a1a */ /* #1a202e */#0B1218;
+	background: /* #1a1a1a */ /* #1a202e */ /* #0B1218 */ #fff;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
+	scrollbar-width: none; 
+    -ms-overflow-style: none; 
+    box-shadow: 5px 8px 12px #290808;
 }
 
 #sidebar-wrapper::-webkit-scrollbar {
@@ -137,41 +140,34 @@ body, html {
 	-moz-transition: width .2s ease-in;
 	-ms-transition: width .2s ease-in;
 	transition: width .2s ease-in;
+	border-radius: 0 25px 25px 0;
 }
 
 .sidebar-nav li:first-child a {
 	color: #fff;
 	background-color: #1a1a1a;
 }
-
 .sidebar-nav li:nth-child(2):before {
 	background-color: #ec1b5a;
 }
-
 .sidebar-nav li:nth-child(3):before {
 	background-color: #79aefe;
 }
-
 .sidebar-nav li:nth-child(4):before {
 	background-color: #314190;
 }
-
 .sidebar-nav li:nth-child(5):before {
 	background-color: #279636;
 }
-
 .sidebar-nav li:nth-child(6):before {
 	background-color: #7d5d81;
 }
-
 .sidebar-nav li:nth-child(7):before {
 	background-color: #ead24c;
 }
-
 .sidebar-nav li:nth-child(8):before {
 	background-color: #2d2366;
 }
-
 .sidebar-nav li:nth-child(9):before {
 	background-color: #35acdf;
 }
@@ -187,11 +183,9 @@ body, html {
 .sidebar-nav li:nth-child(13):before {
 	background-color: #279636;
 }
-
 .sidebar-nav li:nth-child(14):before {
 	background-color: #7d5d81;
 }
-
 .sidebar-nav li:nth-child(15):before {
 	background-color: #ead24c;
 }
@@ -207,16 +201,13 @@ body, html {
 .sidebar-nav li:nth-child(19):before {
 	background-color: #ec1b5a;
 }
-
 .sidebar-nav li:nth-child(20):before {
 	background-color: #79aefe;
 }
-
 .sidebar-nav li:nth-child(21):before {
 	background-color: #314190;
 }
-
-.sidebar-nav li:nth-child(22):before {
+.sidebar-nav li:nth-child(22):before{
 	background-color: #279636;
 }
 .sidebar-nav li:nth-child(23):before {
@@ -233,7 +224,7 @@ body, html {
 
 .sidebar-nav li a {
 	display: block;
-	color: #ddd;
+	color: #000;
 	text-decoration: none;
 	padding: 12px 27px !important;
 }
@@ -249,14 +240,19 @@ body, html {
 	height: 65px;
 	font-size: /* 20px */30px;
 	line-height: 44px;
-	margin-top: 12px;
+	margin-top: 0px;
 	text-align: center;
-	color: #FFFFFF;
+	padding-top: 12px;
+	color: #000;
 }
 
 .sidebar-brand i {
 	font-size: 4rem;
 	padding-left: 20px;
+}
+
+.sidebar-nav .sidebar-brand:hover, .sidebar-nav .sidebar-brand:active, .sidebar-nav .sidebar-brand:focus {
+	color: #fff;
 }
 
 .sidebar-nav .dropdown-menu {
@@ -266,7 +262,7 @@ body, html {
 	margin: 13px 0;
 	border-radius: 0;
 	border: none;
-	background-color: #222;
+	background-color: /* #222; */ #fff;
 	box-shadow: none;
 }
 
@@ -276,7 +272,7 @@ body, html {
     clear: both;
     font-weight: 500;
     line-height: 0.428571 !important;
-    color: #ecd8d2;
+    color: /* #ecd8d2; */ #000;
     white-space: nowrap;
    
 }
@@ -341,6 +337,7 @@ body, html {
 .hamburger.is-closed .hamb-middle {
 	top: 50%;
 	margin-top: -2px;
+	width: 16px;
 }
 
 .hamburger.is-closed .hamb-bottom {

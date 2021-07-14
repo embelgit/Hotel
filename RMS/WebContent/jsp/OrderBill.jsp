@@ -191,304 +191,11 @@ function subcatDetailsDivAction(a)
 	
 </script>
 <style type="text/css">
-/* .bt {
-	padding-left:30%;
-} */
 
 .col-sm-offset-1 {
 	margin-left: 4%;
 }
 
-/*
-li a {
-	font-weight: 600;
-	text-decoration: none;
-	padding: 15px 14px;
-	display: block;
-	color: #fff;
-	transition: all 0.2s ease-in-out 0s;
-	font-size: 13px;
-}
-#logoutButton {
-	height: 35px;
-	width: 80px;
-	background: #353535;
-	border: 2px solid #353535;
-	color: white;
-	font-weight: bolder;
-	font-size: 12px;
-	position: fixed;
-	top: 3%;
-	right: 2%;
-}
-
-#currentUser {
-	color: orange;
-	font-weight: 600;
-	font-size: 17px;
-	position: fixed;
-	top: 1%;
-	right: 2%;
-}
-
-#logo {
-	width: 110px;
-	height: auto;
-	position: fixed;
-	top: 9%;
-	right: 1%;
-	z-index: -1;
-	opacity: 0.6;
-}
-
-.col-lg-offset-1 {
-	margin-left: 9.333333%;
-}
-
-.col-md-offset-1 {
-	margin-left: 4.333333%;
-}
-
-.btn_pur {
-	margin-left: 47px;
-}
-
-.col-md-2.col-lg-2 {
-	display: inline-block;
-width:auto;
-}
-.col-md-4.col-sm-12.col-xs-12.col-xl-3.col-lg-3 {
-    width: 46%;
-}
-.col-md-3.col-sm-12.col-xs-12.col-xl-3.col-lg-3 {
-    width: 90%;
-}
-.subbtn {
-    margin-left: 102px;
-}
-
-@media ( min-width : 980px) and (max-width:1180px) {
-	.mainWrap {
-		width: 768px;
-	}
-	.menu ul {
-		top: 37px;
-	}
-	.menu li a {
-		font-size: 11px;
-	}
-	a.homer {
-		background: #E95546;
-	}
-	li a {
-		padding: 15px 11px;
-	}
-	#logoutButton {
-		width: 70px;
-		position: fixed;
-		top: 3%;
-		right: 2%;
-		font-size: 12px
-	}
-	#currentUser {
-		color: orange;
-		font-weight: 600;
-		font-size: 14px;
-		position: fixed;
-		top: 1%;
-		right: 2%;
-	}
-	#logo {
-		width: 110px;
-		height: auto;
-		position: fixed;
-		top: 10%;
-		right: 2%;
-		z-index: -1;
-		opacity: 0.6;
-	}
-}
-
-@media ( min-width : 768px) and (max-width: 979px) {
-	.mainWrap {
-		width: 768px;
-	}
-	.menu ul {
-		top: 37px;
-	}
-	.menu li a {
-		font-size: 9px;
-	}
-	a.homer {
-		background: #E95546;
-	}
-	li a {
-		padding: 15px 8px;
-	}
-	#logoutButton {
-		width: 70px;
-		font-size: 11px;
-		position: fixed;
-		top: 12px;
-		right: 44px;
-	}
-	#currentUser {
-		color: orange;
-		font-weight: 600;
-		font-size: 13px;
-		position: fixed;
-		top: 4px;
-		right: 45px;
-	}
-	#logo {
-		width: 110px;
-		height: auto;
-		position: fixed;
-		top: 9%;
-		right: 2%;
-		z-index: -1;
-		opacity: 0.6;
-	}
-}
-
-@media ( max-width : 767px) {
-	.mainWrap {
-		width: auto;
-		padding: 30px 20px;
-	}
-	.menu {
-		display: none;
-	}
-	.responsive-menu {
-		display: block;
-	}
-	nav {
-		margin: 0;
-		background: none;
-	}
-	.menu li {
-		display: block;
-		margin: 0;
-	}
-	.menu li a {
-		background: #fff;
-		color: #797979;
-	}
-	.menu li a:hover, .menu li:hover>a {
-		background: #8c7674;
-		color: #fff;
-	}
-	.menu ul {
-		visibility: hidden;
-		opacity: 0;
-		top: 0;
-		left: 0;
-		width: 100%;
-		transform: initial;
-	}
-	.menu li:hover>ul {
-		visibility: visible;
-		opacity: 1;
-		position: relative;
-		transform: initial;
-	}
-	.menu ul ul {
-		left: 0;
-		transform: initial;
-	}
-	.menu li>ul ul:hover {
-		transform: initial;
-	}
-	#logoutButton {
-		width: 94px;
-		font-size: 14px;
-		position: relative;
-		top: 0;
-		right: 0;
-		height: 15%;
-	}
-	#currentUser {
-		color: yellow;
-		font-weight: 600;
-		font-size: 16px;
-		position: fixed;
-		top: 5px;
-		right: 7%;
-	}
-	#logo {
-		width: 110px;
-		height: auto;
-		position: fixed;
-		top: 7%;
-		right: 2%;
-		z-index: -1;
-		opacity: 0.6;
-	}
-	.col-lg-offset-1 {
-		margin-left: 9.333333%;
-	}
-	.col-md-3.col-sm-12.col-xs-12.col-xl-3.col-lg-3 {
-    width: 90%;
-}
-.btn_pur {
-    margin-left: 53px;
-}
-}
-.kebab {
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 0 16px;
-  top: 12px;
-  figure {
-    width: 6px;
-    height: 6px;
-    border-radius: 5px;
-    background: $cyan;
-    margin: 3px 0;
-  }
-}
-.cross {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  margin-top: -1px;
-  font-family: $nunito;
-  color: white;
-  transition: all 0.2s $cubic-in;
-  font-size: 22px;
-  user-select: none;
-} */
-/* .dropdown-list .dropdown {
-    position: absolute;
-    right: 0;
-    top: 3em;
-    transition: all 0.25s ease-out;
-    transform: scale(0);
-    transform-origin: 100% 0;
-    box-shadow: $shadow;
-    li {
-      display: block;
-      width: 100%;
-      a {
-        width: 100%;
-        padding: 1em 18px;
-        display: inline-block;
-        white-space: pre;
-        box-sizing: border-box;
-        &:hover {
-          background: lighten($grey, 30%);
-        }
-      }
-    }
-  &:hover {
-    ul {
-      transform: scale(1);
-    }
-  }
-} */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -511,7 +218,7 @@ width:auto;
 	}
 
 	body {
-		background: #131D28;
+		background: #131D28 /* #131d28d1 */ /* #1d2831c4 */;
 	}
 	
 	#start {
@@ -532,17 +239,22 @@ width:auto;
 		color: #fff;
 	}
 	
-	 .display-date {
+	.display-bill {
 	 	float: right; 
 	 	margin-right: 30px; 
 	 	margin-top: 10px;  
-	 	color: #f00;
+	 	color: /* #f00 */#ead24c;
 	 }
 	
 	.form-background {
-		background: #0B1218;
+		/* background: #0B1218;
+    	position: relative;
+    	padding: 20px;*/
+    	
+    	background: #2e3c48;
     	position: relative;
     	padding: 20px;
+    	box-shadow: 5px 8px 12px #0c1317;
 	}
 	
 	form .form-group {
@@ -586,7 +298,7 @@ width:auto;
 	}
 	
 	.op-bg {
-		background-color: black;
+		background-color: #131d28;
 	}
 	
 	.form-group span:before {
@@ -610,7 +322,7 @@ width:auto;
 	}
 	
 	.table-responsive .ui-jqgrid-bdiv {
-		height: 175px !important;
+		height: 140px !important;
 	}
 	
 	.ibutton input[type="button"],[type="reset"]{
@@ -664,10 +376,13 @@ width:auto;
 	
 	#customerdetailsDiv {
 		display: none;
-   	 	background-color: #000;
+   	 	background-color: #131d28;
    	 	width: 300px;
 	}
 	
+	.ui-jqgrid .ui-jqgrid-pager {
+    	z-index: 100 !important;
+	}
 	
 	.ui-helper-clearfix:before{
     	content: "Add Coustomer Details";
@@ -684,13 +399,17 @@ width:auto;
 	
 	@media ( max-width : 1200px) {
 		#wrapper.toggled ~ #start {
-			width: 1184px;
+			width: 1200px;
+		}
+		
+		.row {
+			margin-right: 0px !important;
 		}
 	}
 	
 	@media ( max-width : 992px) {
 		#wrapper.toggled ~ #start {
-    		width: 1094px;
+    		width: 1104px;
     	}
 		
 		.form-group label {
@@ -765,7 +484,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 			</div>
 		</div>
 		<div class="row">
-			<div class="display-date">
+			<div class="display-bill">
 				<h3>
 					Bill No ::
 		 			<%
@@ -779,7 +498,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 				<div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 col-xl-6">	
 					<div class="form-background">
 						<div class="row form-group"> 
-							<div class="col-md-2  col-sm-2 col-xs-2 col-xl-2 col-lg-2 col-sm-offset-1">
+							<div class="col-md-5  col-sm-5 col-xs-5 col-xl-5 col-lg-5 col-sm-offset-1">
 								<div class="invoice_label_up">
 									<%
 										ItemEntryDao itemEntryDao = new ItemEntryDao();
@@ -802,14 +521,16 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 								 		<label>Item</label>
 								</div>
 							</div>
-							<div class="col-md-2 col-sm-2 col-xs-2 col-xl-2 col-lg-2 col-sm-offset-1">
+							<div class="col-md-5  col-sm-5 col-xs-5 col-xl-5 col-lg-5 col-sm-offset-1">
 								<div class="invoice_label_up">
 									<input type="text" id="table_No" required onchange="getItemDetailByTable1(); Activechange();" />
 									<span></span>
 									<label>Table <sup>*</sup></label>
 								</div>	
 							</div>
-							<div class="col-md-2  col-sm-2 col-xs-2 col-xl-2 col-lg-2 col-sm-offset-1">
+						</div>
+						<div class="row form-group"> 
+							<div class="col-md-5  col-sm-5 col-xs-5 col-xl-5 col-lg-5 col-sm-offset-1">
 								<div class="invoice_label_up">
 									<%
 										AddWaitersDao wList = new AddWaitersDao();
@@ -830,7 +551,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 									<label> Waiter <sup>*</sup></label>
 								</div>	
 							</div>
-		 					<div class="col-md-3 col-sm-2 col-xs-2 col-xl-4 col-lg-4 col-sm-offset-1 customerdetails" id="customerdetailslist">
+		 					<div class="col-md-5  col-sm-5 col-xs-5 col-xl-5 col-lg-5 col-sm-offset-1 customerdetails" id="customerdetailslist">
 								<div class="invoice_label_up">
 									<select id='customerdetails' name='customerdetails' required></select>
 									<span></span>
@@ -885,7 +606,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 				</div>
 		    	<div class="col-md-6 col-sm-12 col-xs-12 col-lg-6 col-xl-6">
 		    		<div class="form-background">
-						<h4 align="center" style="color: #fff;">Select Table</h4>
+						<h3 align="center" style="color: #fff; margin-top: 40px;">Select Table</h3>
 						<div class="row" align="center" style="margin-top: 30px;">
 							<div class="row1">			
 								<button class="btn btn-primary" name="p" value="1" onclick=" Activechange1(this); getItemDetailByTable(this); return false;">
