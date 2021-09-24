@@ -92,6 +92,19 @@ public class CustomerOrderHelper {
 				System.out.println("SET WAITER NAME TO N/A - - "+cust.getWaiterName());
 			}
 			
+			String CustDetail = request.getParameter("customerdetails");
+			System.out.println("Customer Details got WHILE SAVING ORDER IS - - - - -   "+CustDetail);
+			
+			if(CustDetail != null) {
+				cust.setCustDetail(CustDetail);
+				System.out.println("SET CUSTOMER DETAIL TO  - - - -"+cust.getCustDetail());
+			}
+			else 
+			{
+				cust.setCustDetail("N/A");
+				System.out.println("SET CUSTOMER DETAIL TO N/A - - "+cust.getCustDetail());
+			}
+			
 			
 			String totalAmount = request.getParameter("totalAmount");
 			System.out.println("total grid amount is (helper) -----  "+totalAmount);
@@ -203,6 +216,8 @@ public class CustomerOrderHelper {
 			System.out.println("hotelid saved - "+cust.getHotelid()+" , userid - "+cust.getUserid());
 			CustomerOrderDao dao=new CustomerOrderDao();
 			dao.registerBill(cust);
+	
+	///////////////////////////////////////////////////////////////////////////		
 			
 			Long pk_temp_id = Long.parseLong(request.getParameter("pkTempId"+i));
 			System.out.println("pk_temp_id ---  (customerorder helper) to set N -- !! --  " +pk_temp_id);

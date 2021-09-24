@@ -50,6 +50,8 @@ import com.rms.helper.kitchenorderHelper;
 import com.rms.helper.tempOrderBill;
 import com.rms.helper.tempOrderhelper;
 
+import net.sf.hibernate.HibernateException;
+
 public class Controller
 {
 
@@ -762,7 +764,7 @@ public class Controller
 		  System.out.println("IN CONTROLLER");
 		  TempItemDetailHelper tid = new TempItemDetailHelper();
 		  tid.unBookTable(request, response);
-		  return toJson("Data Added Successfully");
+		  return toJson("Data Cleared Successfully");
 	  }
 	  
 	//Wastage Goods
@@ -1090,10 +1092,10 @@ public class Controller
 		
 		  public String saveCookingStatus(HttpServletRequest request, HttpServletResponse response)
 		  {
-			  System.out.println("in controller of saving cooking status");
-			  TempItemDetailHelper temp = new TempItemDetailHelper();
+			  System.out.println("\n in controller of saving cooking status");
+			  kitchenorderHelper temp = new kitchenorderHelper();
 			  temp.saveCookStatus(request, response);
-			  return toJson("Data Added");
+			  return toJson("Kitchen Order is Completed");
 		  }
 		  
 		/*
@@ -1681,7 +1683,13 @@ public class Controller
 
 				}
 				
-				
+				  public String clearTable(HttpServletRequest request , HttpServletResponse response)
+				  {
+					  System.out.println("IN CONTROLLER");
+					  TempItemDetailHelper tid = new TempItemDetailHelper();
+					  tid.clearTable(request, response);
+					  return toJson("Data Cleared Successfully");
+				  }			
 				
 				
 				

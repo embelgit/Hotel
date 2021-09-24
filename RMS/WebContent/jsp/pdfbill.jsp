@@ -133,7 +133,7 @@ System.out.println("in pdf jsp tableno wise user- "+username+" , id - "+userid+"
 			Statement stmt = conn.createStatement();
 
 		//	ResultSet rs = stmt.executeQuery("select c.TableNo, c.Itemname, c.Quantity, c.unitPrice, c.CurrentDate  from customerorder c where c.BillNo =" + billno);
-			ResultSet rs = stmt.executeQuery("select c.TableNo, c.Itemname, c.Quantity, c.unitPrice, c.CurrentDate, c.GST,c.CGST,c.SGST ,GridTotal from customerorder c where c.BillNo ='"+billno+"' and c.hotelid ='"+hotelid+"' and userid = '"+userid+"'");
+			ResultSet rs = stmt.executeQuery("select c.TableNo, c.Itemname, c.WaiterName, c.CustDetail, c.Quantity, c.unitPrice, c.CurrentDate, c.GST,c.CGST,c.SGST ,GridTotal from customerorder c where c.BillNo ='"+billno+"' and c.hotelid ='"+hotelid+"' and userid = '"+userid+"'");
 
 			System.out.println("Result in PDf --  "+rs);	
 			Font font17Bold = new Font(Font.FontFamily.TIMES_ROMAN, 17, Font.BOLD, BaseColor.BLACK);
@@ -250,32 +250,38 @@ System.out.println("in pdf jsp tableno wise user- "+username+" , id - "+userid+"
 			InfoTable_cell.setBorder(Rectangle.NO_BORDER);
 			infotable.addCell(InfoTable_cell); */
 
-			/* InfoTable_cell = new PdfPCell(new Phrase("Car No: "+ carno));
-			InfoTable_cell.setHorizontalAlignment(Element.ALIGN_LEFT);
-			InfoTable_cell.setBorder(Rectangle.NO_BORDER);
-			infotable.addCell(InfoTable_cell); */
-
 			/* InfoTable_cell = new PdfPCell(new Phrase("Mo No: "+ mono));
 			InfoTable_cell.setHorizontalAlignment(Element.ALIGN_LEFT);
 			InfoTable_cell.setBorder(Rectangle.NO_BORDER);
 			infotable.addCell(InfoTable_cell); */
+			
 			String tableNo = String.valueOf(rs.getString("TableNo"));
 			InfoTable_cell = new PdfPCell(new Phrase("Table No : "+tableNo));
 			InfoTable_cell.setHorizontalAlignment(Element.ALIGN_LEFT);
 			InfoTable_cell.setBorder(Rectangle.NO_BORDER);
 			infotable.addCell(InfoTable_cell);
-			
-//			String tableNo = String.valueOf(rs.getString("TableNo"));
-/* 			InfoTable_cell = new PdfPCell(new Phrase("\n " + tableNo));
-			InfoTable_cell.setHorizontalAlignment(Element.ALIGN_LEFT);
-			InfoTable_cell.setBorder(Rectangle.NO_BORDER | Rectangle.NO_BORDER);
-			infotable.addCell(InfoTable_cell);
- */			
+		
 			InfoTable_cell = new PdfPCell(new Phrase("Date: "+ CdDate +"\n\n"));
 			InfoTable_cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
 			InfoTable_cell.setBorder(Rectangle.NO_BORDER);
 			infotable.addCell(InfoTable_cell);
 
+			//document.add(infotable);
+			
+			String waiter = String.valueOf(rs.getString("WaiterName"));
+			InfoTable_cell = new PdfPCell(new Phrase("Served By: "+ waiter +"\n\n"));
+			InfoTable_cell.setColspan(4);
+			InfoTable_cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+			InfoTable_cell.setBorder(Rectangle.NO_BORDER);
+			infotable.addCell(InfoTable_cell);
+			
+			String CustDetail = String.valueOf(rs.getString("CustDetail"));
+			InfoTable_cell = new PdfPCell(new Phrase("Served To: "+ CustDetail +"\n\n"));
+			InfoTable_cell.setColspan(4);
+			InfoTable_cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+			InfoTable_cell.setBorder(Rectangle.NO_BORDER);
+			infotable.addCell(InfoTable_cell);
+			
 			document.add(infotable);
 
 			//table for particulars
@@ -587,7 +593,7 @@ System.out.println("in pdf jsp tableno wise user- "+username+" , id - "+userid+"
 			
 			//table_cell = new PdfPCell(new Phrase("\r"));
 			table_cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
-			table_cell = new PdfPCell(new Phrase("\n  Rupees in words : " + amtInWord + " Only/- "));
+			table_cell = new PdfPCell(new Phrase("\n Rupees in words : " + amtInWord + " Only/- "));
 			table_cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
 			table_cell.setBorder(Rectangle.NO_BORDER);
 			table_cell.setColspan(6);
@@ -595,9 +601,9 @@ System.out.println("in pdf jsp tableno wise user- "+username+" , id - "+userid+"
 			
 			table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 			table_cell = new PdfPCell(new Phrase("--Thank You--"));
-	//		table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+			table_cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 			table_cell.setBorder(Rectangle.NO_BORDER);
-			table_cell.setColspan(3);
+			table_cell.setColspan(6);
 			table.addCell(table_cell); 
 
 			document.add(table);

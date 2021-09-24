@@ -1,5 +1,6 @@
 package com.rms.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -69,10 +70,6 @@ public void orderBill(kitchenorderHibernate cust) {
  		 transaction.commit();
  		 
  		 
- 		 
- 		 
- 		 
- 		 
  		/* String activeYN = "N";
  		 System.out.println("asdas == " +activeYN);
  		 String hql = "UPDATE tempdata set ActiveYN ="+activeYN   + "where pk_temp_id ="+pk_temp_id ;
@@ -110,7 +107,6 @@ public void orderBill(kitchenorderHibernate cust) {
      
      
  	public List getAllkitchen(String itemId, String hotelid)
-	
  	{
  		System.out.println("item ID in allKitchen() "+itemId);
  		HibernateUtility hbu=null;
@@ -139,7 +135,6 @@ public void orderBill(kitchenorderHibernate cust) {
  	
  	
 	public List getAllkitchenEntry(String newTempId, String hotelid)
-	
 	{
 		System.out.println("in get  all kitchen() - itemID - > "+newTempId);
 		HibernateUtility hbu=null;
@@ -165,7 +160,6 @@ public void orderBill(kitchenorderHibernate cust) {
 		
 	return list;
 	}
- 	
- 	
+		
 
 }

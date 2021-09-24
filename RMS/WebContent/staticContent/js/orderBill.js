@@ -293,15 +293,6 @@ function registerBill1(){
 }
 
 
-
-
-
-
-
-
-
-
-
 function resBill(){
 	
 	var tabNum = document.getElementById("table_No").value;
@@ -331,7 +322,6 @@ function resBill(){
 	    } */
 	 registerBill();
 }
-
 
 function registerBill(){
 	
@@ -404,6 +394,7 @@ function registerBill(){
 	    var table_No=$('#table_No').val();
 	    
 	    var waiterName=$('#waiterName').val();
+	    var customerdetails=$('#customerdetails').val();
 	    var totalAmount =$('#totalAmount').val();
 	    var gst = 0;
 	    var gstAmt = 0;
@@ -413,6 +404,7 @@ function registerBill(){
 		params["count"] = count;
 		
 		params["waiterName"] = waiterName;
+		params["customerdetails"] = customerdetails;
 		params["totalAmount"] = totalAmount;
 		params["gst"] = gst;
 		params["gstAmt"] = gstAmt;
@@ -674,6 +666,7 @@ $.post('/RMS/jsp/utility/controller.jsp',params,function(data)
 				           rownumbers: true, // show row numbers
 			               rownumWidth: 25,
 			               'cellEdit':true,
+			               
 			               beforeSelectRow: function ()
 			               {		            	   
 			            	    var rowId =$("#list").jqGrid('getGridParam','selrow');  
@@ -858,6 +851,7 @@ $.post('/RMS/jsp/utility/controller.jsp',params,function(data)
 						search : true,
 						refresh : true,
 						view : true,
+						
 						position : "left",
 						cloneToTop : false,
 										
@@ -2534,26 +2528,18 @@ function successAlert(msg)
 
 function valcustomer()
 {
-	
 	var fkcustomerId =$("#fkcustomerId").val();
 	var customerDOB = $("#customerDOB").val();
 	var customerNumber = $("#customerNumber").val();
-	
 	if(fkcustomerId ==""){
 		myAlert("Please Enter Customer Name");
 		return false;
 	}
-	if(customerDOB ==""){
-		myAlert("Please Enter Date of Birth ");
-		return false;
-	}
-	
 	
 	if(customerNumber ==""){
 		myAlert("Please Enter Mobile number");
 		return false;
 	}
-	
 	
 	var letterNumber = /^[a-zA-Z ]+$/;
 	if(fkcustomerId.match(letterNumber))
@@ -2566,9 +2552,6 @@ function valcustomer()
 		return false;
 	}
 	
-	//if(document.Customer.customerNumber.value!="")
-	//{
-//	var letter = /^[0-9]$/;
 	var letterNo = /^[0-9]{10}$/;
 	if(customerNumber.match(letterNo))
 	{
@@ -2581,23 +2564,19 @@ function valcustomer()
 	}
 	addCustomerDetails();
 }
-	
-//}
-	
+
 function addCustomerDetails()
 {
 	var params = {};
+	document.getElementById('save').disabled=false;
 	
-	document.getElementById('save').disabled=true;
+	var fkcustomerId =$("#fkcustomerId").val();
+	var customerDOB = $("#customerDOB").val();
+	var customerNumber = $("#customerNumber").val();
 
-	var customerName = $('#fkcustomerId').val();
-	var dob= $('#dob').val();
-	var mobileNumber = $('#mobNo').val();
-	
-	
-	params["customerName"] = customerName;
-	params["dob"] = dob;
-	params["mobileNumber"] = mobileNumber;
+	params["fkcustomerId"] = fkcustomerId;
+	params["customerDOB"] = customerDOB;
+	params["customerNumber"] = customerNumber;
 	
 	params["methodName"] = "CustomerInfo";
 	
@@ -2617,191 +2596,190 @@ function addCustomerDetails()
 
 function emptyCustomerFields()
 {
-	document.getElementById("fkcustomerId").value = "";
+	document.getElementById("customerName").value = "";
 	document.getElementById("customerDOB").value = "";
 	document.getElementById("customerNumber").value = "";
 	
-
 }
 
 
 
 /*function gstCal(){
 
-	
-	var total  = document.getElementById("totalAmount").value;
-	
-//	var total = jam;
-//	var nwtotal = total;
-	
-	var gst = document.getElementById("gst").value
-	var gstt = ((gst)/(100))
 
-	var gsttt = ((gstt) * (total));
+var total  = document.getElementById("totalAmount").value;
 
-		  var final = +total + +gsttt;
-			document.getElementById("gstAmt").value = gsttt;
-			document.getElementById("grndtotalAmount").value = final;
+//var total = jam;
+//var nwtotal = total;
+
+var gst = document.getElementById("gst").value
+var gstt = ((gst)/(100))
+
+var gsttt = ((gstt) * (total));
+
+	  var final = +total + +gsttt;
+		document.getElementById("gstAmt").value = gsttt;
+		document.getElementById("grndtotalAmount").value = final;
 }*/
 
 function resBill1(){
-	
-	var tabNum = document.getElementById("table_No").value;
-	if(tabNum ==0){
-		alert("Select table First!!!!!!");
-		return false;
-	}
-	
+
+var tabNum = document.getElementById("table_No").value;
+if(tabNum ==0){
+	alert("Select table First!!!!!!");
+	return false;
+}
+
 /*	if (document.order.fk_item_id.value == "") {
-		alert("Please Enter Item Name");
-		return false;
-	}*/
-	
-	if (document.order.table_No.value == "") {
-		alert("Please Enter Table No");
-		return false;
-	}
-	if (document.order.waiterName.value == "") {
-		alert("Please Enter Waiter Name");
-		return false;
-	}
+	alert("Please Enter Item Name");
+	return false;
+}*/
+
+if (document.order.table_No.value == "") {
+	alert("Please Enter Table No");
+	return false;
+}
+if (document.order.waiterName.value == "") {
+	alert("Please Enter Waiter Name");
+	return false;
+}
 /*	var tableNo = document.getElementById("table_No").value;
-	 if (confirm("Do You Want to Print Bill Of Table No ::--  "+tableNo+"  !!") == true) {
-	//	 registerBill();
-	    } else {
-	       alert("Bill Print Cancelled !!!");
-	    } */
-	 registerBill1();
+ if (confirm("Do You Want to Print Bill Of Table No ::--  "+tableNo+"  !!") == true) {
+//	 registerBill();
+    } else {
+       alert("Bill Print Cancelled !!!");
+    } */
+ registerBill1();
 }
 
 
 function registerBill1(){
-	
-	var params= {};
-	var count = jQuery("#list").jqGrid('getGridParam', 'records');
-	var allRowsInGrid1 = $('#list').getGridParam('data');
-	var AllRows=JSON.stringify(allRowsInGrid1);
-	
-	for (var i = 0; i < count; i++)
-	{
-	
-		var pkTempId = allRowsInGrid1[i].pkTempId;
-     	params["pkTempId"+i] = pkTempId;
-		
-		var itemId = allRowsInGrid1[i].itemId;
-     	params["itemId"+i] = itemId;
-     	
-		var itemName = allRowsInGrid1[i].itemName;
-		params["itemName"+i] = itemName;
-		
-		var stock = allRowsInGrid1[i].stock;
-		params["stock"+i] = stock;
-		
-		var quantity = allRowsInGrid1[i].quantity;
-		
-		if(quantity ==0 || quantity =="" || quantity == undefined || quantity == null)
-			{
-			alert("Please enter valid Quantity for product"  +itemName);
-			return false;
-			}
-		if(+quantity > +stock){
-			alert(" stock of "  +itemName+ " is low , please enter Quantity less than or equal to "+stock);
-			return false;
-			}
-		else
-			{
-			params["quantity" +i] = quantity;
-			}
-		
-		var prrice = allRowsInGrid1[i].prrice;
-		params["prrice"+i] = prrice;
-		
-		var unit = allRowsInGrid1[i].unit;
-		params["unit"+i] = unit;
-		
-		var value = allRowsInGrid1[i].value;
-		params["value"+i] = value;
-		
-		var gst = allRowsInGrid1[i].gst;
-	//	params["gst"+i] = gst;
-		
-		var gst1 = (gst)/2;
-//		alert("gst splits - "+gst1+" %");
-	
-		var cgst = gst1;
-		params["cgst"+i] = cgst;
-		
-		var sgst = gst1;
-		params["sgst"+i] = sgst;
-		
-		var totalAmt = allRowsInGrid1[i].totalAmt;
-//		params["totalAmt"+i] = totalAmt;
-	//	alert("total amounnt is -- "+totalAmt);
-		
-	/*	var forTotal = allRowsInGrid1[i].forTotal;
-		params["forTotal"+i] = forTotal;*/
-	//		alert("fortotal - "+forTotal);
-	}	
-	
-	    var table_No=$('#table_No').val();
-	    
-	    var waiterName=$('#waiterName').val();
-	    var totalAmount =$('#totalAmount').val();
-	    var gst = 0;
-	    var gstAmt = 0;
-	    
-		params ["table_No"] = table_No;
 
-		params["count"] = count;
+var params= {};
+var count = jQuery("#list").jqGrid('getGridParam', 'records');
+var allRowsInGrid1 = $('#list').getGridParam('data');
+var AllRows=JSON.stringify(allRowsInGrid1);
+
+for (var i = 0; i < count; i++)
+{
+
+	var pkTempId = allRowsInGrid1[i].pkTempId;
+ 	params["pkTempId"+i] = pkTempId;
+	
+	var itemId = allRowsInGrid1[i].itemId;
+ 	params["itemId"+i] = itemId;
+ 	
+	var itemName = allRowsInGrid1[i].itemName;
+	params["itemName"+i] = itemName;
+	
+	var stock = allRowsInGrid1[i].stock;
+	params["stock"+i] = stock;
+	
+	var quantity = allRowsInGrid1[i].quantity;
+	
+	if(quantity ==0 || quantity =="" || quantity == undefined || quantity == null)
+		{
+		alert("Please enter valid Quantity for product"  +itemName);
+		return false;
+		}
+	if(+quantity > +stock){
+		alert(" stock of "  +itemName+ " is low , please enter Quantity less than or equal to "+stock);
+		return false;
+		}
+	else
+		{
+		params["quantity" +i] = quantity;
+		}
+	
+	var prrice = allRowsInGrid1[i].prrice;
+	params["prrice"+i] = prrice;
+	
+	var unit = allRowsInGrid1[i].unit;
+	params["unit"+i] = unit;
+	
+	var value = allRowsInGrid1[i].value;
+	params["value"+i] = value;
+	
+	var gst = allRowsInGrid1[i].gst;
+//	params["gst"+i] = gst;
+	
+	var gst1 = (gst)/2;
+//	alert("gst splits - "+gst1+" %");
+
+	var cgst = gst1;
+	params["cgst"+i] = cgst;
+	
+	var sgst = gst1;
+	params["sgst"+i] = sgst;
+	
+	var totalAmt = allRowsInGrid1[i].totalAmt;
+//	params["totalAmt"+i] = totalAmt;
+//	alert("total amounnt is -- "+totalAmt);
+	
+/*	var forTotal = allRowsInGrid1[i].forTotal;
+	params["forTotal"+i] = forTotal;*/
+//		alert("fortotal - "+forTotal);
+}	
+
+    var table_No=$('#table_No').val();
+    
+    var waiterName=$('#waiterName').val();
+    var totalAmount =$('#totalAmount').val();
+    var gst = 0;
+    var gstAmt = 0;
+    
+	params ["table_No"] = table_No;
+
+	params["count"] = count;
+	
+	params["waiterName"] = waiterName;
+	params["totalAmount"] = totalAmount;
+	params["gst"] = gst;
+	params["gstAmt"] = gstAmt;
+	
+	params["methodName"] = "registerBill";
+	
+	$.post('/RMS/jsp/utility/controller.jsp',params,function(data)
+	    	{
 		
-		params["waiterName"] = waiterName;
-		params["totalAmount"] = totalAmount;
-		params["gst"] = gst;
-		params["gstAmt"] = gstAmt;
-		
-		params["methodName"] = "registerBill";
-		
-		$.post('/RMS/jsp/utility/controller.jsp',params,function(data)
-		    	{
-			
-				alert(data);
-		//	System.out.println(" Data saved now its time to print PDF bill ----  ");
-				//	window.open("Other_Bill_CopyPDF.jsp");
-		//		window.open("tempPDF.jsp");
-		//		window.open("Billing-PDF.jsp");
-				window.open("pdfbill.jsp");
-				location.reload(true);
-			    return false;
+			alert(data);
+	//	System.out.println(" Data saved now its time to print PDF bill ----  ");
+			//	window.open("Other_Bill_CopyPDF.jsp");
+	//		window.open("tempPDF.jsp");
+	//		window.open("Billing-PDF.jsp");
+			window.open("pdfbill.jsp");
+			location.reload(true);
+		    return false;
 /*			$.getScript('/RMS/staticContent/js/bootbox.min.js', function() 
-					{
-		
-				var msg=data;
-				var dialog = bootbox.dialog({
-					//title: "Embel Technologies Says :",
-				    message: '<p class="text-center">'+msg.fontcolor("red").fontsize(5),
-				    closeButton: false
-				});
-				
-				setTimeout(function() {
-					dialog.modal('hide');
-					location.reload(true);
-					document.order.print.disabled = false;
-				}, 1500);
-				
-				return false;
-				
-					});				
-				window.open("Other_Bill_CopyPDF.jsp");
+				{
+	
+			var msg=data;
+			var dialog = bootbox.dialog({
+				//title: "Embel Technologies Says :",
+			    message: '<p class="text-center">'+msg.fontcolor("red").fontsize(5),
+			    closeButton: false
+			});
+			
+			setTimeout(function() {
+				dialog.modal('hide');
 				location.reload(true);
-			    return false;
+				document.order.print.disabled = false;
+			}, 1500);
+			
+			return false;
+			
+				});				
+			window.open("Other_Bill_CopyPDF.jsp");
+			location.reload(true);
+		    return false;
 */			   
-				    }
-		    	).error(function(jqXHR, textStatus, errorThrown){
-		    		if(textStatus==="timeout") {
-		    			$(loaderObj).hide();
-		    			$(loaderObj).find('#errorDiv').show(); 
-		    		}
-		    	});
+			    }
+	    	).error(function(jqXHR, textStatus, errorThrown){
+	    		if(textStatus==="timeout") {
+	    			$(loaderObj).hide();
+	    			$(loaderObj).find('#errorDiv').show(); 
+	    		}
+	    	});
 }
 
 
@@ -2878,3 +2856,39 @@ function updateTable()
 }
 
 
+function clearTable(data){
+	
+	var abc = data.id;
+	var table_No = abc;
+	
+	var tabNum = document.getElementById("table_No").value;
+	if(tabNum ==0){
+		alert("Select table First!!!!!!");
+    	return false;
+	}
+	clearTable1();
+}
+
+function clearTable1()
+{
+	var params = {};
+	
+	var table_No = $('#table_No').val();
+	
+	params ["table_No"] = table_No;
+
+	params["methodName"] = "clearTable";
+
+	$.post('/RMS/jsp/utility/controller.jsp',params,function(data){
+		alert(data);
+
+		location.reload();
+		}	
+	    	).error(function(jqXHR, textStatus, errorThrown){
+	    		
+	    		if(textStatus==="timeout") {
+	    			$(loaderObj).hide();
+	    			$(loaderObj).find('#errorDiv').show();
+	    		}
+	    	});
+}

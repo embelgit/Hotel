@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -22,10 +23,14 @@ import com.rms.bean.OrderBillReportTableWiseBean;
 import com.rms.dao.CashBookDao;
 import com.rms.dao.CustomerOrderDao;
 import com.rms.dao.TempItemDetailDao;
+import com.rms.dao.kitchenorderDao;
 import com.rms.hibernate.TempItemDetail;
+import com.rms.hibernate.kitchenorderHibernate;
 import com.rms.hibernate.newTempItemDetail;
 import com.rms.utility.HibernateUtility;
 import com.sun.xml.internal.bind.v2.runtime.Location;
+
+import net.sf.hibernate.HibernateException;
 
 public class TempItemDetailHelper {
 	private static final char M = 0;
@@ -37,6 +42,7 @@ public class TempItemDetailHelper {
 		String username = (String)sessionn.getAttribute("user");		
 		String userid = (String)sessionn.getAttribute("userid");
 		String hotel = (String)sessionn.getAttribute("hotelid");
+		
 		
 	/*	if (sessionn.getAttribute("user") != null) {
 			
@@ -59,12 +65,8 @@ public class TempItemDetailHelper {
 	} 
 	
 	
-	public void saveCookStatus(HttpServletRequest request, HttpServletResponse response) 
-	{
-		String cooking = request.getParameter("cooking");
-		System.out.println("in helper temp cooking status is -- >  "+cooking);
-	}
 	
+		
 	public List getSuppliers()
 	{
 		 
@@ -108,7 +110,8 @@ public class TempItemDetailHelper {
 		String hotelid = (String)sessionn.getAttribute("hotelid");
 		String hotelname=(String)sessionn.getAttribute("hotelname");
 		System.out.println("session thru user- "+username+" , id - "+userid+" , hotelnme - "+hotelname+" , hotelid - "+hotelid);
-		 String tableNo = request.getParameter("tableNo");
+		 
+		String tableNo = request.getParameter("tableNo");
 		
 		 System.out.println(tableNo+" - tableNo - vxvdfvdf");
 			
@@ -809,6 +812,18 @@ public class TempItemDetailHelper {
 					dao2.deletekitchenDataold(tableNo,itemId,hotelid);
 
 }
+
+				public void clearTable(HttpServletRequest request, HttpServletResponse response) {
+					//char M='N';
+					HttpSession sessionn = request.getSession(true);
+					
+					String tableNo= request.getParameter("table_No");
+				       System.out.println(tableNo+" --   in clear table method----- ");
+						
+						long tableNo1 = Long.parseLong(tableNo);
+						 
+			     		TempItemDetailDao dao2 = new TempItemDetailDao();
+						dao2.clearGridDataold(tableNo1);
+				}
 				
-				
-}
+				} 

@@ -10,18 +10,24 @@ public class kitchenorderHibernate {
 	private String itemName;
 	private Double quantity;
 	private Date current_date;	
-	private Long fk_item_details_id;
+	//private Long fk_item_details_id;
 	private char activeYN;
 	private String unit;
 	private String value;
+	//private String status;
 	
 	private String username;
 	private String hotelname;
 	private Long hotelid;
 	private Long userid;
 	
+	public kitchenorderHibernate() {
+		super();
+	}
+
 	public kitchenorderHibernate(Long pk_temp_id, Long tableNo, Long itemId, String itemName, Double quantity,
-			Date current_date, Long fk_item_details_id, char activeYN, String unit, String value, String username, String hotelname, Long hotelid, Long userid) {
+			Date current_date, char activeYN, String unit, String value, String username, String hotelname,
+			Long hotelid, Long userid) {
 		super();
 		this.pk_temp_id = pk_temp_id;
 		this.tableNo = tableNo;
@@ -29,51 +35,12 @@ public class kitchenorderHibernate {
 		this.itemName = itemName;
 		this.quantity = quantity;
 		this.current_date = current_date;
-		this.fk_item_details_id = fk_item_details_id;
-		this.activeYN= activeYN;
-		this.unit  = unit;
+		this.activeYN = activeYN;
+		this.unit = unit;
 		this.value = value;
-		this.userid = userid;
-		this.hotelid = hotelid;
 		this.username = username;
 		this.hotelname = hotelname;
-	}
-
-	public kitchenorderHibernate() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getHotelname() {
-		return hotelname;
-	}
-
-	public void setHotelname(String hotelname) {
-		this.hotelname = hotelname;
-	}
-
-	public Long getHotelid() {
-		return hotelid;
-	}
-
-	public void setHotelid(Long hotelid) {
 		this.hotelid = hotelid;
-	}
-
-	public Long getUserid() {
-		return userid;
-	}
-
-	public void setUserid(Long userid) {
 		this.userid = userid;
 	}
 
@@ -125,14 +92,6 @@ public class kitchenorderHibernate {
 		this.current_date = current_date;
 	}
 
-	public Long getFk_item_details_id() {
-		return fk_item_details_id;
-	}
-
-	public void setFk_item_details_id(Long fk_item_details_id) {
-		this.fk_item_details_id = fk_item_details_id;
-	}
-
 	public char getActiveYN() {
 		return activeYN;
 	}
@@ -157,5 +116,37 @@ public class kitchenorderHibernate {
 		this.value = value;
 	}
 
-	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getHotelname() {
+		return hotelname;
+	}
+
+	public void setHotelname(String hotelname) {
+		this.hotelname = hotelname;
+	}
+
+	public Long getHotelid() {
+		return hotelid;
+	}
+
+	public void setHotelid(Long hotelid) {
+		this.hotelid = hotelid;
+	}
+
+	public Long getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Long userid) {
+		this.userid = userid;
+	}
+
+
 }

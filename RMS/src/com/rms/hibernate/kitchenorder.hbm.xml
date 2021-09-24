@@ -5,7 +5,7 @@
   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" > 
     <hibernate-mapping>
-    <class name="com.rms.hibernate.kitchenorderHibernate" table="kitchenOrder">
+    <class name="com.rms.hibernate.kitchenorderHibernate" table="kitchenorder">
     
     <id name="pk_temp_id" type="java.lang.Long" column="pk_id">
 			<generator class="increment" />
@@ -81,7 +81,14 @@
 		name="hotelname" 
 		type="java.lang.String" 
 		column="hotelname"
-		length="20"/> 		
+		length="20"/> 	
+		
+	<!-- 	 <property
+		name="status" 
+		type="java.lang.String" 
+		column="status"
+		length="10"/>  -->
+				
 		
     </class>
    </hibernate-mapping> 

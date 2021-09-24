@@ -1,8 +1,16 @@
-function saveStatus()
-{
+
+/*	var abc = data.value;
+	var tableNo = abc;
+
+	//alert("button u clicked -- "+tableNo);
+	
+	//var updatedPkTempId;
+	var Hotelid;
 	var params = {};
 	
-	document.getElementById('submit').disabled=true;
+	params["tableNo"] = tableNo;*/
+
+	
 	
 	/*var table = $('#list').DataTable();
 //	var rowcount = $('#list').dataTable().rows().count();
@@ -51,21 +59,41 @@ function saveStatus()
 	            }
 	            submit.innerHTML = submit.innerHTML + '<br />';     // ADD A BREAK (TAG).
 	        }*/
-	    
+
+//function saveStatus()
+function saveStatus(data)
+{
+	
+/*
+	if(document.kordr.cooking.value == "selected") {
+	saveStatu1();
+	}
+	else
+		{
+		alert("please select Order Status if it is cooked/completed.");
+		return false;
+		}
+}
+function saveStatu1() {*/
+	
+	var params = {};
+	
+	//document.getElementById('submit').disabled=true;
+	var abc = data.id;
+	var pk_id = abc;
+	
+	var cooking = $('input[name="cooking"]:checked').val();
 	
 	
-	
-	
-	
-	
-//	 params["cooked"] = cooked;
-//	 params["uncooked"] = uncked;
-//	 params["methodName"] = "saveCookingStatus";
+	params["cooking"] = cooking;
+	params["pk_id"] = pk_id;
+	 
+	 params["methodName"] = "saveCookingStatus";
 	 
 		$.post('/RMS/jsp/utility/controller.jsp',params,function(data)
 	 	    	{
-	 		/*alert(data);
-	 		location.reload();*/
+	 		alert(data);
+	 		location.reload();
 	 			}
 	 	
 	 	    	).error(function(jqXHR, textStatus, errorThrown){
@@ -74,11 +102,5 @@ function saveStatus()
 	 	    			$(loaderObj).find('#errorDiv').show();
 	 	    		}
 	 	    	});
-
-	 function deltorder()
-	 {
-		 
-	 }
-	 
 	 
 }

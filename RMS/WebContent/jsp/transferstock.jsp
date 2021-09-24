@@ -265,7 +265,7 @@
 			</div>
 		</div>
 		<div class="form-background">
-			<form action="" method="post" name="transferStock"  class="form-horizontal">
+			<form action="" method="post" name="transferStock" id="transferStock"  class="form-horizontal">
      			<div class="row form-group"> 
       				<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">	
 						<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
@@ -274,7 +274,7 @@
 								hotelnamedao sdd = new hotelnamedao();
 								List sList = sdd.gethotelname(request);
 							%>
-								<input list="hotelName" id="hotelid" autofocus="hotelid" required>
+								<input list="hotelName" id="hotelid" name="hotelid" autofocus="hotelid" required>
 								<datalist id="hotelName">
 							<%
 								for (int i = 0; i < sList.size(); i++) {
@@ -289,14 +289,16 @@
 								<label>Shop Name <sup>*</sup></label>
 							</div>
 						</div>
+						
+      				<div class="col-lg-14  col-md-14 col-sm-14 col-xs-14">	
 						<div class="col-md-4  col-md-offset-1 col-sm-offset-1 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
 							<div class="invoice_label_up">
 							<%
 								ItemEntryDao itemEntryDao1 = new ItemEntryDao();
 								List iList1= itemEntryDao1.getAllItemEntries1(request);
 							%>
-								<input list="fk_item_id_drop1" id="fk_item_id1" autofocus="fk_item_id1" onchange="getGridForTransferStock()" required />
-								<datalist id="fk_item_id_drop1" required>
+								<input list="fk_item_id_drop1" id="fk_item_id1" name="fk_item_id1" onchange="getGridForTransferStock()" required />
+								<datalist id="fk_item_id_drop1">
 							<%
 					    		for(int j=0;j<iList1.size();j++){
 									ItemEntry itemEntry = (ItemEntry)iList1.get(j);
@@ -312,6 +314,7 @@
 						</div>
 					</div>
 				</div>	
+				</div>
 				<div class="row">
 					<div class="">
 						<div class="table-responsive">
@@ -327,7 +330,7 @@
 				<div class="ibutton" style="margin-bottom:50px">
 					<div class="row" align="center">			
 						<i class="las la-save la-2x cust"></i>	
-						<input  type="button" id="Save" name="btn" value="Save" class="btn btn-lg btn-success btn-md" onclick="addTrasferStock()" /> 
+						<input  type="button" id="Save" name="btn" value="Save" class="btn btn-lg btn-success btn-md" onclick="addTrasferStock(); return false;" /> 
              			<i class="las la-eraser la-2x cust"></i>
              			<input class="btn btn-lg btn-danger btn-md" type="reset"  name="btn" value="Clear" onclick="reloadPage()" /> 
            				<i class="las la-clipboard-list la-2x cust"></i>

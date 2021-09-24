@@ -30,6 +30,12 @@
 		column="WaiterName"
 		length="255" />
 		
+		<property
+		name="CustDetail" 
+		type="java.lang.String" 
+		column="CustDetail"
+		length="100" />
+		
 		
 		<property
 		name="totalAmount" 

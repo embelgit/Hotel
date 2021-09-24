@@ -13,6 +13,8 @@
 <%@page import="com.rms.bean.orderBillbean" %>
 <%@page import="com.rms.hibernate.CustomerOrder" %>
 <%@page import="com.rms.helper.CustomerD" %>
+<%@page import="com.rms.dao.CustomerDetails" %>
+<%@page import="com.rms.hibernate.CustomerDetailsHibernate" %>
 <%@include file="common/header.jsp"%>
  
 <% boolean isHome=false;%>
@@ -494,7 +496,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 			</div>
 		</div>
 		<div class= "row">
-			<form class="form-horizontal" action="" method="post" name="order">
+			<form class="form-horizontal" action="" method="post" name="order" id="order">
 				<div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 col-xl-6">	
 					<div class="form-background">
 						<div class="row form-group"> 
@@ -553,9 +555,24 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 							</div>
 		 					<div class="col-md-5  col-sm-5 col-xs-5 col-xl-5 col-lg-5 col-sm-offset-1 customerdetails" id="customerdetailslist">
 								<div class="invoice_label_up">
-									<select id='customerdetails' name='customerdetails' required></select>
+						   
+									<%
+									CustomerDetails cList = new CustomerDetails();
+										List custList= cList.getcustomerdetails();
+									%>
+									 <input type="text" list="customerList" id="customerdetails" name="customerdetails" required  />
+								<datalist id="customerList">
+									<%
+										for(int i=0;i<custList.size();i++){
+											CustomerDetailsHibernate cust = (CustomerDetailsHibernate)custList.get(i);
+									%>
+							<option data-value="<%=cust.getPk_cust_id()%>" value="<%=cust.getCustomerName()%> [Mob: <%=cust.getMobileNumber()%>]" >
+				       				<%
+					       				}
+				       				%>
+				   					</datalist>
 									<span></span>
-									<!-- <span class="customer"> --><label>Customer Details <sup>*</sup></label><!-- </span> -->
+									<label>Customer Details <sup>*</sup></label>
 		
 								</div>	
 							</div>
@@ -597,7 +614,11 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 							</div>
 							<div class="row" align="center">	
 								<i class="las la-eraser la-2x cust"></i>
-								<input type="reset" class="btn btn-lg btn-danger btn-md" value="Clear" onclick="reloadPage()" />
+								
+							<%	TempItemDetail hbm = new TempItemDetail();
+						%>		
+								<input type="button" class="btn btn-lg btn-danger btn-md" id="<%=hbm.getTableNo()%>" value="Clear" onclick="clearTable(this); return true;" /><!-- unBookTable(); --> 
+						 
 								<i class="las la-concierge-bell la-2x cust"></i>
 								<input type="button" class="btn btn-lg btn-warning btn-md" onclick="orderkitchen()" value="Kitchen Order" />
 							</div>
@@ -860,27 +881,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 						<div class ="popup_label_up">	
 							<div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
 								<div id="categoryListForSubCat">
-									<input list="fkcustomerId" id="fkcustomerId" name="fkcustomerId" required>
-									<datalist id="fkcustomerList">
-									<%-- 	<% 
-														for (int i = 0; i < catList.size(); i++) {
-															CustomerDetailsHibernate cat = (CustomerDetailsHibernate) catList.get(i);
-													%>
-													<option data-value="<%=cat.getPkCategoryId()%>"
-														value="<%=cat.getCategoryName()%>">
-														<%
-															}
-														%> 
-													 --%>
-									<%
-										for(int i=0;i<waiterList.size();i++){
-										AddWaiters waiter = (AddWaiters)waiterList.get(i);
-									%>
-										<option data-value="<%=waiter.getPkAddWaiterId()%>" value="<%=waiter.getFirstName()%> <%=waiter.getLastName()%>">
-				        			<%
-					       				}
-				        			%>
-				   					</datalist>
+						<input type="text" id="fkcustomerId" name="fkcustomerId" required> <!--  onchange="cheakForcustomer()" -->
 				   					<span></span>
 									<label>Customer Name</label>
 								</div>
@@ -888,14 +889,14 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 						</div>
 						<div class="popup_label_up">
 							<div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
-								<input type="date" list="customerDOB" id="customerDOB" name="customerDOB" onchange="cheakForcustomer()" required>
+								<input type="date" list="customerDOB" id="customerDOB" name="customerDOB">
 								<span></span>
 								<label>DOB</label>
 							</div>
 						</div>
 						<div class="popup_label_up">
 							<div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 col-lg-4">
-								<input list="customerNumber" id="customerNumber" name="customerNumber"  maxlength="10"  required  pattern="[0-9]{10,10}" onchange="cheakForcustomer()" required>
+								<input type="text" id="customerNumber" name="customerNumber" maxlength="10" required> <!--  pattern="[0-9]{10,10}" -->
 								<span></span>
 								<label>Mobile Number</label>
 							</div>
@@ -909,7 +910,7 @@ CustomerOrderDao dao1 = new CustomerOrderDao();
 								</div>
 							</div>  
 							<i class="las la-save la-2x cust"></i>	
-							<input type="button" name="customerBtn1" id="save" style="width: 124px;" onclick="valcustomer();" value="Save" class="btn btn-lg btn-success btn-md" />
+							<input type="button" name="customerBtn1" id="save" style="width: 124px;" onclick="valcustomer()" value="Save" class="btn btn-lg btn-success btn-md" />
 							<i class="las la-times la-2x cust"></i>
 							<input type="button" value="Cancel" name="cancelCustomerBtn" style="width: 124px;" id="cancelCustomerBtn" onclick="customerdetailsDivAction(0); emptyCustomerFields();" class="btn btn-lg btn-danger btn-md" />
 						</div>

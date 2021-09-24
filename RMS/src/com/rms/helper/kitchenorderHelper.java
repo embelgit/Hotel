@@ -1,5 +1,6 @@
 package com.rms.helper;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,8 +14,12 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.rms.dao.CustomerOrderDao;
+import com.rms.dao.TempItemDetailDao;
 import com.rms.dao.kitchenorderDao;
 import com.rms.hibernate.CustomerOrder;
+import com.rms.hibernate.kitchenorderHibernate;
+
+import net.sf.hibernate.HibernateException;
 
 public class kitchenorderHelper {
 
@@ -166,4 +171,37 @@ public class kitchenorderHelper {
 		}
 	}
 }
+	
+	public void saveCookStatus(HttpServletRequest request, HttpServletResponse response)
+	{	
+		HttpSession sessionn = request.getSession(true);
+		String cooking = "cooked";
+		
+		String status = request.getParameter("cooking");
+		String pk_id = request.getParameter("pk_id");
+		
+		status =String.valueOf("cooked");
+      	System.out.println("----------Controller NewStatus========="+status+"\n");
+
+		if((status).equals(cooking))
+			{
+			
+			 com.rms.utility.HibernateUtility hbu = com.rms.utility.HibernateUtility.getInstance();
+     		 Session session = hbu.getHibernateSession();
+     		 Transaction transaction = session.beginTransaction();
+     		 
+     		 DateFormat dff = new SimpleDateFormat("dd/MM/yyyy");
+     		 Date date = new Date();
+    
+     		 com.rms.hibernate.kitchenorderHibernate up = (com.rms.hibernate.kitchenorderHibernate) session.get(com.rms.hibernate.kitchenorderHibernate.class, new Long(pk_id));	 
+     
+     		 up.setActiveYN('N');
+     		 
+     		session.saveOrUpdate(up);
+     		System.out.println("kitchen  updated when item exist !! object saved !");
+     		transaction.commit();
+     		//break; 
+	}
+	}
+	
 }

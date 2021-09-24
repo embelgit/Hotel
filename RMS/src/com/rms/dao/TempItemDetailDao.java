@@ -20,6 +20,7 @@ import com.rms.bean.OrderBillReportDateWiseBean;
 import com.rms.bean.OrderBillReportTableWiseBean;
 import com.rms.bean.menuList;
 import com.rms.hibernate.TempItemDetail;
+import com.rms.hibernate.kitchenorderHibernate;
 import com.rms.hibernate.newTempItemDetail;
 import com.rms.utility.HibernateUtility;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
@@ -246,65 +247,16 @@ public void newregTempData(newTempItemDetail tid) {
 		 String CurrentDate = df.format(dateobj);
 		 System.out.println(CurrentDate);
 		 String status = "Y";
-		 
-			//Query query = session.createQuery("select tableNo, itemName, quantity, unitPrice, unitInMl ,pk_temp_id, itemId from TempItemDetail where activeYN=:status AND current_date=:dateobj AND tableNo="+tableNo + "  "+"group by pk_temp_id");
-// pevious query- - >	Query query = session.createSQLQuery("select t.tableNo, t.itemName, t.quantity, t.unitPrice, t.unitInMl ,t.pk_temp_id, t.itemId,s.stock from tempdata t join stock s  on t.ItemID = s.fk_item_details_id where activeYN='Y' AND current_date='"+CurrentDate+"' AND tableNo='"+tableNo+"'");
-			
+		 		
 		 Query query = session.createSQLQuery("select tableNo, itemName, quantity, unitPrice, unit, value ,pk_temp_id, itemId, stock, GST from tempdata where activeYN='Y' AND current_date='"+CurrentDate+"' AND tableNo='"+tableNo+"' AND hotelid = '"+hotelid+"'");
 			
-			//Query query = session.createSQLQuery("select tableNo, itemName, quantity, unitPrice, unitInMl ,pk_temp_id, itemId from tempdata where activeYN=:status AND current_date=:dateobj AND tableNo='"+tableNo+"' group by pk_temp_id");
-			//query.setParameter("dateobj", dateobj);
-			//System.out.println(" hi this is DAte:++++"+dateobj);
-			//query.setParameter("status", status);
-			//System.out.println(" hi this is Status===="+status);
 			 list = query.list();
 	
-			 //   ========================================
-			 
-		/*	 if(query.list().size()==0) {
-				
-					Query queryy = session.createSQLQuery("select tableNo, itemName, quantity, unitPrice, unitInMl ,pk_temp_id, itemId from tempdata where activeYN='Y' AND current_date='"+CurrentDate+"' AND tableNo='"+tableNo+"'");
-				 list = queryy.list();
-				 System.out.println(" in if cond when stock is not present = - -  - - - -      #################################################################  ----------------- ");
-				saleReports = new ArrayList<GetItemDetails>(0);
-				 for (Object[] object : list) {
-				System.out.println("final Result if stock not present - - -    === > > "+Arrays.toString(object)); 
-				com.rms.bean.GetItemDetails reports = new com.rms.bean.GetItemDetails();
-				
-				reports.setTableNo(Long.parseLong(object[0].toString()));
-				System.out.println("table set in daoooo -- >  "+reports.getTableNo());
-				reports.setItemName(((object[1].toString())));
-				reports.setQuantity((Double.parseDouble(object[2].toString())));
-				reports.setPrrice((Double.parseDouble((object[3].toString()))));
-				reports.setUnitinMl((Double.parseDouble((object[4].toString()))));
-				reports.setPkTempId(Long.parseLong(object[5].toString()));
-				reports.setItemId((Long.parseLong(object[6].toString())));
-				Double stock = 0d;
-				reports.setStock(stock);
-				
-				System.out.println("Stock is -- "+reports.getStock());
-				//reports.setTotalAmt((Double)object[7]);
-				saleReports.add(reports);
-				 }
-			 
-			 }		 
-		// ===============================================================================================	
-			
-			else {
-			*/ 
 			 saleReports = new ArrayList<GetItemDetails>(0);
 			 for (Object[] object : list) {
-			System.out.println("final Result is ---                           === > > "+Arrays.toString(object)); 
+			System.out.println("final Result is ---=== > > "+Arrays.toString(object)); 
 			com.rms.bean.GetItemDetails reports = new com.rms.bean.GetItemDetails();
-			//GetItemDetails reports = new GetItemDetails();
-			/*reports.setTableNo((Long)object[0]);
-			reports.setItemName((String)object[1]);
-			reports.setQuantity((Double)object[2]);
-			reports.setPrrice((Double)object[3]);
-			reports.setUnitinMl((Double)object[4]);
-			reports.setPkTempId((BigInteger)object[5]);
-			reports.setItemId((Long)object[6]);
-			reports.setStock((Double)(object[7]));*/
+	
 			reports.setTableNo(Long.parseLong(object[0].toString()));
 			System.out.println("table set in daoooo -- >  "+reports.getTableNo());
 			reports.setItemName(((object[1].toString())));
@@ -668,7 +620,7 @@ public void newregTempData(newTempItemDetail tid) {
 					 session = hbu.getHibernateSession();
 					 transaction = session.beginTransaction();
 			//			Query query = session.createSQLQuery("delete from tempdata where pk_temp_id='"+delTempID+"' AND hotelid = '"+hotelid+"'");
-						Query query = session.createSQLQuery("DELETE from kitchenorder where tableNo = '"+tableNo+"' AND itemId = '"+itemId+"' AND ActiveYN = 'Y' AND hotelid = '"+hotelid+"'");
+						Query query = session.createSQLQuery("DELETE from kitchenorder where tableNo = '"+tableNo+"' AND itemId = '"+itemId+"' AND ActiveYN = 'N' AND hotelid = '"+hotelid+"'");
 						
 						
 						 query.executeUpdate();
@@ -725,7 +677,7 @@ public void newregTempData(newTempItemDetail tid) {
 //					Query query = session.createSQLQuery("select ItemID,TableNo, ItemName, Quantity from tempdata where CurrentDate = '"+CurrentDate+"' AND ActiveYN = 'Y' ");
 //			Query query = session.createSQLQuery("select k.ItemID, k.TableNo, k.ItemName, k.Quantity from kitchenorder k JOIN tempdata t ON k.ItemID = t.ItemID where t.ActiveYN ='y' AND k.CurrentDate = '"+CurrentDate+"'");	
 //			Query query = session.createSQLQuery("select k.ItemID, t.TableNo, k.ItemName, k.Quantity, t.ActiveYN from tempdata t JOIN kitchenorder k ON t.ItemID = k.ItemID where t.ActiveYN ='Y' AND k.CurrentDate = '"+CurrentDate+"' GROUP BY t.ItemID");
-			Query query = session.createSQLQuery("select ItemID, TableNo, ItemName, Quantity, unit, unitValue from kitchenorder where ActiveYN ='Y' AND CurrentDate = '"+CurrentDate+"' AND hotelid = '"+hotelid+"'");
+			Query query = session.createSQLQuery("select ItemID, TableNo, ItemName, Quantity, unit, unitValue, pk_id from kitchenorder where ActiveYN ='Y' AND CurrentDate = '"+CurrentDate+"' AND hotelid = '"+hotelid+"'");
 			List<Object[]> list = query.list();
 					
 					 empList= new ArrayList<TempItemDetail>(0);
@@ -740,6 +692,7 @@ public void newregTempData(newTempItemDetail tid) {
 							reports.setQuantity(Double.parseDouble(object[3].toString()));
 							reports.setUnit(object[4].toString());
 							reports.setValue(Long.parseLong(object[5].toString()));
+							reports.setPk_temp_id(Long.parseLong(object[6].toString()));
 //							reports.setSale_price(Double.parseDouble(object[1].toString()));
 //							reports.setUnit_in_ml(Double.parseDouble(object[2].toString()));
 								
@@ -848,9 +801,33 @@ public void newregTempData(newTempItemDetail tid) {
 						}
 						return catList;
 			}
+			
+			
+			public void clearGridDataold(Long tableNo1) {
+	
+				HibernateUtility hbu = null ;
+				 Session session = null;
+				Transaction transaction = null;
+				 try {
+					 hbu = HibernateUtility.getInstance();
+					 session = hbu.getHibernateSession();
+					 transaction = session.beginTransaction();
+						Query query = session.createSQLQuery("delete from tempdata where TableNo='"+tableNo1+"'");
+						 query.executeUpdate();
+						 transaction.commit();
+						 System.out.println("-----------------cleared from temp table");
+						
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+					
+				 finally
+				 { 
+					 if (session!=null) {
+						hbu.closeSession(session);
+					}
+				 }
+				
+			}
 
-
-			
-			
-			
 }

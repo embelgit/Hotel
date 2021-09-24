@@ -1,44 +1,80 @@
 package com.rms.helper;
 
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+
+import com.rms.dao.AddWaitersDao;
 import com.rms.dao.CustomerDetails;
-import com.rms.dao.PurchaseGoodDao;
 import com.rms.hibernate.CustomerDetailsHibernate;
 
 public class CustomerD {
 	
 	
 public void customersDetails(HttpServletRequest request, HttpServletResponse response) {
-		
-	 
+	
+	HttpSession sessionn = request.getSession(true);
+	String username = (String)sessionn.getAttribute("user");		
+	String userid = (String)sessionn.getAttribute("userid");
+	String hotelid = (String)sessionn.getAttribute("hotelid");
+	String hotelname=(String)sessionn.getAttribute("hotelname");
+	System.out.println("session thru user- "+username+" , id - "+userid+" , hotelnme - "+hotelname+" , hotelid - "+hotelid);
 
-				
-				String customerName=request.getParameter("customerName");
-				String dob=request.getParameter("dob");
-				String mobileNumber=request.getParameter("mob");
+		
+				String customerName=request.getParameter("fkcustomerId");
+				String dob=request.getParameter("customerDOB");
+				String mobileNumber=request.getParameter("customerNumber");
 				
 				CustomerDetailsHibernate cd = new CustomerDetailsHibernate();
-				cd.setCustomerName(customerName);
-				cd.setDob(dob);
-				cd.setMobileNumber(mobileNumber);
 				
+				if(!"".equals(customerName)) {
+					cd.setCustomerName(customerName);
+				}
+				else
+				{
+					cd.setCustomerName("N/A");
+				}
 				
-				CustomerDetails  cd1=new CustomerDetails();
+				if(!"".equals(dob)){
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					Date newDate = null;
+					try {
+						newDate =	format.parse(dob);
+						} 
+					catch (ParseException e1) {
+						e1.printStackTrace();
+					}
+					cd.setDob(newDate);
+					}
+				else
+				{
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					Date adate = null;
+					try {
+					 adate=	format.parse("2000-01-01");
+					} catch (ParseException e1) {
+						e1.printStackTrace();
+					}
+					cd.setDob(adate);		
+				}
+				
+					if(!"".equals(mobileNumber)) {
+						cd.setMobileNumber(Long.parseLong(mobileNumber));
+					}
+					else
+					{
+						cd.setMobileNumber(Long.parseLong("N/A"));
+					}
+			
+				System.out.println("------------In customersDetails Helper.");	
+				
+				CustomerDetails cd1=new CustomerDetails();
 				cd1.valCustomer(cd);
 				
 			}
-public List getcustomerdetails()
-{
-	CustomerDetails dao = new CustomerDetails();
-	return dao.getcustomerdetails();
-}
-		
-
 
 }

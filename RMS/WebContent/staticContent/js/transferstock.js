@@ -386,15 +386,13 @@ function addTrasferStock(){
 		return false;
 	}
 	
-
-	
 	addTrasferStock1();
 }
 //Transfer Stock
 function addTrasferStock1()
 {
 	
-	document.getElementById("save").disabled = true;
+	//document.getElementById("save").disabled = true;
 	 
 	var input = document.getElementById('hotelid'),
    list = document.getElementById('hotelName'),
@@ -418,8 +416,7 @@ function addTrasferStock1()
 	
 	var params = {};
 	var fk_item_id1 = $('#fk_item_id1').val();
-//	var fk_item_id1 = $('#itemName').val();
-	var fk_item_id = fk_item_id;// $('#fk_item_id1').val();
+	var fk_item_id = fk_item_id1;
 	
 	
 	var hotelName= $('#hotelid').val();
@@ -427,7 +424,6 @@ function addTrasferStock1()
 	
 	params["fk_item_id1"] = fk_item_id1;
 	params["fk_item_id"] = fk_item_id;
-//	params["fk_item_id_drop1"] = fk_item_id_drop1;
 	
 	params["hotelid"] = hotelid;
 	params["hotelName"] = hotelName;
@@ -498,10 +494,6 @@ function addTrasferStock1()
 	}
 	
 	params["count"] = count;
-	
-   
-	/*var grossTotal = $('#grossTotal').val();
-	 params["grossTotal"] = grossTotal;*/
 	 
 	params["methodName"] = "addTrasferStock";
 	
@@ -510,26 +502,6 @@ function addTrasferStock1()
 		 		alert(data)
 		 		location.reload();
 		 		return false; 
-		 		
-		 		/*$.getScript('/RMS/staticContent/js/bootbox.min.js', function() 
-						{
-			
-					var msg=data;
-					var dialog = bootbox.dialog({
-						//title: "Embel Technologies Says :",
-					    message: '<p class="text-center">'+msg.fontcolor("red").fontsize(5),
-					    closeButton: false
-					});
-					
-					setTimeout(function() {
-						dialog.modal('hide');
-						location.reload(true);
-						document.goodReceive.save.disabled = false;
-					}, 1500);
-					
-					return false;
-					
-						});*/		
 		 		
 			}
 		

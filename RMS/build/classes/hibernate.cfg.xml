@@ -56,7 +56,7 @@
 		<mapping resource="com/rms/hibernate/newTempItemDetail.hbm.xml"/>
 		<mapping resource="com/rms/hibernate/CashBook.hbm.xml"/>
 		<mapping resource="com/rms/hibernate/CustomerBill.hbm.xml"/>
-		<mapping resource="com/rms/hibernate/CustomerDetails.hbm.xml"/>
+		<mapping resource="com/rms/hibernate/CustomerDetailsHibernate.hbm.xml"/>
         <mapping resource="com/rms/hibernate/CustomerPayment.hbm.xml"/>
         <mapping resource="com/rms/hibernate/EmployeeDetails.hbm.xml"/>
 	    <mapping resource="com/rms/hibernate/EmployeePayment.hbm.xml"/>
@@ -80,6 +80,8 @@
             <mapping resource="com/rms/hibernate/expenditure.hbm.xml"/>
             <mapping resource="com/rms/hibernate/TodaySale.hbm.xml"/>
             <mapping resource="com/rms/hibernate/transferstockHibernate.hbm.xml"/>
+            
+           <!--  <mapping resource="com/rms/bean/TransferStockHibernateBean.hbm.xml"/> -->
 <!--  			<mapping resource="com/rms/hibernate/CustomerD.hbm.xml"/>
  -->         
     </session-factory>

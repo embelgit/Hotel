@@ -5,14 +5,46 @@
 
     <hibernate-mapping>
     
+    <class name="com.rms.hibernate.CustomerDetailsHibernate" 
+    table="customerdetails"
+    >
+    
+    <id name="pk_cust_id" 
+    	type="java.lang.Long" 
+    	column="pk_cust_id">
+		<generator class="increment" />
+		</id>
+
+		<property 
+		name="customerName" 
+		type="java.lang.String" 
+		column="cutomer_name"
+		length="255"
+		/>
+
+		<property 
+		name="dob" 
+		type="java.util.Date"  
+		column="dob"
+		length="255"
+		/>
+		
+		<property 
+		name="mobileNumber" 
+		type="java.lang.Long" 
+		column="mob_no"
+		length="15"
+		/>
+
+    
+<!--  
+		    
     <class name="com.rms.hibernate.CustomerDetailsBean" 
     table="customer_details" schema="rms"
     >
-    
-    	<id name="custId" type="java.lang.Long" column="pk_customer_id">
+	   	<id name="custId" type="java.lang.Long" column="pk_customer_id">
 			<generator class="increment" />
 		</id>
-
 
 		<property 
 		name="firstName" 
@@ -69,7 +101,7 @@
 		column="pin_code" 
 		not-null="true"
 		length="20">
-		</property>
+		</property> -->
 		
 		</class>
     </hibernate-mapping>

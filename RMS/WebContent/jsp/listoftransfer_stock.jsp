@@ -1,4 +1,5 @@
 <%@page import="com.rms.bean.TransferStockHibernateBean"%>
+<%@page import="com.rms.hibernate.transferstockHibernate"%>
 <%@page import="java.util.List"%>
 <%@page import="com.rms.dao.TransferstockDao"%>
 <%@include file="common/header.jsp"%>
@@ -188,13 +189,13 @@
 						<tbody>
 						<%
 							for(int i=0;i<list12.size();i++){
-								TransferStockHibernateBean sr=(TransferStockHibernateBean)list12.get(i);
+								transferstockHibernate sr=(transferstockHibernate)list12.get(i);
 						%> 
 				  			<tr>
 								<td class="align"><%=sr.getHotelname()%></td>
 								<td class="align"><%=sr.getFk_item_id_drop1()%></td>
 								<td class="align"><%=sr.getBuyPrice()%></td>
-								<td class="align"><%=sr.getSaleprice() %></td>
+								<td class="align"><%=sr.getSaleprice()%></td>
 								<td class="align"><%=sr.getQuantity()%></td>
 						<%-- 	<td class="align"><%=sr.getTotal()%></td> --%>
 							</tr>  

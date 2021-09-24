@@ -1,36 +1,37 @@
 package com.rms.dao;
 
-import com.rms.bean.customerdetails;
-import com.rms.hibernate.CustomerDetailsHibernate;
-import com.rms.hibernate.ItemEntry;
-import com.rms.utility.HibernateUtility;
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
+import com.rms.hibernate.CustomerDetailsHibernate;
+import com.rms.utility.HibernateUtility;
 
 public class CustomerDetails {
-	public void valCustomer(CustomerDetailsHibernate customer) {
+	
+	public void valCustomer(CustomerDetailsHibernate cd) {
+
+		System.out.println("In DAO");
+		
 		HibernateUtility hbu=null;
 		Session session=null;
 		Transaction transaction=null;
-		
 		try{
-		 hbu = HibernateUtility.getInstance();
-		 session = hbu.getHibernateSession();
+		hbu = HibernateUtility.getInstance();
+		session = hbu.getHibernateSession();
 		 transaction = session.beginTransaction();
-		 
-		 session.save(customer);
-			System.out.println("data saved successfully  --  ! ");
-			transaction.commit();
-			}
+	
+		 System.out.println("Transaction started --  ");
+		session.save(cd);
+		System.out.println("object saved in CustomerDetails dao --");
+		transaction.commit();
+		System.out.println("commit Successful in dao -- ");
+		}
+		
 		catch(RuntimeException e){
 			try{
 				transaction.rollback();
@@ -42,27 +43,27 @@ public class CustomerDetails {
 		finally{
 		hbu.closeSession(session);
 		}
-	
 	}
+	
 
 	public List getcustomerdetails() {
 
 		HibernateUtility hbu = null ;
 		Session session = null;
-		List<customerdetails> list  = null;
+		List<CustomerDetailsHibernate> list  = null;
 		try {
 			hbu = HibernateUtility.getInstance();
 			session = hbu.getHibernateSession();
 			
-			Query query = session.createSQLQuery(" select cutomer_name,dob,mob_no from customerdetails; ");
+			Query query = session.createSQLQuery("select cutomer_name,dob,mob_no from customerdetails");
 			//list = query.list();
 			
 			List<Object[]> list1 = query.list();
-			list = new ArrayList<customerdetails>(0);
+			list = new ArrayList<CustomerDetailsHibernate>(0);
 			for (Object[] o : list1) {
-				customerdetails po= new customerdetails();
+				CustomerDetailsHibernate po= new CustomerDetailsHibernate();
 				po.setCustomerName(o[0].toString());
-				po.setDob(o[1].toString());
+				po.setDob((Date)o[1]);
 				po.setMobileNumber(Long.parseLong(o[2].toString()));
 		    	list.add(po);
 			}

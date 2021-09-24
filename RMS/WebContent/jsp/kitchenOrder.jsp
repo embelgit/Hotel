@@ -31,9 +31,11 @@
 	<!-- 	<link href="/RMS/staticContent/css/button.css" rel="stylesheet" type="text/css" media="all"> -->
 		<link rel="stylesheet" href="/RMS/staticContent/css/jquery-ui.min.css">
 		<link rel="stylesheet" href="/RMS/staticContent/css/ui.jqgrid.min.css">
+		
 		<script src="/RMS/staticContent/js/kitchenOrder.js"></script>
+		
 <!-- 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	 -->
-  		 	 <meta http-equiv="refresh" content="5"/> 
+  		 	  <meta http-equiv="refresh" content="5"/> 
 
 <html>
 <head>
@@ -42,9 +44,9 @@
 
 <script>
  
- setTimeout(function(){
-	   window.location.reload(true);
-	}, 5000);	
+   setTimeout(function(){
+	   //window.location.reload(true);
+	}, 5000); 	
  
  /* 	 setInterval(function() {
 				$('#demo_jui').load('kitchenOrder.jsp');
@@ -154,7 +156,7 @@ $(function worker(){
 		font-size: 30px;
 		color: #fff;
 	}
-	
+
 	@media ( max-width : 1200px) {
 		#wrapper.toggled ~ #start {
 			width: 1200px;
@@ -246,7 +248,7 @@ $(function worker(){
 			</div>
 		</div>
 		<br>
-		<div class="form-background">
+		<div class="form-background" name="kordr"> <!--  onload="getKitchenOrderDetailGrid();return false;" -->
 			<div class="row">
 				<div class="display-date">
 					<div id="date">
@@ -267,14 +269,16 @@ $(function worker(){
 				<table id="list" class="display" align="center" border="1">
 					<thead>
 						<tr>
-<!-- 						<th>No</th>
- -->						<th>Table No</th>	
+						<th style="display:none;">Id</th>
+						<th>Table No</th>	
 							<th>Item Name</th>
 							<th>Quantity</th>
 							<th>Value</th>
 							<th>Unit</th>
-					<!-- 	<th>Cooking Status</th>
-							<th>Submit</th> -->
+						 <!-- <th>Completed ? (Y/N)</th> -->
+							
+					      <th>Cooking Status</th>
+							<th>Submit</th>
 						</tr>
 					</thead>
 	 				<tbody>
@@ -284,22 +288,31 @@ $(function worker(){
 								TempItemDetail sr=(TempItemDetail)list12.get(i);
 						%>
 						<tr>
+						<td class="align" style="display:none;" id="pktempid"><%=sr.getPk_temp_id() %></td>
 							<td class="align"><%=sr.getTableNo() %></td>
 							<td class="align"><%=sr.getItemName()%></td>
 							<td class="align"><%=sr.getQuantity()%></td>
 							<td class="align"><%=sr.getValue()%></td>
 							<td class="align"><%=sr.getUnit()%></td>
-					   <!-- <td>
+							
+<!-- 					   		 <td>
 		 						<input type="radio" name="cooking" id="cooked">
     							<label for="cooked">Cooked</label>
     							<br><br>
-    							<iut type="radio" name="cooking" id="un-cooked">
-    							<label for="un-cooked">Un-cooked</label>
-    				np		</td> -->
-					   <!-- <td>
-								<input style="height: 45px; width: 180; font-size: 20" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Save" id="submit" class="btn btn-primary" onclick="save()" />			
+    							<input type="radio" name="cooking" id="uncooked">
+    							<label for="uncooked">Un-cooked</label>
+    						</td>  -->
+    						 <td>
+		 						<input type="radio" class="form-check-input" name="cooking" id="cooking" value="cooked" /> Cooked
+		 						<!-- <br>
+		 						<input type="radio" class="form-check-input" name="cooking" id="cooking" value="uncooked" /> Un-cooked
+		 					  -->
+		 					  </td>
+    						
+					    <td>
+								<input style="height: 45px; width: 180; font-size: 20" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Save" id="<%=sr.getPk_temp_id() %>" class="btn btn-primary" onclick="saveStatus(this)" />	<!-- saveStatus(this) -->		
 				
-							</td> --> 	
+							</td>  
 						</tr>
 						<%
 							}
@@ -311,12 +324,17 @@ $(function worker(){
 	   <!-- <div class="wrapper" align="center"  style="padding-bottom: 50px; padding-top: 20px;" >
 				<input style="height: 45px; width: 180; font-size: 25" type="button" class="btn btn-lg btn-success btn-md button_hw button_margin_right" value="Back" id="listBtn" class="btn btn-primary" onclick="Back()" />
 			</div> -->
-			<div class="ibutton" style="padding-bottom:50px;">
+<!-- 			
+						<div class="table-responsive row col-md-offset-1" style="margin-left: 400px;margin-top: 20px;margin-bottom: 20px;">
+				<table id="gridForKitchenOrder" ></table>
+				<div id="jqGridPagerForKitchenOrder"></div> -->
+		  </div>
+<!-- 			<div class="ibutton" style="padding-bottom:50px;">
 				<div class="row" align="center">
 					<i class="las la-edit la-2x cust"></i>
 					<input type="button" class="btn btn-lg btn-success btn-md" name="btn" value="Order" onclick="deltorder()">	
   				</div>
-  			</div>
+  			</div> -->
   		</div>
 	</div>
 </body>

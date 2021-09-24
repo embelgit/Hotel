@@ -58,28 +58,28 @@ public class TransferstockDao {
 		System.out.println("session thru user- "+username+" , id - "+userid+" , hotelnme - "+hotelname+" , hotelid - "+hotelid);
 		HibernateUtility hbu=null;
 		Session session=null;
-		List<TransferStockHibernateBean> custList=null;
+		List<transferstockHibernate> custList=null;
 	try{	
 
 		hbu = HibernateUtility.getInstance();
 		session = hbu.getHibernateSession();
 		
 //		Query query=session.createSQLQuery("SELECT pk_store_management_id, item_name, supplier_name, bill_no, buy_price, sale_Price, quantity, gst, gross_total, date_of_goods_receive from goods_receive");
-		Query query = session.createSQLQuery("SELECT hotelName,item_name, buy_price, sale_Price, quantity,   from transferstock ");	
+		Query query = session.createSQLQuery("SELECT hotelName, item_name, buy_price, sale_Price, quantity from transferstock ");	
 		List<Object[]> list = query.list();
 
-		custList= new ArrayList<TransferStockHibernateBean>(0);
+		custList= new ArrayList<transferstockHibernate>(0);
 
 	  for (Object[] object : list) {	
 		  System.out.println("Result fetched --  "+Arrays.toString(object));
-		  TransferStockHibernateBean reports = new TransferStockHibernateBean();
+		  transferstockHibernate reports = new transferstockHibernate();
 		  
 		  	reports.setHotelname(object[0].toString());
 			reports.setFk_item_id_drop1(object[1].toString());  
 			reports.setBuyPrice(Double.parseDouble(object[2].toString()));
 			reports.setSaleprice(Double.parseDouble(object[3].toString()));
 			reports.setQuantity(Double.parseDouble(object[4].toString()));
-			reports.setStock(Double.parseDouble(object[5].toString()));
+			//reports.setStock(Double.parseDouble(object[5].toString()));
 			
 		
 		custList.add(reports);
@@ -111,8 +111,7 @@ public List getGridTransferStock(String fk_item_id_drop1) {
 //		Query query = session.createSQLQuery("select pk_item_entry_Id,itemName,Type,buy_Price,sale_Price,units_InMl from itementry where pk_item_entry_Id ='"+fk_item_id_drop1+"'");
 		//Query query = session.createSQLQuery("select pk_item_entry_Id,itemName,buy_Price,sale_Price,quantity,s.stock from itementry join stock s where pk_item_entry_Id = '"+fk_item_id_drop1+"'");
 		//EXTRA CODE
-		Query query = session.createSQLQuery("select pk_item_entry_Id,i.itemName,buy_Price,sale_Price,quantity,s.stock from itementry i join stock s where pk_item_entry_Id = '"+fk_item_id_drop1+"'");
-
+		Query query = session.createSQLQuery("select i.pk_item_entry_Id, i.itemName, i.buy_Price, i.sale_Price, i.quantity, s.stock from itementry i join stock s where pk_item_entry_Id = '"+fk_item_id_drop1+"' GROUP BY '"+fk_item_id_drop1+"'");
 		
 		//	list = query.list();
 		
